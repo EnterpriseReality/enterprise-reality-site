@@ -1,8 +1,8 @@
 # Release Process
 
 The production website release process is deferred. This document defines the
-WEB-1.0 readiness workflow and does not claim that a production deployment
-process already exists.
+WEB-1.6 hardening and review workflow and does not claim that a production
+deployment process already exists.
 
 ## Review Sequence
 
@@ -10,8 +10,10 @@ process already exists.
 2. Editorial review confirms clarity, terminology and publication discipline.
 3. Claims review confirms public evidence and capability status.
 4. Quality checks run locally and in CI.
-5. Publication approval is recorded.
-6. Deployment approval is requested separately.
+5. Accessibility, SEO, link integrity, security and public-boundary evidence are
+   reviewed.
+6. Publication approval is recorded.
+7. Deployment approval is requested separately.
 
 ## Quality Checks
 
@@ -25,6 +27,7 @@ npm run test
 npm run test:e2e
 npm run build
 npm run public-boundary:check
+git diff --check
 ```
 
 ## Release Notes

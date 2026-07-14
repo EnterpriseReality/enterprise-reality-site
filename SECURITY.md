@@ -2,8 +2,8 @@
 
 ## Supported Status
 
-The Enterprise Reality website is in WEB-1.0 foundation development and is not
-yet deployed as a production service.
+The Enterprise Reality website is in WEB-1.6 accessibility, SEO and hardening
+work and is not yet deployed as a production service.
 
 ## Responsible Disclosure
 
@@ -33,3 +33,17 @@ default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self' 'unsafe-
 
 The final CSP must be reviewed against the actual hosting provider and published
 asset requirements.
+
+## Static Hosting Header Recommendations
+
+Before production release, configure equivalent static-host headers where the
+approved hosting provider supports them:
+
+```text
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+```
+
+These recommendations do not constitute deployment approval and must be
+validated during the deployment-readiness story.

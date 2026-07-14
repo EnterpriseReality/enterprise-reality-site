@@ -8,7 +8,7 @@ interface Props {
   description: string;
   canonicalPath?: string;
   ogType?: "website" | "article";
-  structuredData?: Record<string, unknown>;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const siteName = "Enterprise Reality";
@@ -22,6 +22,76 @@ const {
 } = Astro.props;
 const composedTitle = title === siteName ? title : `${title} | ${siteName}`;
 const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
+const isHomePage = canonicalPath === "/";
+const organisationStructuredData = {
+  "@type": "Organization",
+  "@id": `${siteOrigin}/#organization`,
+  name: siteName,
+  url: siteOrigin,
+};
+const webPageStructuredData = {
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: composedTitle,
+  description,
+  isPartOf: {
+    "@id": `${siteOrigin}/#website`,
+  },
+  publisher: {
+    "@id": `${siteOrigin}/#organization`,
+  },
+};
+const websiteStructuredData = {
+  "@type": "WebSite",
+  "@id": `${siteOrigin}/#website`,
+  name: siteName,
+  url: siteOrigin,
+  publisher: {
+    "@id": `${siteOrigin}/#organization`,
+  },
+};
+const breadcrumbStructuredData = !isHomePage
+  ? {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteOrigin}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: title,
+          item: canonicalUrl,
+        },
+      ],
+    }
+  : undefined;
+const contentStructuredDataItems = (
+  Array.isArray(structuredData)
+    ? structuredData
+    : structuredData
+      ? [structuredData]
+      : []
+).map((item) => {
+  const { "@context": _context, ...data } = item;
+
+  return data;
+});
+const structuredDataItems = [
+  organisationStructuredData,
+  websiteStructuredData,
+  webPageStructuredData,
+  breadcrumbStructuredData,
+  ...contentStructuredDataItems,
+].filter(Boolean);
+const structuredDataGraph = {
+  "@context": "https://schema.org",
+  "@graph": structuredDataItems,
+};
 ---
 
 <!doctype html>
@@ -41,15 +111,11 @@ const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={composedTitle} />
     <meta name="twitter:description" content={description} />
-    {
-      structuredData && (
-        <script
-          is:inline
-          type="application/ld+json"
-          set:html={JSON.stringify(structuredData)}
-        />
-      )
-    }
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredDataGraph)}
+    />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

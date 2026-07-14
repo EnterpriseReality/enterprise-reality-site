@@ -121,6 +121,40 @@ test("core narrative routes expose canonical metadata and page headings", async 
   }
 });
 
+test("core routes expose consistent structured metadata", async ({ page }) => {
+  for (const route of coreRoutes) {
+    await page.goto(route.path);
+
+    const structuredDataText = await page
+      .locator("script[type='application/ld+json']")
+      .textContent();
+    expect(structuredDataText).toBeTruthy();
+
+    const structuredData = JSON.parse(structuredDataText ?? "{}") as {
+      "@context"?: string;
+      "@graph"?: Array<Record<string, unknown>>;
+    };
+    const graph = structuredData["@graph"] ?? [];
+    const types = graph.map((item) => item["@type"]);
+
+    expect(structuredData["@context"]).toBe("https://schema.org");
+    expect(types).toContain("Organization");
+    expect(types).toContain("WebSite");
+    expect(types).toContain("WebPage");
+
+    const webPage = graph.find((item) => item["@type"] === "WebPage");
+    expect(webPage).toMatchObject({
+      url: route.canonical,
+      name: route.title,
+    });
+
+    const breadcrumbs = graph.filter(
+      (item) => item["@type"] === "BreadcrumbList",
+    );
+    expect(breadcrumbs).toHaveLength(route.path === "/" ? 0 : 1);
+  }
+});
+
 test("required public statements are present", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("Understand before change.")).toBeVisible();

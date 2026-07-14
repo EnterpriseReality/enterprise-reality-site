@@ -22,9 +22,9 @@ Implementation follows these publications rather than redefining them.
 
 Website Programme: In Development
 
-Current story: WEB-1.0 — Website Foundations
+Current story: WEB-1.6 — Accessibility, SEO and Hardening
 
-Deployment: Deferred. No production deployment or DNS change is part of WEB-1.0.
+Deployment: Deferred. No production deployment or DNS change is part of WEB-1.6.
 
 ## Prerequisites
 
@@ -90,15 +90,15 @@ resolution, authentication, customer data or production APIs.
 
 ## Content Model
 
-Astro content collections are defined for future architecture, research,
-releases, roadmap and industry content. Metadata is validated at build time and
-draft demonstration content is excluded from production routes.
+Astro content collections are defined for architecture, research, releases,
+roadmap and industry content. Metadata is validated at build time and draft
+content is excluded from production routes.
 
 ## Quality Checks
 
-The foundation includes format checks, linting, Astro/TypeScript checks, unit
-tests, Playwright browser smoke tests, axe accessibility smoke tests, static
-build verification and public/private boundary scanning.
+The site includes format checks, linting, Astro/TypeScript checks, unit tests,
+Playwright browser smoke tests, axe accessibility smoke tests, static build
+verification, sitemap generation and public/private boundary scanning.
 
 ## Public / Private Boundary
 
