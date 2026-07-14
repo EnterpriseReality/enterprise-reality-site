@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  trigger: string;
+  evidence: string;
+  reasoning: string;
+  outcome: string;
+  value: string;
+}
+
+const { title, href, trigger, evidence, reasoning, outcome, value } =
+  Astro.props;
+---
+
+<article class="scenario-card">
+  <h3><a href={href}>{title}</a></h3>
+  <dl>
+    <div>
+      <dt>Trigger</dt>
+      <dd>{trigger}</dd>
+    </div>
+    <div>
+      <dt>Evidence</dt>
+      <dd>{evidence}</dd>
+    </div>
+    <div>
+      <dt>Reasoning</dt>
+      <dd>{reasoning}</dd>
+    </div>
+    <div>
+      <dt>Outcome</dt>
+      <dd>{outcome}</dd>
+    </div>
+    <div>
+      <dt>Value</dt>
+      <dd>{value}</dd>
+    </div>
+  </dl>
+</article>
+
+<style>
+  .scenario-card {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-panel);
+    padding: var(--space-5);
+  }
+
+  .scenario-card h3 {
+    font-size: var(--text-md);
+  }
+
+  .scenario-card h3 a {
+    color: var(--text-primary);
+    text-decoration-thickness: 0.08em;
+  }
+
+  .scenario-card dl {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .scenario-card dt {
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .scenario-card dd {
+    margin: var(--space-1) 0 0;
+    color: var(--text-secondary);
+  }
+</style>

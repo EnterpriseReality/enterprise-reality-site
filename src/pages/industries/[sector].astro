@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  constitutionalClosingLine,
+  constitutionalSummaryText,
+  getIndustryScenario,
+  industryScenarios,
+} from "../../utilities/industries";
+
+export function getStaticPaths() {
+  return industryScenarios.map((scenario) => ({
+    params: { sector: scenario.slug },
+    props: { scenario },
+  }));
+}
+
+const { scenario } = Astro.props;
+const pageTitle = `${scenario.title}: ${scenario.scenario}`;
+const canonicalPath = `/industries/${scenario.slug}/`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: pageTitle,
+  description: scenario.description,
+  author: {
+    "@type": "Organization",
+    name: "Enterprise Reality",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Enterprise Reality",
+  },
+  mainEntityOfPage: `https://www.enterprisereality.org${canonicalPath}`,
+};
+
+getIndustryScenario(scenario.slug);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={scenario.description}
+  canonicalPath={canonicalPath}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">{scenario.sector}</p>
+        <h1>{scenario.scenario}</h1>
+        <p class="lead">{scenario.description}</p>
+      </div>
+      <aside class="panel">
+        <h2>Scenario boundary</h2>
+        <p>
+          This is an illustrative architectural scenario. It is not a customer
+          story, case study, testimonial, deployment claim or evidence of an
+          operational implementation.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="scenario-map">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Illustrative Architecture Diagram</p>
+        <h2 id="scenario-map">
+          Governed understanding before an Action Proposal
+        </h2>
+        <p>
+          The diagram names the architectural identities, evidence categories
+          and authority checkpoints involved in the scenario. Operational
+          systems remain the owners of operational records.
+        </p>
+      </div>
+      <ol
+        class="industry-diagram"
+        aria-label={`${scenario.title} scenario diagram`}
+      >
+        {scenario.diagramNodes.map((node) => <li>{node}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="scenario-structure">
+    <div class="container scenario-layout">
+      <div class="section-header">
+        <p class="eyebrow">Scenario Structure</p>
+        <h2 id="scenario-structure">Constitutional scenario review</h2>
+        {
+          scenario.highlight && (
+            <p class="lead scenario-highlight">{scenario.highlight}</p>
+          )
+        }
+      </div>
+
+      <article class="scenario-section" aria-labelledby="trigger">
+        <h3 id="trigger">1. Operational Trigger</h3>
+        <p>{scenario.trigger}</p>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="fragmented-state">
+        <h3 id="fragmented-state">2. Fragmented Current State</h3>
+        <p>{scenario.fragmentedState}</p>
+        <p>
+          The issue is not that operational systems are wrong. The issue is that
+          each system may hold a partial view of identity, evidence, policy,
+          events or authority.
+        </p>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="evidence">
+        <h3 id="evidence">3. Governed Evidence Required</h3>
+        <p>
+          Enterprise Reality governs representation rather than replacing source
+          systems. Evidence categories include:
+        </p>
+        <ul class="evidence-list grid grid--3">
+          {scenario.evidence.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="reasoning">
+        <h3 id="reasoning">4. Enterprise Reality Reasoning</h3>
+        <p>{scenario.reasoning}</p>
+        <div class="grid grid--3">
+          <div class="outcome-card">
+            <h4>Satisfied</h4>
+            <p>Governed evidence and policy support the condition.</p>
+          </div>
+          <div class="outcome-card">
+            <h4>Not Satisfied</h4>
+            <p>Governed evidence or policy does not support the condition.</p>
+          </div>
+          <div class="outcome-card">
+            <h4>Indeterminate</h4>
+            <p>Evidence is insufficient, unresolved or contradictory.</p>
+          </div>
+        </div>
+        <p>
+          This is deterministic reasoning over governed relationships, evidence
+          and policy. It is not AI inference and does not make AI a
+          constitutional authority.
+        </p>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="action-proposal">
+        <h3 id="action-proposal">5. Governed Action Proposal</h3>
+        <p>{scenario.actionProposal}</p>
+        <ul class="status-list grid grid--3">
+          <li class="card">Escalate</li>
+          <li class="card">Approve</li>
+          <li class="card">Reject</li>
+          <li class="card">Investigate</li>
+          <li class="card">Refer</li>
+          <li class="card">Schedule inspection</li>
+        </ul>
+        <p>
+          A proposal is not automatic execution. Triggering a workflow requires
+          explicit authority and remains subject to the organisation's governed
+          controls.
+        </p>
+        <p>
+          Reasoning, decision, Action Proposal, approval or pre-authorisation,
+          execution authority and execution remain separate.
+        </p>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="accountability">
+        <h3 id="accountability">6. Human Accountability</h3>
+        <p>{scenario.accountability}</p>
+        <p>
+          Human review remains essential where required. Regulated judgement is
+          preserved, and Enterprise Reality supports rather than replaces
+          accountable decision makers.
+        </p>
+      </article>
+
+      <article class="scenario-section" aria-labelledby="value">
+        <h3 id="value">7. Organisational Value</h3>
+        <p>{scenario.value}</p>
+        <p>
+          Expected value is described qualitatively: consistency, traceability,
+          explainability, governed automation, cross-system understanding and
+          improved auditability. No quantified return or deployment outcome is
+          claimed.
+        </p>
+      </article>
+
+      <article
+        class="scenario-section"
+        aria-labelledby="constitutional-summary"
+      >
+        <h3 id="constitutional-summary">Constitutional Summary</h3>
+        <p>{constitutionalSummaryText}</p>
+        <p class="closing-statement">{constitutionalClosingLine}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="sector-navigation">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Sector Navigation</p>
+        <h2 id="sector-navigation">Explore the other scenarios</h2>
+      </div>
+      <nav class="sector-nav" aria-label="Industry sectors">
+        <a href="/industries/">Industries overview</a>
+        {
+          industryScenarios.map((item) => (
+            <a
+              href={`/industries/${item.slug}/`}
+              aria-current={item.slug === scenario.slug ? "page" : undefined}
+            >
+              {item.title}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

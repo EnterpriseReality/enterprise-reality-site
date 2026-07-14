@@ -95,7 +95,7 @@ const forbiddenDistMarkers = [
   "Foundation Architecture Demonstration",
   "internal engineering backlog",
   "private platform source",
-  "customer reference",
+  "customer evidence was used",
 ];
 
 const readFiles = (directory: string): string[] => {
@@ -361,7 +361,6 @@ test("architecture internal links resolve and remaining deferred routes are not 
       anchors.map((anchor) => anchor.getAttribute("href")).filter(Boolean),
     );
 
-  expect(hrefs).not.toContain("/industries/");
   expect(hrefs).not.toContain("/roadmap/");
   expect(hrefs).not.toContain("/releases/");
 

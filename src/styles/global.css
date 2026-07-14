@@ -398,6 +398,94 @@ ol {
   max-width: none;
 }
 
+.industry-diagram {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.industry-diagram li {
+  position: relative;
+  max-width: none;
+  min-height: 4rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+  padding: var(--space-4);
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.industry-diagram li:not(:last-child)::after {
+  content: "↓";
+  display: block;
+  margin-top: var(--space-3);
+  color: var(--accent);
+  font-weight: var(--weight-bold);
+}
+
+.scenario-layout {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.scenario-highlight {
+  max-width: var(--width-reading);
+}
+
+.scenario-section {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-5);
+}
+
+.scenario-section h3 {
+  color: var(--text-primary);
+}
+
+.scenario-section h4 {
+  margin: 0 0 var(--space-3);
+  color: var(--text-primary);
+  font-size: var(--text-md);
+}
+
+.evidence-list {
+  list-style: none;
+  padding: 0;
+}
+
+.evidence-list li {
+  max-width: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-panel);
+  padding: var(--space-3);
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+}
+
+.sector-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.sector-nav a {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-panel);
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.sector-nav a:hover,
+.sector-nav a[aria-current="page"] {
+  border-color: var(--accent);
+  color: var(--link-hover);
+}
+
 @media (min-width: 56rem) {
   .grid--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -423,6 +511,18 @@ ol {
   .architecture-layer dl > div:first-child,
   .architecture-layer dl > div:nth-child(5) {
     grid-column: 1 / -1;
+  }
+
+  .industry-diagram {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .industry-diagram li:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--space-3) * -1);
+    margin-top: 0;
+    transform: translate(50%, -50%) rotate(-90deg);
   }
 }
 

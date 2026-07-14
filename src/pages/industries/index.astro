@@ -1,0 +1,102 @@
+---
+import ScenarioCard from "../../components/ScenarioCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { industryScenarios } from "../../utilities/industries";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Enterprise Reality Industries",
+  description:
+    "Illustrative industry scenarios for applying Enterprise Reality as a constitutional layer above operational systems.",
+  url: "https://www.enterprisereality.org/industries/",
+  hasPart: industryScenarios.map((scenario) => ({
+    "@type": "WebPage",
+    name: `${scenario.title}: ${scenario.scenario}`,
+    url: `https://www.enterprisereality.org/industries/${scenario.slug}/`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Industries"
+  description="Illustrative industry scenarios showing how Enterprise Reality provides governed understanding across operational systems without replacing them."
+  canonicalPath="/industries/"
+  structuredData={structuredData}
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Industries</p>
+        <h1>Constitutional applicability across regulated sectors</h1>
+        <p class="lead">
+          Enterprise Reality sits above operational systems as a governed
+          understanding layer. Operational systems continue to own operational
+          data; Enterprise Reality governs representation, evidence, reasoning,
+          policy, decision authority and Action Proposals across those systems.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Illustrative only</h2>
+        <p>
+          These scenarios are architectural examples. They are not customer
+          references, implementation claims, deployment evidence or confidential
+          industry material.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="architecture">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Consistent Architecture</p>
+        <h2 id="architecture">The same constitutional structure applies</h2>
+        <p>
+          Each sector example follows the same progression: operational trigger,
+          fragmented current state, governed evidence, deterministic reasoning,
+          governed Action Proposal, human accountability and organisational
+          value.
+        </p>
+      </div>
+      <ol class="industry-diagram" aria-label="Industry scenario structure">
+        <li>Operational Trigger</li>
+        <li>Fragmented Current State</li>
+        <li>Governed Evidence</li>
+        <li>Reasoning</li>
+        <li>Action Proposal</li>
+        <li>Human Accountability</li>
+        <li>Organisational Value</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sector-overview">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Sector Overview</p>
+        <h2 id="sector-overview">Illustrative scenarios</h2>
+        <p>
+          The examples demonstrate constitutional applicability, not product
+          capability claims. They show how governed understanding can be formed
+          before an Action Proposal is considered.
+        </p>
+      </div>
+      <div class="grid grid--2">
+        {
+          industryScenarios.map((scenario) => (
+            <ScenarioCard
+              title={`${scenario.title}: ${scenario.scenario}`}
+              href={`/industries/${scenario.slug}/`}
+              trigger={scenario.trigger}
+              evidence={scenario.evidence.slice(0, 4).join(", ")}
+              reasoning="Relationships, evidence and policy produce a Satisfied, Not Satisfied or Indeterminate result."
+              outcome={scenario.actionProposal}
+              value={scenario.value}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
