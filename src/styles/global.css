@@ -61,7 +61,7 @@ h3 {
 }
 
 h1 {
-  max-width: 14ch;
+  max-width: 18ch;
   font-size: clamp(2.45rem, 2rem + 2vw, var(--text-3xl));
   line-height: var(--leading-tight);
 }
@@ -137,13 +137,105 @@ ol {
   gap: var(--space-5);
 }
 
+.page-hero {
+  background:
+    linear-gradient(90deg, rgba(36, 92, 115, 0.07), transparent 52%),
+    var(--surface-page);
+}
+
+.page-hero__inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.section-header {
+  margin-bottom: var(--space-6);
+}
+
+.panel,
+.card,
+.outcome-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+  padding: var(--space-5);
+}
+
+.panel > :last-child,
+.card > :last-child,
+.outcome-card > :last-child {
+  margin-bottom: 0;
+}
+
+.card h3,
+.outcome-card h3 {
+  font-size: var(--text-md);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.status-list {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+.status-list li {
+  max-width: none;
+}
+
+.flow {
+  display: grid;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+}
+
+.flow li {
+  position: relative;
+  max-width: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+  padding: var(--space-4);
+  font-weight: var(--weight-semibold);
+}
+
+.flow li:not(:last-child)::after {
+  content: "↓";
+  display: block;
+  margin-top: var(--space-3);
+  color: var(--accent);
+  font-weight: var(--weight-bold);
+}
+
+.closing-statement {
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
+}
+
 @media (min-width: 56rem) {
   .grid--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .grid--4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .page-hero__inner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.5fr);
+    align-items: end;
   }
 }
 

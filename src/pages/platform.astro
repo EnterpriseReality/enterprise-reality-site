@@ -1,0 +1,147 @@
+---
+import StatusBadge from "../components/StatusBadge.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const capabilities = [
+  {
+    name: "Studio",
+    status: "Planned" as const,
+    purpose:
+      "Author and govern Enterprise Reality knowledge, publications and platform models.",
+    users: "Architects, authors, reviewers and programme contributors.",
+    boundary:
+      "Does not own operational execution, production workflows or runtime decisions.",
+  },
+  {
+    name: "Runtime",
+    status: "In Development" as const,
+    purpose:
+      "Provide the governed corpus, graph, reasoning and automation foundations of the programme.",
+    users: "Platform engineers, architects and future service builders.",
+    boundary:
+      "Does not expose a public SaaS product or customer portal in Website v1.0.",
+  },
+  {
+    name: "Decision Services",
+    status: "Concept" as const,
+    purpose:
+      "Provide future service-level access to explainable decision support.",
+    users: "Regulated enterprise teams that need governed decision support.",
+    boundary: "Does not currently claim released commercial availability.",
+  },
+  {
+    name: "Explorer",
+    status: "Planned" as const,
+    purpose:
+      "Navigate governed knowledge, relationships, evidence and programme publications.",
+    users: "Architects, researchers, reviewers and enterprise stakeholders.",
+    boundary: "Does not replace the canonical repository or approval workflow.",
+  },
+  {
+    name: "Connect",
+    status: "Planned" as const,
+    purpose:
+      "Enable responsible integration with existing operational systems.",
+    users: "Integration teams and platform owners.",
+    boundary:
+      "Does not make Enterprise Reality the system of record for operational data.",
+  },
+  {
+    name: "Assistant",
+    status: "Research" as const,
+    purpose:
+      "Support retrieval, explanation, recommendation, navigation and investigation.",
+    users:
+      "People seeking governed assistance across Enterprise Reality knowledge.",
+    boundary:
+      "Does not decide, approve, execute or determine constitutional truth.",
+  },
+];
+---
+
+<BaseLayout
+  title="Platform"
+  description="A high-level overview of Enterprise Reality platform capabilities, statuses, users and boundaries."
+  canonicalPath="/platform/"
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Platform Overview</p>
+        <h1>A constitutional platform for explainable enterprise decisions</h1>
+        <p class="lead">
+          Enterprise Reality is organised around governed representation,
+          evidence, reasoning, policy, decision, authority and action. Each
+          capability has an explicit status and boundary.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Capability status</h2>
+        <p>
+          Released, In Development, Planned, Research and Concept labels are
+          used with constitutional meaning. They are not decorative maturity
+          claims.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section
+    class="section section--muted"
+    aria-labelledby="capabilities-heading"
+  >
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="capabilities-heading">
+          Purpose, users and ownership boundaries
+        </h2>
+      </div>
+      <div class="grid grid--2">
+        {
+          capabilities.map((capability) => (
+            <article class="card platform-card">
+              <div class="platform-card__header">
+                <h3>{capability.name}</h3>
+                <StatusBadge status={capability.status} />
+              </div>
+              <dl>
+                <dt>Purpose</dt>
+                <dd>{capability.purpose}</dd>
+                <dt>Users</dt>
+                <dd>{capability.users}</dd>
+                <dt>Does not own</dt>
+                <dd>{capability.boundary}</dd>
+              </dl>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .platform-card__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .platform-card h3 {
+    margin-bottom: 0;
+  }
+
+  dt {
+    color: var(--text-primary);
+    font-weight: var(--weight-semibold);
+  }
+
+  dd {
+    margin: 0 0 var(--space-4);
+    color: var(--text-secondary);
+  }
+</style>

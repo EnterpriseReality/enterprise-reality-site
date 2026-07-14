@@ -1,5 +1,18 @@
 ---
-const navItems = [{ href: "/", label: "Home" }];
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/why-enterprise-reality/", label: "Why Enterprise Reality" },
+  { href: "/platform/", label: "Platform" },
+  {
+    href: "/constitution-driven-engineering/",
+    label: "Constitution-Driven Engineering",
+  },
+  { href: "/about/", label: "About" },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === "/" ? currentPath === href : currentPath.startsWith(href);
 ---
 
 <header class="site-header">
@@ -29,7 +42,7 @@ const navItems = [{ href: "/", label: "Home" }];
         navItems.map((item) => (
           <a
             href={item.href}
-            aria-current={Astro.url.pathname === item.href ? "page" : undefined}
+            aria-current={isCurrent(item.href) ? "page" : undefined}
           >
             {item.label}
           </a>
@@ -98,7 +111,7 @@ const navItems = [{ href: "/", label: "Home" }];
   .primary-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-3);
   }
 
   .primary-nav a {
@@ -182,6 +195,18 @@ const navItems = [{ href: "/", label: "Home" }];
 
     .nav-toggle[aria-expanded="true"] + .primary-nav {
       display: flex;
+    }
+  }
+
+  @media (min-width: 48.01rem) and (max-width: 68rem) {
+    .site-header__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-block: var(--space-4);
+    }
+
+    .primary-nav {
+      flex-wrap: wrap;
     }
   }
 </style>

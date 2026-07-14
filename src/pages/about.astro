@@ -1,0 +1,91 @@
+---
+import StatusBadge from "../components/StatusBadge.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="About the Enterprise Reality Programme, its research-first development approach and current public status."
+  canonicalPath="/about/"
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">About</p>
+        <h1>The Enterprise Reality Programme</h1>
+        <p class="lead">
+          Enterprise Reality was created to address the architectural gap
+          between operational enterprise systems and the governed understanding
+          needed for explainable decisions and authorised action.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Programme status</h2>
+        <StatusBadge status="In Development" />
+        <p>
+          The public website and platform programme are under active
+          development. Live operating status and commercial availability are
+          outside WEB-1.1.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Programme Story</p>
+        <h2 id="story-heading">Research-first architecture, then software</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="card">
+          <h3>Why it was created</h3>
+          <p>
+            Enterprise Reality began from the observation that enterprise change
+            often proceeds before organisations have a shared, governed account
+            of what is true, what is evidenced and what is authorised.
+          </p>
+        </article>
+        <article class="card">
+          <h3>The architectural problem</h3>
+          <p>
+            Operational systems are necessary, but they usually encode partial
+            views of identity, evidence, policy and decision authority. The
+            programme addresses the need for a constitutional layer across those
+            views.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Research-first development</h3>
+          <p>
+            The programme develops through publications, architecture decisions,
+            platform layers, implementation stories, tests and review evidence.
+            Software follows governed meaning.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Architecture and software</h3>
+          <p>
+            Architecture defines responsibilities and boundaries. Software
+            implements those boundaries through small, testable capabilities
+            without redefining the constitutional model.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="founder-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Founder</p>
+        <h2 id="founder-heading">Sheriff Oyekanmi</h2>
+      </div>
+      <p class="lead">
+        Enterprise Reality is founded by Sheriff Oyekanmi. This public website
+        uses approved programme information only and does not publish personal
+        contact details.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

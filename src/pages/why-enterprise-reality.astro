@@ -1,0 +1,91 @@
+---
+import Callout from "../components/Callout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const points = [
+  {
+    title: "Enterprises do not lack data",
+    text: "Most regulated enterprises already hold records, events, policies, controls and operational histories. The difficulty is making them coherent enough to support justified decisions.",
+  },
+  {
+    title: "Data is not governed truth",
+    text: "A data field may record an observation, but constitutional truth requires stable identity, evidence, interpretation, authority and lifecycle context.",
+  },
+  {
+    title: "AI should not determine constitutional truth",
+    text: "AI can help retrieve, summarise and explain, but it must not become the authority for evidence, policy, approval or execution.",
+  },
+  {
+    title: "Existing systems still matter",
+    text: "Enterprise Reality complements operational systems and systems of record. It does not replace ERP, CRM, case management, asset management or workflow tools.",
+  },
+  {
+    title: "Explainability matters",
+    text: "In regulated environments, decisions must be understandable after they are made. The reasoning path matters as much as the outcome.",
+  },
+];
+---
+
+<BaseLayout
+  title="Why Enterprise Reality"
+  description="Why Enterprise Reality exists: governed truth, explainable decisions and authorised action across existing enterprise systems."
+  canonicalPath="/why-enterprise-reality/"
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Why Enterprise Reality</p>
+        <h1>Enterprises need governed understanding before automation</h1>
+        <p class="lead">
+          Enterprise Reality exists because enterprise decisions depend on more
+          than data availability. They depend on the governed relationship
+          between identity, evidence, policy, authority and action.
+        </p>
+      </div>
+      <Callout title="Approved principle">
+        <p>
+          An enterprise should never automate what it does not first understand,
+          and it should never ask AI to decide what it has not first governed.
+        </p>
+      </Callout>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="narrative-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Core Narrative</p>
+        <h2 id="narrative-heading">
+          The problem is constitutional, not only technical
+        </h2>
+      </div>
+      <div class="grid grid--2">
+        {
+          points.map((point) => (
+            <article class="card">
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="complements-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Complementary Layer</p>
+        <h2 id="complements-heading">
+          Enterprise Reality works across existing systems
+        </h2>
+      </div>
+      <p class="lead">
+        Operational systems continue to own the records and actions they are
+        designed for. Enterprise Reality provides a governed constitutional
+        layer that helps those systems participate in explainable decisions and
+        authorised action without redefining their purpose.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

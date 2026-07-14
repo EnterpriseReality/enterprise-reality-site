@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const flow = [
+  "Vision",
+  "Constitution",
+  "Architecture",
+  "ADRs",
+  "Platform Layers",
+  "Engineering Stories",
+  "AI-Assisted Implementation",
+  "Review",
+  "Testing",
+  "Release",
+];
+
+const complements = [
+  "Domain-Driven Design",
+  "Clean Architecture",
+  "Test-Driven Development",
+  "DevOps",
+];
+---
+
+<BaseLayout
+  title="Constitution-Driven Engineering"
+  description="A public explanation of Constitution-Driven Engineering and how it guides Enterprise Reality implementation."
+  canonicalPath="/constitution-driven-engineering/"
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Constitution-Driven Engineering</p>
+        <h1>Engineering from governed meaning to tested release</h1>
+        <p class="lead">
+          Constitution-Driven Engineering is the discipline used by the
+          Enterprise Reality Programme to keep implementation aligned with
+          accepted constitutional meaning, architecture and review evidence.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Public scope</h2>
+        <p>
+          This page explains the method at a public level. It does not expose
+          private engineering prompts, internal reviews or unreleased platform
+          material.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="flow-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">CDE Flow</p>
+        <h2 id="flow-heading">From vision to release</h2>
+      </div>
+      <ol class="flow">
+        {flow.map((item) => <li>{item}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="complements-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Relationship to Established Practices</p>
+        <h2 id="complements-heading">
+          CDE complements existing engineering disciplines
+        </h2>
+      </div>
+      <p class="lead">
+        Constitution-Driven Engineering is not presented as a replacement for
+        established software disciplines. It adds a governance and meaning layer
+        that helps architecture, implementation and review remain aligned.
+      </p>
+      <ul class="status-list grid grid--2">
+        {complements.map((item) => <li class="card">{item}</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
