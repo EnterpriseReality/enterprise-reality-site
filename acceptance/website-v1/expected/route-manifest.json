@@ -1,0 +1,23 @@
+{
+  "origin": "https://www.enterprisereality.org",
+  "routes": [
+    "/",
+    "/404/",
+    "/why-enterprise-reality/",
+    "/platform/",
+    "/constitution-driven-engineering/",
+    "/about/",
+    "/architecture/",
+    "/research/",
+    "/research/publications/",
+    "/industries/",
+    "/industries/housing/",
+    "/industries/financial-services/",
+    "/industries/healthcare/",
+    "/industries/government/",
+    "/industries/insurance/",
+    "/industries/energy-and-petroleum/",
+    "/roadmap/"
+  ],
+  "absentRoutes": ["/research/publications/errs-001/"]
+}
