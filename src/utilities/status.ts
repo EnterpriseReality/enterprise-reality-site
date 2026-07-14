@@ -7,12 +7,10 @@ export const capabilityStatuses = [
 ] as const;
 
 export const publicationStatuses = [
-  "Draft",
-  "Editorial Review",
-  "Architectural Review",
-  "Approved",
-  "Published",
-  "Withdrawn",
+  "Released",
+  "In Development",
+  "Research",
+  "Concept",
 ] as const;
 
 export type CapabilityStatus = (typeof capabilityStatuses)[number];

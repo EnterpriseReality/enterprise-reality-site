@@ -7,6 +7,10 @@ import {
   findDuplicateIdentifiers,
   validateContentMetadata,
 } from "../../src/utilities/content-rules";
+import {
+  type ResearchPublication,
+  visibleResearchPublications,
+} from "../../src/utilities/publications";
 import { isDraftVisibleInProduction } from "../../src/utilities/status";
 
 function readFrontmatter(path: string): Record<string, unknown> {
@@ -36,6 +40,31 @@ describe("content governance rules", () => {
     expect(isDraftVisibleInProduction(false)).toBe(true);
   });
 
+  it("keeps draft research entries out of visible publications", () => {
+    const publications = [
+      {
+        data: {
+          id: "DRAFT-RESEARCH",
+          draft: true,
+          canonicalPath: "/research/publications/draft-research/",
+        },
+      },
+      {
+        data: {
+          id: "VISIBLE-RESEARCH",
+          draft: false,
+          canonicalPath: "/research/publications/visible-research/",
+        },
+      },
+    ] as ResearchPublication[];
+
+    expect(
+      visibleResearchPublications(publications).map(
+        (publication) => publication.data.id,
+      ),
+    ).toEqual(["VISIBLE-RESEARCH"]);
+  });
+
   it("rejects invalid capability status and private canonical paths", () => {
     expect(
       validateContentMetadata(
@@ -53,13 +82,27 @@ describe("content governance rules", () => {
     ]);
   });
 
+  it("rejects publication lifecycle statuses outside WEB-1.3", () => {
+    expect(
+      validateContentMetadata(
+        {
+          id: "ERRS-TEST",
+          status: "Draft",
+          canonicalPath: "/research/publications/test",
+          draft: true,
+        },
+        "publication",
+      ),
+    ).toEqual(["status is not accepted"]);
+  });
+
   it("detects duplicate content identifiers", () => {
     expect(
       findDuplicateIdentifiers([{ id: "A" }, { id: "B" }, { id: "A" }]),
     ).toEqual(["A"]);
   });
 
-  it("validates all demonstration content metadata", () => {
+  it("validates all content metadata and keeps demonstration entries as drafts", () => {
     const files = contentFiles("src/content");
     const metadata = files.map(readFrontmatter);
 
@@ -68,7 +111,9 @@ describe("content governance rules", () => {
       const kind =
         typeof item.version === "string" ? "publication" : "capability";
       expect(validateContentMetadata(item, kind)).toEqual([]);
-      expect(item.draft).toBe(true);
+      if (typeof item.id === "string" && item.id.includes("DEMO")) {
+        expect(item.draft).toBe(true);
+      }
     }
   });
 

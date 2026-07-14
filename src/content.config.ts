@@ -1,4 +1,5 @@
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { capabilityStatuses, publicationStatuses } from "./utilities/status";
 
@@ -33,6 +34,7 @@ const basePublicationSchema = z.object({
   featured: z.boolean().default(false),
   draft: z.boolean().default(true),
   canonicalPath: canonicalPath.pipe(publicPath),
+  relatedPublications: z.array(z.string().regex(/^[A-Z0-9-]+$/)).default([]),
 });
 
 const capabilitySchema = z.object({
@@ -45,11 +47,26 @@ const capabilitySchema = z.object({
   draft: z.boolean().default(true),
 });
 
-const architecture = defineCollection({ schema: basePublicationSchema });
-const research = defineCollection({ schema: basePublicationSchema });
-const releases = defineCollection({ schema: basePublicationSchema });
-const roadmap = defineCollection({ schema: capabilitySchema });
-const industries = defineCollection({ schema: basePublicationSchema });
+const architecture = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/architecture" }),
+  schema: basePublicationSchema,
+});
+const research = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/research" }),
+  schema: basePublicationSchema,
+});
+const releases = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/releases" }),
+  schema: basePublicationSchema,
+});
+const roadmap = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/roadmap" }),
+  schema: capabilitySchema,
+});
+const industries = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/industries" }),
+  schema: basePublicationSchema,
+});
 
 export const collections = {
   architecture,

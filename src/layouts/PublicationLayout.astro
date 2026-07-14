@@ -1,0 +1,261 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+import type { PublicationStatus } from "../utilities/status";
+
+interface RelatedPublication {
+  id: string;
+  title?: string;
+  href?: string;
+}
+
+interface Publication {
+  id: string;
+  title: string;
+  subtitle?: string;
+  version: string;
+  status: PublicationStatus;
+  category: string;
+  summary: string;
+  publicationDate?: Date;
+  updatedDate?: Date;
+  author: string;
+  canonicalPath: string;
+}
+
+interface Props {
+  publication: Publication;
+  readingTime: string;
+  relatedPublications: RelatedPublication[];
+}
+
+const { publication, readingTime, relatedPublications } = Astro.props;
+const formatDate = (date?: Date) =>
+  date
+    ? new Intl.DateTimeFormat("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(date)
+    : "Not yet published";
+
+const citationYear = publication.publicationDate
+  ? String(publication.publicationDate.getUTCFullYear())
+  : undefined;
+const citation = [
+  `${publication.author}.`,
+  "Enterprise Reality Research Series.",
+  publication.id,
+  `Version ${publication.version}.`,
+  citationYear,
+]
+  .filter(Boolean)
+  .join(" ");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  headline: publication.title,
+  alternativeHeadline: publication.subtitle,
+  abstract: publication.summary,
+  author: {
+    "@type": "Person",
+    name: publication.author,
+  },
+  datePublished: publication.publicationDate?.toISOString(),
+  dateModified:
+    publication.updatedDate?.toISOString() ??
+    publication.publicationDate?.toISOString(),
+  identifier: publication.id,
+  version: publication.version,
+  url: `https://www.enterprisereality.org${publication.canonicalPath}`,
+};
+---
+
+<BaseLayout
+  title={publication.title}
+  description={publication.summary}
+  canonicalPath={publication.canonicalPath}
+  ogType="article"
+  structuredData={structuredData}
+>
+  <article class="publication">
+    <header class="section publication-header">
+      <div class="container publication-header__inner">
+        <div>
+          <p class="eyebrow">{publication.category}</p>
+          <p class="publication-id">{publication.id}</p>
+          <h1>{publication.title}</h1>
+          {publication.subtitle && <p class="lead">{publication.subtitle}</p>}
+        </div>
+        <aside class="panel publication-summary" aria-labelledby="metadata">
+          <h2 id="metadata">Publication metadata</h2>
+          <StatusBadge status={publication.status} />
+          <dl>
+            <div>
+              <dt>Identifier</dt>
+              <dd>{publication.id}</dd>
+            </div>
+            <div>
+              <dt>Version</dt>
+              <dd>{publication.version}</dd>
+            </div>
+            <div>
+              <dt>Author</dt>
+              <dd>{publication.author}</dd>
+            </div>
+            <div>
+              <dt>Publication Date</dt>
+              <dd>{formatDate(publication.publicationDate)}</dd>
+            </div>
+            <div>
+              <dt>Updated Date</dt>
+              <dd>{formatDate(publication.updatedDate)}</dd>
+            </div>
+            <div>
+              <dt>Reading Time</dt>
+              <dd>{readingTime}</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section section--muted" aria-labelledby="abstract">
+      <div class="container">
+        <div class="publication-abstract">
+          <h2 id="abstract">Abstract</h2>
+          <p>{publication.summary}</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="container publication-body">
+        <slot />
+      </div>
+    </div>
+
+    <section class="section section--muted" aria-labelledby="citation">
+      <div class="container publication-support">
+        <div>
+          <h2 id="citation">Canonical citation</h2>
+          <p class="citation">{citation}</p>
+        </div>
+        <div>
+          <h2>Related publications</h2>
+          {
+            relatedPublications.length > 0 ? (
+              <ul class="publication-related">
+                {relatedPublications.map((related) => (
+                  <li>
+                    {related.href ? (
+                      <a href={related.href}>
+                        {related.id}
+                        {related.title ? ` — ${related.title}` : ""}
+                      </a>
+                    ) : (
+                      <span>
+                        {related.id}
+                        {related.title ? ` — ${related.title}` : ""}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No related publications are currently listed.</p>
+            )
+          }
+        </div>
+        <p>
+          <a href="/research/">Back to Research</a>
+        </p>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .publication-header {
+    background: var(--surface-page);
+  }
+
+  .publication-header__inner {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .publication-id {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: var(--weight-bold);
+  }
+
+  .publication-summary h2,
+  .publication-support h2 {
+    font-size: var(--text-md);
+  }
+
+  .publication-summary dl {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-4) 0 0;
+  }
+
+  .publication-summary dt {
+    color: var(--text-secondary);
+    font-weight: var(--weight-semibold);
+  }
+
+  .publication-summary dd {
+    margin: 0;
+  }
+
+  .publication-abstract,
+  .publication-body {
+    max-width: var(--width-reading);
+  }
+
+  .publication-body :global(h2) {
+    margin-top: var(--space-6);
+  }
+
+  .publication-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .publication-body :global(blockquote) {
+    margin: var(--space-5) 0;
+    border-left: 4px solid var(--accent);
+    padding-left: var(--space-4);
+    color: var(--text-secondary);
+    font-size: var(--text-md);
+  }
+
+  .publication-support {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .citation {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-panel);
+    padding: var(--space-4);
+    font-family: var(--font-serif);
+  }
+
+  .publication-related {
+    display: grid;
+    gap: var(--space-2);
+    padding-left: 1.2rem;
+  }
+
+  @media (min-width: 56rem) {
+    .publication-header__inner {
+      grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 0.45fr);
+      align-items: start;
+    }
+  }
+</style>

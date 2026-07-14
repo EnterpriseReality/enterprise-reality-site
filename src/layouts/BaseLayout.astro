@@ -7,11 +7,19 @@ interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
+  ogType?: "website" | "article";
+  structuredData?: Record<string, unknown>;
 }
 
 const siteName = "Enterprise Reality";
 const siteOrigin = "https://www.enterprisereality.org";
-const { title, description, canonicalPath = Astro.url.pathname } = Astro.props;
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  ogType = "website",
+  structuredData,
+} = Astro.props;
 const composedTitle = title === siteName ? title : `${title} | ${siteName}`;
 const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
 ---
@@ -25,7 +33,7 @@ const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={composedTitle} />
     <meta property="og:description" content={description} />
@@ -33,6 +41,15 @@ const canonicalUrl = new URL(canonicalPath, siteOrigin).toString();
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={composedTitle} />
     <meta name="twitter:description" content={description} />
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

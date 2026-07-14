@@ -1,0 +1,163 @@
+---
+import { getCollection } from "astro:content";
+import PublicationCard from "../../components/PublicationCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  readingTimeForWords,
+  visibleResearchPublications,
+} from "../../utilities/publications";
+
+const publications = visibleResearchPublications(
+  await getCollection("research"),
+);
+const featuredPublications = publications.filter(
+  (publication) => publication.data.featured,
+);
+---
+
+<BaseLayout
+  title="Research"
+  description="Enterprise Reality research programme, publication principles, lifecycle and current approved public research publications."
+  canonicalPath="/research/"
+>
+  <section class="page-hero section research-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Enterprise Reality Research Series</p>
+        <h1>Research governed as public evidence</h1>
+        <p class="lead">
+          Enterprise Reality treats research as part of the constitutional
+          record: versioned, attributable, reviewable and clear about the line
+          between published work and future enquiry.
+        </p>
+      </div>
+      <aside class="panel">
+        <h2>Publication authority</h2>
+        <p>
+          Research publications are governed by the Website Constitution and
+          Publication Guide. Drafts remain outside production listings until
+          approved for public release.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="programme">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Research Programme</p>
+        <h2 id="programme">Enterprise Reality Research Series</h2>
+        <p>
+          ERRS publications provide the public research record for
+          constitutional enterprise architecture, governed reasoning,
+          publication discipline and AI-assisted software engineering.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <h3>Purpose</h3>
+          <p>
+            Establish public evidence for the ideas, boundaries and methods
+            behind Enterprise Reality.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Review process</h3>
+          <p>
+            Editorial, architectural and constitutional review precede public
+            publication.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Versioning</h3>
+          <p>
+            Publications use explicit identifiers, versions, status labels and
+            canonical paths.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="principles">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Publication Principles</p>
+        <h2 id="principles">Truth before publication volume</h2>
+        <p>
+          The research library favours a small, governed public record over
+          speculative output. Publications should be truthful, evidence-based,
+          attributable, accessible and discoverable.
+        </p>
+      </div>
+      <ol class="flow" aria-label="Publication lifecycle">
+        <li>Draft and review outside production visibility</li>
+        <li>Architectural and constitutional review</li>
+        <li>Public classification and approval</li>
+        <li>Versioned publication with canonical metadata</li>
+        <li>Correction or versioned revision when meaning changes</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="current-publications">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Current Publications</p>
+        <h2 id="current-publications">Approved public research</h2>
+        <p>
+          Current entries are generated from the research content collection.
+          Draft entries are excluded from this list.
+        </p>
+      </div>
+      <div class="grid grid--2">
+        {
+          featuredPublications.length > 0 ? (
+            featuredPublications.map((publication) => (
+              <PublicationCard
+                id={publication.data.id}
+                title={publication.data.title}
+                subtitle={publication.data.subtitle}
+                summary={publication.data.summary}
+                version={publication.data.version}
+                status={publication.data.status}
+                publicationDate={publication.data.publicationDate}
+                readingTime={readingTimeForWords(publication.body)}
+                href={publication.data.canonicalPath}
+                featured={publication.data.featured}
+              />
+            ))
+          ) : (
+            <p class="empty-state">
+              Approved research publications will appear here following
+              publication review.
+            </p>
+          )
+        }
+      </div>
+      <p class="research-link">
+        <a href="/research/publications/">Browse all publications</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="future-research">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Future Research Areas</p>
+        <h2 id="future-research">Future work is labelled as future work</h2>
+        <p>
+          The programme expects future research into governed reasoning,
+          publication metadata, explainable authorised action, constitutional AI
+          assistance and regulated enterprise decision models.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .research-link {
+    margin-top: var(--space-5);
+  }
+</style>

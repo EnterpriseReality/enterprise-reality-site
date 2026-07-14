@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import PublicationCard from "../../../components/PublicationCard.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import {
+  readingTimeForWords,
+  visibleResearchPublications,
+} from "../../../utilities/publications";
+
+const publications = visibleResearchPublications(await getCollection("research"));
+---
+
+<BaseLayout
+  title="Research Publications"
+  description="Browse approved public Enterprise Reality research publications and publication metadata."
+  canonicalPath="/research/publications/"
+>
+  <section class="page-hero section">
+    <div class="container">
+      <p class="eyebrow">Publication Index</p>
+      <h1>Research publications</h1>
+      <p class="lead">
+        The publication index lists approved public research records only.
+        Drafts and unavailable future publications are not exposed as routes.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="publications">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Enterprise Reality Research Series</p>
+        <h2 id="publications">Available publications</h2>
+      </div>
+      <div class="grid grid--2">
+        {
+          publications.length > 0 ? (
+            publications.map((publication) => (
+              <PublicationCard
+                id={publication.data.id}
+                title={publication.data.title}
+                subtitle={publication.data.subtitle}
+                summary={publication.data.summary}
+                version={publication.data.version}
+                status={publication.data.status}
+                publicationDate={publication.data.publicationDate}
+                readingTime={readingTimeForWords(publication.body)}
+                href={publication.data.canonicalPath}
+                featured={publication.data.featured}
+              />
+            ))
+          ) : (
+            <p class="empty-state">
+              Approved research publications will appear here following
+              publication review.
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

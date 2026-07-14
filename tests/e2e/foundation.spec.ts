@@ -34,6 +34,13 @@ const coreRoutes = [
     canonical: "https://www.enterprisereality.org/architecture/",
   },
   {
+    path: "/research/",
+    title: "Research | Enterprise Reality",
+    heading: "Research governed as public evidence",
+    description: /research programme/,
+    canonical: "https://www.enterprisereality.org/research/",
+  },
+  {
     path: "/constitution-driven-engineering/",
     title: "Constitution-Driven Engineering | Enterprise Reality",
     heading: "Engineering from governed meaning to tested release",
@@ -175,6 +182,9 @@ test("desktop navigation is accessible", async ({ page }) => {
   await expect(
     navigation.getByRole("link", { name: "Architecture" }),
   ).toHaveAttribute("href", "/architecture/");
+  await expect(
+    navigation.getByRole("link", { name: "Research" }),
+  ).toHaveAttribute("href", "/research/");
   await expect(
     navigation.getByRole("link", {
       name: "Constitution-Driven Engineering",

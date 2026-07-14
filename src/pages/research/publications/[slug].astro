@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from "astro:content";
+import PublicationLayout from "../../../layouts/PublicationLayout.astro";
+import {
+  publicationSlug,
+  readingTimeForWords,
+  visibleResearchPublications,
+} from "../../../utilities/publications";
+
+export async function getStaticPaths() {
+  const publications = visibleResearchPublications(await getCollection("research"));
+
+  return publications.map((publication) => ({
+    params: { slug: publicationSlug(publication) },
+    props: { publication },
+  }));
+}
+
+const { publication } = Astro.props;
+const { Content } = await render(publication);
+const visiblePublications = visibleResearchPublications(
+  await getCollection("research"),
+);
+const publicationsById = new Map(
+  visiblePublications.map((item) => [item.data.id, item]),
+);
+const relatedPublications = publication.data.relatedPublications.map((id) => {
+  const related = publicationsById.get(id);
+
+  return related
+    ? {
+        id,
+        title: related.data.title,
+        href: related.data.canonicalPath,
+      }
+    : { id };
+});
+---
+
+<PublicationLayout
+  publication={publication.data}
+  readingTime={readingTimeForWords(publication.body)}
+  relatedPublications={relatedPublications}
+>
+  <Content />
+</PublicationLayout>
