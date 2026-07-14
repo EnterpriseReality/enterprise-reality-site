@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The requested Enterprise Reality website page was not found."
+  canonicalPath="/404"
+>
+  <section class="section not-found">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p class="lead">
+        This foundation site only publishes routes that exist and have been
+        approved for the current website story.
+      </p>
+      <p><a href="/">Return to Enterprise Reality home</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 45vh;
+  }
+</style>

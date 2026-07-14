@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+coverage/
+playwright-report/
+test-results/
+publications/
+source-material/
+implementation/

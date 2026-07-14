@@ -1,0 +1,64 @@
+---
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div>
+      <p class="site-footer__brand">Enterprise Reality</p>
+      <p>
+        A governed public website foundation for the Enterprise Reality
+        Programme.
+      </p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+    </nav>
+    <p class="site-footer__meta">
+      &copy; {year} Enterprise Reality Programme. Deployment deferred.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border-subtle);
+    background: var(--surface-strong);
+    color: var(--text-inverse);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    gap: var(--space-5);
+    padding-block: var(--space-7);
+  }
+
+  .site-footer p {
+    color: color-mix(in srgb, var(--text-inverse) 82%, transparent);
+    margin-bottom: var(--space-2);
+  }
+
+  .site-footer__brand {
+    color: var(--text-inverse) !important;
+    font-weight: var(--weight-bold);
+  }
+
+  .site-footer a {
+    color: var(--text-inverse);
+  }
+
+  .site-footer__meta {
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 56rem) {
+    .site-footer__inner {
+      grid-template-columns: 1fr auto;
+    }
+
+    .site-footer__meta {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import type { CapabilityStatus } from "../utilities/status";
+
+interface Props {
+  status: CapabilityStatus;
+}
+
+const { status } = Astro.props;
+const statusClass = status.toLowerCase().replace(/\s+/g, "-");
+---
+
+<span class={`status-badge status-badge--${statusClass}`}>
+  <span class="status-badge__label">Status:</span>
+  {status}
+</span>
+
+<style>
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    width: fit-content;
+    border: 1px solid var(--status-border, var(--border-strong));
+    border-radius: 999px;
+    background: var(--status-bg, var(--surface-muted));
+    padding: 0.2rem 0.62rem;
+    color: var(--text-primary);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    line-height: 1.4;
+  }
+
+  .status-badge__label {
+    color: var(--text-secondary);
+    font-weight: var(--weight-medium);
+  }
+
+  .status-badge--released {
+    --status-bg: var(--status-released-bg);
+    --status-border: var(--status-released-border);
+  }
+
+  .status-badge--in-development {
+    --status-bg: var(--status-development-bg);
+    --status-border: var(--status-development-border);
+  }
+
+  .status-badge--planned {
+    --status-bg: var(--status-planned-bg);
+    --status-border: var(--status-planned-border);
+  }
+
+  .status-badge--research {
+    --status-bg: var(--status-research-bg);
+    --status-border: var(--status-research-border);
+  }
+
+  .status-badge--concept {
+    --status-bg: var(--status-concept-bg);
+    --status-border: var(--status-concept-border);
+  }
+</style>

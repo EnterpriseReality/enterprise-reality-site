@@ -1,0 +1,163 @@
+---
+import Callout from "../components/Callout.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const releasedCapabilities = [
+  "governed metadata and corpus foundations",
+  "Enterprise Reality Graph",
+  "Enterprise Reasoning Engine",
+  "Enterprise Automation Engine",
+];
+
+const plannedCapabilities = [
+  "Enterprise Reality Studio",
+  "Enterprise Reality Explorer",
+  "Enterprise Reality Assistant",
+  "production integrations",
+  "operational readiness capabilities",
+];
+---
+
+<BaseLayout
+  title="Enterprise Reality"
+  description="Enterprise Reality is the Constitutional Decision Platform for regulated enterprises, connecting governed knowledge, operational evidence and enterprise policy."
+  canonicalPath="/"
+>
+  <section class="hero section">
+    <div class="container hero__inner">
+      <div>
+        <p class="eyebrow">Website foundation</p>
+        <h1>Enterprise Reality</h1>
+        <p class="hero__position">
+          The Constitutional Decision Platform for Regulated Enterprises
+        </p>
+        <p class="lead">
+          Enterprise Reality connects governed knowledge, operational evidence
+          and enterprise policy to produce explainable decisions and authorised
+          action across existing systems.
+        </p>
+      </div>
+      <Callout title="Current WEB-1.0 scope">
+        <p>
+          This foundation establishes the public site shell, content model,
+          accessibility posture and quality gates. It is not the final public
+          narrative for Website v1.0.
+        </p>
+      </Callout>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="principles-heading">
+    <div class="container">
+      <p class="eyebrow">Constitutional principles</p>
+      <h2 id="principles-heading">How the platform must reason and act</h2>
+      <div class="principles grid grid--4">
+        <p>Represent reality faithfully.</p>
+        <p>Resolve evidence explicitly.</p>
+        <p>Conclude only what is justified.</p>
+        <p>Act only when justified and permitted.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="maturity-heading">
+    <div class="container">
+      <p class="eyebrow">Current maturity</p>
+      <h2 id="maturity-heading">
+        Released foundations and planned capabilities
+      </h2>
+      <div class="grid grid--2">
+        <section class="maturity-panel" aria-labelledby="released-heading">
+          <div class="maturity-panel__header">
+            <h3 id="released-heading">Released reference implementations</h3>
+            <StatusBadge status="Released" />
+          </div>
+          <ul>
+            {releasedCapabilities.map((capability) => <li>{capability}</li>)}
+          </ul>
+        </section>
+
+        <section class="maturity-panel" aria-labelledby="planned-heading">
+          <div class="maturity-panel__header">
+            <h3 id="planned-heading">Planned or future capabilities</h3>
+            <StatusBadge status="Planned" />
+          </div>
+          <ul>
+            {plannedCapabilities.map((capability) => <li>{capability}</li>)}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="stage-heading">
+    <div class="container">
+      <p class="eyebrow">Next programme stage</p>
+      <h2 id="stage-heading">Operational readiness</h2>
+      <p class="lead">
+        The next platform stage is operational readiness: strengthening the
+        public explanation, release evidence, accessibility assurance, security
+        posture and deployment preparation before production website release.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(20, 32, 29, 0.05), transparent 48%),
+      var(--surface-page);
+  }
+
+  .hero__inner {
+    display: grid;
+    gap: var(--space-7);
+    align-items: end;
+  }
+
+  .hero__position {
+    color: var(--text-primary);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-heading);
+    max-width: 34rem;
+  }
+
+  .principles p,
+  .maturity-panel {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-panel);
+    padding: var(--space-5);
+  }
+
+  .principles p {
+    margin: 0;
+    font-weight: var(--weight-semibold);
+  }
+
+  .maturity-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .maturity-panel h3 {
+    margin-bottom: 0;
+  }
+
+  .maturity-panel li + li {
+    margin-top: var(--space-2);
+  }
+
+  @media (min-width: 60rem) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 1fr) 25rem;
+    }
+  }
+</style>
