@@ -1,0 +1,58 @@
+---
+import StatusBadge from "./StatusBadge.astro";
+import type { ProgrammeMilestone } from "../utilities/roadmap";
+
+interface Props {
+  milestone: ProgrammeMilestone;
+}
+
+const { milestone } = Astro.props;
+---
+
+<article
+  class="milestone-card"
+  aria-labelledby={`milestone-${milestone.version}`}
+>
+  <div class="milestone-card__header">
+    <p class="milestone-card__version">{milestone.version}</p>
+    <StatusBadge status={milestone.status} />
+  </div>
+  <h3 id={`milestone-${milestone.version}`}>{milestone.title}</h3>
+  <p>{milestone.summary}</p>
+</article>
+
+<style>
+  .milestone-card {
+    position: relative;
+    display: grid;
+    gap: var(--space-3);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-panel);
+    padding: var(--space-5);
+  }
+
+  .milestone-card__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .milestone-card__version {
+    margin: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .milestone-card h3 {
+    margin-bottom: 0;
+  }
+
+  .milestone-card p:last-child {
+    margin-bottom: 0;
+  }
+</style>

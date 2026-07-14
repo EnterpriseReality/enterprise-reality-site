@@ -1,0 +1,397 @@
+---
+import MilestoneCard from "../components/MilestoneCard.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  futureProductDirection,
+  nextPlatformStage,
+  programmeMilestones,
+  releasedPlatformFoundations,
+  roadmapPrinciples,
+} from "../utilities/roadmap";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Roadmap | Enterprise Reality",
+  description:
+    "The Enterprise Reality public roadmap explains programme evolution, release progression and future direction without making delivery-date commitments.",
+  url: "https://www.enterprisereality.org/roadmap/",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "Enterprise Reality",
+    url: "https://www.enterprisereality.org/",
+  },
+};
+---
+
+<BaseLayout
+  title="Roadmap"
+  description="The Enterprise Reality public roadmap explains programme evolution, release progression and future direction without making delivery-date commitments."
+  canonicalPath="/roadmap/"
+  structuredData={structuredData}
+>
+  <section class="page-hero section roadmap-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Programme Evolution</p>
+        <h1>Roadmap for constitutional capability</h1>
+        <p class="lead">
+          Enterprise Reality is a long-term research and engineering programme.
+          This roadmap describes constitutional capability evolution: how the
+          programme has progressed from governed metadata toward reasoning,
+          automation and future assistive services.
+        </p>
+      </div>
+      <aside class="panel roadmap-boundary" aria-labelledby="roadmap-boundary">
+        <h2 id="roadmap-boundary">Roadmap boundary</h2>
+        <p>
+          The roadmap is not feature marketing, a contractual commitment or a
+          schedule of delivery dates. Status labels describe the public maturity
+          of programme capabilities.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="timeline-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Programme Timeline</p>
+        <h2 id="timeline-heading">Release progression as public history</h2>
+        <p>
+          Milestones are shown as programme capability states rather than
+          software marketing releases. Released means formally released by the
+          programme; future direction remains separately labelled as planned or
+          research.
+        </p>
+      </div>
+      <ol class="roadmap-timeline" aria-label="Programme milestones">
+        {
+          programmeMilestones.map((milestone) => (
+            <li>
+              <MilestoneCard milestone={milestone} />
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="capability-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Capability Progression</p>
+        <h2 id="capability-heading">
+          From governed metadata to accountable assistance
+        </h2>
+        <p>
+          Released platform foundations are distinct from the next platform
+          stage and future product direction. Later stages do not erase earlier
+          boundaries, and future stages are not represented as implemented.
+        </p>
+      </div>
+      <div class="capability-groups">
+        <section
+          class="capability-group"
+          aria-labelledby="released-foundations-heading"
+        >
+          <h3 id="released-foundations-heading">
+            Released Platform Foundations
+          </h3>
+          <ol
+            class="capability-flow"
+            aria-label="Released Platform Foundations"
+          >
+            {
+              releasedPlatformFoundations.map((stage) => (
+                <li>
+                  <article class="capability-stage">
+                    <div>
+                      <h4>{stage.title}</h4>
+                      <p>{stage.contribution}</p>
+                    </div>
+                    <StatusBadge status={stage.status} />
+                  </article>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+
+        <section
+          class="capability-group"
+          aria-labelledby="next-platform-stage-heading"
+        >
+          <h3 id="next-platform-stage-heading">Next Platform Stage</h3>
+          <article class="capability-stage">
+            <div>
+              <h4>{nextPlatformStage.title}</h4>
+              <p>{nextPlatformStage.contribution}</p>
+            </div>
+            <StatusBadge status={nextPlatformStage.status} />
+          </article>
+        </section>
+
+        <section
+          class="capability-group"
+          aria-labelledby="future-product-direction-heading"
+        >
+          <h3 id="future-product-direction-heading">
+            Future Product Direction
+          </h3>
+          <ol class="capability-flow" aria-label="Future Product Direction">
+            {
+              futureProductDirection.map((stage) => (
+                <li>
+                  <article class="capability-stage">
+                    <div>
+                      <h4>{stage.title}</h4>
+                      <p>{stage.contribution}</p>
+                    </div>
+                    <StatusBadge status={stage.status} />
+                  </article>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="current-focus-heading">
+    <div class="container roadmap-focus">
+      <div class="section-header">
+        <p class="eyebrow">Next Platform Stage</p>
+        <h2 id="current-focus-heading">Operational Readiness</h2>
+        <p>
+          Operational Readiness is the next platform stage. It is planned public
+          direction for preparing released platform foundations for operational
+          use, without implying active delivery, dates or commitments.
+        </p>
+      </div>
+      <div class="panel">
+        <StatusBadge status={nextPlatformStage.status} />
+        <p>
+          The Enterprise Automation Engine is represented as a released
+          foundation. Operational Readiness is not presented as a release number
+          or committed product availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="future-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Future Direction</p>
+        <h2 id="future-heading">Planned and research capabilities</h2>
+        <p>
+          Future work will continue to follow Constitution-Driven Engineering:
+          architecture, implementation, verification, publication and release.
+        </p>
+      </div>
+      <div class="grid grid--3 roadmap-future">
+        {
+          futureProductDirection.map((capability) => (
+            <article class="card">
+              <div class="card__header">
+                <h3>{capability.title}</h3>
+                <StatusBadge status={capability.status} />
+              </div>
+              <p>{capability.contribution}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="principles-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Guiding Principles</p>
+        <h2 id="principles-heading">The discipline behind progression</h2>
+        <p>
+          The roadmap is governed by the same constitutional principles that
+          shape the platform architecture.
+        </p>
+      </div>
+      <ul class="principle-list">
+        {roadmapPrinciples.map((principle) => <li>{principle}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="philosophy-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Programme Philosophy</p>
+        <h2 id="philosophy-heading">
+          Enterprise Reality evolves constitutionally
+        </h2>
+        <p>
+          Every public capability follows the same governance discipline before
+          it becomes part of the programme record.
+        </p>
+      </div>
+      <ol
+        class="flow roadmap-governance"
+        aria-label="Constitutional programme evolution"
+      >
+        <li>Architecture</li>
+        <li>Implementation</li>
+        <li>Verification</li>
+        <li>Publication</li>
+        <li>Release</li>
+      </ol>
+      <p class="closing-statement">
+        Progress is recorded when capability is justified, verified and
+        published, not when a future promise is made.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .roadmap-timeline {
+    display: grid;
+    gap: var(--space-5);
+    list-style: none;
+    padding: 0;
+  }
+
+  .roadmap-timeline > li {
+    max-width: none;
+  }
+
+  .roadmap-timeline > li:not(:last-child)::after {
+    content: "↓";
+    display: block;
+    margin: var(--space-4) 0 0 var(--space-5);
+    color: var(--accent);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+  }
+
+  .capability-flow {
+    display: grid;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+  }
+
+  .capability-groups {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .capability-group {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .capability-group h3 {
+    margin-bottom: 0;
+  }
+
+  .capability-flow > li {
+    max-width: none;
+  }
+
+  .capability-flow > li:not(:last-child)::after {
+    content: "↓";
+    display: block;
+    margin: var(--space-3) 0 0 var(--space-5);
+    color: var(--accent);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+  }
+
+  .capability-stage,
+  .card__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .capability-stage {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--surface-panel);
+    padding: var(--space-5);
+  }
+
+  .capability-stage h3,
+  .capability-stage h4,
+  .card__header h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .capability-stage h4 {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-md);
+    line-height: var(--leading-heading);
+  }
+
+  .capability-stage p,
+  .roadmap-focus .panel p {
+    margin-bottom: 0;
+  }
+
+  .roadmap-focus {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .roadmap-future .card {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .principle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-3);
+    padding: 0;
+    list-style: none;
+  }
+
+  .principle-list li {
+    max-width: none;
+    border-left: 3px solid var(--accent);
+    background: var(--surface-panel);
+    padding: var(--space-3) var(--space-4);
+    font-weight: var(--weight-semibold);
+  }
+
+  .roadmap-governance {
+    margin-bottom: var(--space-6);
+  }
+
+  @media (min-width: 56rem) {
+    .roadmap-timeline {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .roadmap-timeline > li:not(:last-child)::after {
+      display: none;
+    }
+
+    .capability-flow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .capability-flow > li:not(:last-child)::after {
+      display: none;
+    }
+
+    .roadmap-focus {
+      grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.7fr);
+      align-items: start;
+    }
+  }
+</style>

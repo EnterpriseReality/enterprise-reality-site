@@ -361,7 +361,6 @@ test("architecture internal links resolve and remaining deferred routes are not 
       anchors.map((anchor) => anchor.getAttribute("href")).filter(Boolean),
     );
 
-  expect(hrefs).not.toContain("/roadmap/");
   expect(hrefs).not.toContain("/releases/");
 
   for (const href of hrefs) {
