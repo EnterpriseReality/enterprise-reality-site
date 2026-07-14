@@ -220,6 +220,184 @@ ol {
   line-height: var(--leading-heading);
 }
 
+.architecture-flow {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+.architecture-flow > li {
+  max-width: none;
+}
+
+.architecture-flow > li:not(:last-child)::after {
+  content: "↓";
+  display: block;
+  margin: var(--space-3) 0 0 var(--space-5);
+  color: var(--accent);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.architecture-layer {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+}
+
+.architecture-layer summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--space-4);
+}
+
+.architecture-layer summary::-webkit-details-marker {
+  display: none;
+}
+
+.architecture-layer summary::after {
+  content: "+";
+  display: inline-grid;
+  place-items: center;
+  float: right;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: var(--weight-bold);
+}
+
+.architecture-layer[open] summary::after {
+  content: "−";
+}
+
+.architecture-layer__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding-right: var(--space-5);
+}
+
+.architecture-layer__name {
+  color: var(--text-primary);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.architecture-layer__body {
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-4);
+}
+
+.architecture-layer dl {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.architecture-layer dt,
+.ownership-table th {
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.architecture-layer dd {
+  margin: var(--space-1) 0 0;
+  color: var(--text-secondary);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+}
+
+.ownership-table {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+}
+
+.ownership-table caption {
+  padding: var(--space-4);
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.ownership-table th,
+.ownership-table td {
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-4);
+  text-align: left;
+  vertical-align: top;
+}
+
+.ownership-table td {
+  color: var(--text-secondary);
+}
+
+.architecture-sequence {
+  margin-bottom: var(--space-6);
+}
+
+.architecture-sequence li {
+  min-height: 4rem;
+}
+
+.architecture-sequence--ladder .ladder-stage {
+  display: grid;
+  gap: var(--space-2);
+  font-weight: var(--weight-regular);
+}
+
+.ladder-stage strong {
+  color: var(--text-primary);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.ladder-stage span {
+  color: var(--text-secondary);
+}
+
+.architecture-explanations {
+  margin-top: var(--space-6);
+}
+
+.architecture-note h2 {
+  font-size: var(--text-lg);
+}
+
+.architecture-plain {
+  margin-top: var(--space-5);
+}
+
+.outcome-card__result {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+}
+
+.architecture-boundary {
+  margin-top: var(--space-6);
+  max-width: var(--width-reading);
+}
+
+.publication-list {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: 1.2rem;
+}
+
+.publication-list li {
+  max-width: none;
+}
+
 @media (min-width: 56rem) {
   .grid--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -236,6 +414,34 @@ ol {
   .page-hero__inner {
     grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.5fr);
     align-items: end;
+  }
+
+  .architecture-layer dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .architecture-layer dl > div:first-child,
+  .architecture-layer dl > div:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .architecture-layer summary {
+    padding: var(--space-3);
+  }
+
+  .architecture-layer summary::after {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .architecture-layer__body {
+    padding: var(--space-3);
+  }
+
+  .ownership-table {
+    min-width: 42rem;
   }
 }
 

@@ -1,0 +1,381 @@
+---
+import ArchitectureExplorer from "../components/ArchitectureExplorer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const ownershipRows = [
+  {
+    component: "Governed Repository / Publications",
+    owns: "Approved publications, publication metadata, lifecycle status and governed meaning.",
+    doesNotOwn:
+      "Runtime reasoning, operational execution, platform APIs or automation authority.",
+  },
+  {
+    component: "Metadata Engine",
+    owns: "Canonical interpretation of publication metadata and publication identity.",
+    doesNotOwn:
+      "Narrative content, repository traversal, graph reasoning or action decisions.",
+  },
+  {
+    component: "Enterprise Corpus",
+    owns: "Discovery, traversal, indexing, repository health and corpus-level views.",
+    doesNotOwn:
+      "Independent metadata parsing, semantic graph authority or reasoning outcomes.",
+  },
+  {
+    component: "Enterprise Reality Graph",
+    owns: "Governed relationships between stable identities.",
+    doesNotOwn:
+      "Source publication truth, policy authority, approval or execution.",
+  },
+  {
+    component: "Enterprise Reasoning Engine",
+    owns: "Relationship path evaluation, evidence resolution, outcome resolution and explanation.",
+    doesNotOwn:
+      "Automation permission, execution authority, approval or operational side effects.",
+  },
+  {
+    component: "Enterprise Automation Engine",
+    owns: "Automation policy, eligibility, proposals, approval requirements, execution records and retry governance.",
+    doesNotOwn:
+      "Reasoning truth, canonical evidence, human approval authority or source-system records.",
+  },
+  {
+    component: "Enterprise AI Runtime",
+    owns: "Assistive retrieval, explanation, summarisation, navigation and recommendations.",
+    doesNotOwn:
+      "Truth, evidence resolution, policy authority, approval, canonical decision or execution.",
+  },
+];
+
+const reasoningServices = [
+  "Enterprise Reality Graph",
+  "Relationship Path Evaluation",
+  "Evidence Resolution",
+  "Outcome Resolution",
+  "Explanation Generation",
+];
+
+const automationSteps = [
+  "Reasoning Report",
+  "Automation Policy",
+  "Eligibility",
+  "Automation Decision",
+  "Action Proposal",
+  "Approval or Pre-Authorisation",
+  "Execution Authority",
+  "Execution Request",
+  "Execution",
+  "Execution Record",
+  "Idempotency and Retry Governance",
+];
+
+const ladderSteps = [
+  {
+    stage: "Truth",
+    meaning:
+      "Exists independently of systems and remains true whether or not it has been recorded.",
+  },
+  {
+    stage: "Reality",
+    meaning:
+      "The enterprise state expressed through stable identities, events, relationships and obligations.",
+  },
+  {
+    stage: "Representation",
+    meaning:
+      "Governed models that describe reality without claiming to replace it.",
+  },
+  {
+    stage: "Evidence",
+    meaning:
+      "Governed observations that support, contradict or leave an assertion unresolved.",
+  },
+  {
+    stage: "Reasoning",
+    meaning:
+      "Deterministic evaluation over governed relationships and evidence.",
+  },
+  {
+    stage: "Decision",
+    meaning:
+      "A justified constitutional conclusion produced from reasoning and policy.",
+  },
+  {
+    stage: "Action",
+    meaning: "A governed response proposed as a consequence of a decision.",
+  },
+  {
+    stage: "Automation",
+    meaning: "Coordinated execution only after explicit authority exists.",
+  },
+  {
+    stage: "Assistance",
+    meaning:
+      "AI retrieves, explains and recommends without owning truth, decision or authority.",
+  },
+];
+---
+
+<BaseLayout
+  title="Architecture"
+  description="Explore the constitutional architecture of Enterprise Reality, from governed publications and representation through reasoning, authorised action and AI assistance."
+  canonicalPath="/architecture/"
+>
+  <section class="page-hero section architecture-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Architecture Experience</p>
+        <h1>Enterprise Reality architecture</h1>
+        <p class="lead">
+          Enterprise Reality is a constitutional architecture for enterprise
+          cognition and governed decision-making. It is not a linear data
+          pipeline; it is a progression of responsibility from governed
+          publication through representation, reasoning, authorised action and
+          assistance.
+        </p>
+      </div>
+      <aside class="panel architecture-note">
+        <h2>Boundary first</h2>
+        <p>
+          Representation, reasoning, decision, authority and execution remain
+          distinct. No layer receives constitutional authority by appearing
+          later in the runtime progression.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <ArchitectureExplorer />
+
+  <section class="section" aria-labelledby="ownership-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Ownership Model</p>
+        <h2 id="ownership-heading">Core ownership boundaries</h2>
+        <p>
+          The platform remains understandable because each component owns a
+          narrow responsibility and explicitly does not own adjacent authority.
+        </p>
+      </div>
+      <div class="table-wrapper">
+        <table class="ownership-table">
+          <caption>
+            Enterprise Reality component ownership boundaries.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Component</th>
+              <th scope="col">Owns</th>
+              <th scope="col">Does Not Own</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ownershipRows.map((row) => (
+                <tr>
+                  <th scope="row">{row.component}</th>
+                  <td>{row.owns}</td>
+                  <td>{row.doesNotOwn}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="reasoning-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Reasoning Pipeline</p>
+        <h2 id="reasoning-heading">Reasoning determines what is justified</h2>
+        <p>
+          The reasoning pipeline evaluates governed relationships and evidence
+          before producing an explanation. Validation observes. Statistics
+          observe. Neither participates in reasoning.
+        </p>
+      </div>
+      <ol class="flow architecture-sequence" aria-label="Reasoning pipeline">
+        {reasoningServices.map((service) => <li>{service}</li>)}
+      </ol>
+      <div class="grid grid--3 architecture-explanations">
+        <article class="card">
+          <h3>Relationship path evaluation</h3>
+          <p>
+            Checks whether a governed relationship path can support the question
+            being asked.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Evidence resolution</h3>
+          <p>
+            Resolves supporting, contrary or insufficient governed evidence
+            without replacing absence with certainty.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Outcome and explanation</h3>
+          <p>
+            Produces a reviewable result and explanation rather than an
+            unexplained assertion.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="automation-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Automation Progression</p>
+        <h2 id="automation-heading">
+          Automation determines what governed action is permitted
+        </h2>
+        <p>
+          Reasoning determines what is justified. Automation determines what
+          governed action is permitted. Proposal is not authority. Execution
+          mode is not authority. Approval and pre-authorisation are explicit.
+          Decision, action proposal, execution authority and execution remain
+          separate checkpoints.
+        </p>
+      </div>
+      <ol
+        class="flow architecture-sequence"
+        aria-label="Automation progression"
+      >
+        {automationSteps.map((step) => <li>{step}</li>)}
+      </ol>
+      <div class="panel architecture-note">
+        <p>
+          Retry permission is not execution. The execution record is canonical
+          history for what was attempted, under which authority, with which
+          result.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="open-world-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Open-World Reasoning</p>
+        <h2 id="open-world-heading">Uncertainty remains explicit</h2>
+        <p>
+          Deterministic reasoning does not mean artificial certainty. Absence of
+          evidence does not automatically mean false, and human review remains
+          valid where evidence is insufficient.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="outcome-card">
+          <h3>Supporting governed evidence</h3>
+          <p class="outcome-card__result">SATISFIED</p>
+        </article>
+        <article class="outcome-card">
+          <h3>Explicit governed contrary evidence</h3>
+          <p class="outcome-card__result">NOT_SATISFIED</p>
+        </article>
+        <article class="outcome-card">
+          <h3>Insufficient governed evidence</h3>
+          <p class="outcome-card__result">INDETERMINATE</p>
+        </article>
+      </div>
+      <p class="architecture-plain">
+        These semantics are not probabilistic AI inference. They preserve the
+        distinction between known support, known contrary evidence and evidence
+        that remains insufficient.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ai-boundary-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">AI Boundary</p>
+        <h2 id="ai-boundary-heading">
+          AI assists. It does not establish constitutional authority.
+        </h2>
+        <p>
+          AI may assist with retrieval, explanation, summarisation, navigation,
+          recommendation and conversational assistance. It does not establish
+          canonical truth, policy authority, approval authority or execution
+          authority.
+        </p>
+      </div>
+      <div class="grid grid--2">
+        <article class="card">
+          <h3>Permitted assistive roles</h3>
+          <ul>
+            <li>Retrieval</li>
+            <li>Explanation</li>
+            <li>Summarisation</li>
+            <li>Navigation</li>
+            <li>Recommendation</li>
+            <li>Conversational assistance</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Prohibited constitutional ownership</h3>
+          <ul>
+            <li>Truth</li>
+            <li>Evidence resolution</li>
+            <li>Policy authority</li>
+            <li>Approval</li>
+            <li>Execution authority</li>
+            <li>Canonical decision</li>
+            <li>Execution</li>
+          </ul>
+        </article>
+      </div>
+      <p class="closing-statement architecture-boundary">
+        The Assistant retrieves. It does not decide.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="ladder-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Constitutional Ladder</p>
+        <h2 id="ladder-heading">
+          There is no direct constitutional path from Reality to AI
+        </h2>
+        <p>
+          Assistance appears after governed representation, evidence, reasoning,
+          decision, action and automation. It supports understanding; it does
+          not bypass constitutional responsibility.
+        </p>
+      </div>
+      <ol
+        class="flow architecture-sequence architecture-sequence--ladder"
+        aria-label="Constitutional Ladder"
+      >
+        {
+          ladderSteps.map((step) => (
+            <li class="ladder-stage">
+              <strong>{step.stage}</strong>
+              <span>{step.meaning}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="related-publications-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Related Publications</p>
+        <h2 id="related-publications-heading">Approved public basis</h2>
+      </div>
+      <ul class="publication-list">
+        <li>ER-CON-002 — Enterprise Reality Website Constitution</li>
+        <li>ER-WEB-001 — Enterprise Reality Website Specification</li>
+        <li>ER-WEB-002 — Enterprise Reality Website Architecture Guide</li>
+        <li>ER-WEB-003 — Enterprise Reality Website Design System</li>
+        <li>ER-WEB-004 — Enterprise Reality Website Publication Guide</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,192 @@
+---
+import StatusBadge from "./StatusBadge.astro";
+
+const layers = [
+  {
+    name: "Governed Publications",
+    status: "Released" as const,
+    purpose:
+      "Provide the approved body of public and governed programme knowledge.",
+    responsibility:
+      "Owns constitutional meaning, publication identity, lifecycle and review status.",
+    inputs: "Authored publications, governance records and approved metadata.",
+    outputs: "Stable public knowledge artefacts and publication evidence.",
+    nonResponsibilities:
+      "Does not execute runtime reasoning, automation or operational decisions.",
+  },
+  {
+    name: "Metadata Engine",
+    status: "Released" as const,
+    purpose:
+      "Interpret publication metadata through the canonical metadata boundary.",
+    responsibility:
+      "Owns publication identity, status, relationships and metadata semantics.",
+    inputs: "Governed publication descriptors.",
+    outputs: "Canonical metadata models for repository and platform consumers.",
+    nonResponsibilities:
+      "Does not own public narrative, graph reasoning or automation authority.",
+  },
+  {
+    name: "Enterprise Corpus",
+    status: "In Development" as const,
+    purpose:
+      "Organise governed publications into a discoverable enterprise body of knowledge.",
+    responsibility:
+      "Owns discovery, traversal, indexing, health and repository-level statistics.",
+    inputs: "Canonical metadata models and governed repository assets.",
+    outputs: "Corpus entries, repository views and health evidence.",
+    nonResponsibilities:
+      "Does not parse publication metadata independently or decide truth.",
+  },
+  {
+    name: "Enterprise Reality Graph",
+    status: "In Development" as const,
+    purpose:
+      "Represent relationships between stable enterprise and publication identities.",
+    responsibility:
+      "Owns semantic relationship representation for governed knowledge.",
+    inputs: "Corpus entries and canonical relationship metadata.",
+    outputs: "Graph relationships suitable for reasoning and explanation.",
+    nonResponsibilities:
+      "Does not replace source publications or become a second source of truth.",
+  },
+  {
+    name: "Enterprise Reasoning Engine",
+    status: "In Development" as const,
+    purpose:
+      "Resolve justified outcomes from governed relationships and evidence.",
+    responsibility:
+      "Owns path evaluation, evidence resolution, outcome resolution and explanations.",
+    inputs: "Enterprise Reality Graph relationships and governed evidence.",
+    outputs: "Reasoning outcomes, explanations and reviewable reports.",
+    nonResponsibilities:
+      "Does not approve action, execute work or create policy authority.",
+  },
+  {
+    name: "Enterprise Automation Engine",
+    status: "In Development" as const,
+    purpose:
+      "Determine whether a justified reasoning outcome may become governed action.",
+    responsibility:
+      "Owns policy evaluation, eligibility, approval requirements and execution governance.",
+    inputs:
+      "Reasoning reports, automation policy and explicit authority signals.",
+    outputs:
+      "Automation decisions, action proposals, execution records and retry governance.",
+    nonResponsibilities:
+      "Does not make reasoning true or treat proposal, mode or retry permission as authority.",
+  },
+  {
+    name: "Enterprise AI Runtime",
+    status: "Research" as const,
+    purpose:
+      "Assist people in retrieving, explaining, summarising and navigating governed knowledge.",
+    responsibility:
+      "Owns assistive interaction patterns where they remain subordinate to constitutional authority.",
+    inputs:
+      "Approved public knowledge, governed retrieval context and user prompts.",
+    outputs: "Assistance, summaries, recommendations and navigational support.",
+    nonResponsibilities:
+      "Does not own truth, evidence resolution, policy, approval, decision or execution.",
+  },
+];
+---
+
+<section
+  class="section section--muted architecture-explorer"
+  aria-labelledby="runtime-progression-heading"
+>
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Runtime Progression</p>
+      <h2 id="runtime-progression-heading">
+        Constitutional responsibility progresses layer by layer
+      </h2>
+      <p>
+        Enterprise Reality is not a linear data pipeline. Each layer receives
+        governed inputs, performs a bounded responsibility and passes a more
+        accountable representation forward.
+      </p>
+    </div>
+
+    <ol
+      class="architecture-flow"
+      aria-label="Constitutional runtime progression"
+    >
+      {
+        layers.map((layer) => (
+          <li>
+            <details class="architecture-layer" open data-layer-detail>
+              <summary aria-expanded="true">
+                <span class="architecture-layer__summary">
+                  <span class="architecture-layer__name">{layer.name}</span>
+                  <StatusBadge status={layer.status} />
+                </span>
+              </summary>
+              <div class="architecture-layer__body">
+                <dl>
+                  <div>
+                    <dt>Purpose</dt>
+                    <dd>{layer.purpose}</dd>
+                  </div>
+                  <div>
+                    <dt>Primary responsibility</dt>
+                    <dd>{layer.responsibility}</dd>
+                  </div>
+                  <div>
+                    <dt>Key inputs</dt>
+                    <dd>{layer.inputs}</dd>
+                  </div>
+                  <div>
+                    <dt>Key outputs</dt>
+                    <dd>{layer.outputs}</dd>
+                  </div>
+                  <div>
+                    <dt>Does not own</dt>
+                    <dd>{layer.nonResponsibilities}</dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<script>
+  const layerDetails = Array.from(
+    document.querySelectorAll("[data-layer-detail]"),
+  ).filter((element): element is HTMLDetailsElement => {
+    return element instanceof HTMLDetailsElement;
+  });
+
+  const setExpandedState = (detail: HTMLDetailsElement) => {
+    const summary = detail.querySelector("summary");
+
+    if (summary instanceof HTMLElement) {
+      summary.setAttribute("aria-expanded", String(detail.open));
+    }
+  };
+
+  if (layerDetails.length > 0) {
+    layerDetails.forEach((detail, index) => {
+      detail.open = index === 0;
+      setExpandedState(detail);
+
+      detail.addEventListener("toggle", () => {
+        if (detail.open) {
+          layerDetails
+            .filter((candidate) => candidate !== detail)
+            .forEach((candidate) => {
+              candidate.open = false;
+              setExpandedState(candidate);
+            });
+        }
+
+        setExpandedState(detail);
+      });
+    });
+  }
+</script>
