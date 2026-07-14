@@ -2,8 +2,8 @@
 
 ## Supported Status
 
-The Enterprise Reality website is in WEB-1.6 accessibility, SEO and hardening
-work and is not yet deployed as a production service.
+The Enterprise Reality website is in WEB-1.7 deployment-readiness work and is
+not yet deployed as a production service.
 
 ## Responsible Disclosure
 
@@ -21,6 +21,7 @@ so this repository does not publish or invent one.
 - No unnecessary cookies.
 - No secrets in the repository.
 - Least-privilege CI permissions.
+- GitHub Pages deployment is limited to the guarded `main` workflow path.
 - Dependency update configuration where practical.
 
 ## Content Security Policy Recommendation

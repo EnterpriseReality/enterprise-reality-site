@@ -20,11 +20,13 @@ Implementation follows these publications rather than redefining them.
 
 ## Current Status
 
-Website Programme: In Development
+Website Programme: Deployment Readiness
 
-Current story: WEB-1.6 — Accessibility, SEO and Hardening
+Current story: WEB-1.7 — Deployment Readiness
 
-Deployment: Deferred. No production deployment or DNS change is part of WEB-1.6.
+Deployment: Prepared but deferred. WEB-1.7 adds repeatable GitHub Pages
+readiness, release documentation and custom-domain preparation without
+publishing the site, changing DNS or modifying hosting settings.
 
 ## Prerequisites
 
@@ -99,6 +101,25 @@ content is excluded from production routes.
 The site includes format checks, linting, Astro/TypeScript checks, unit tests,
 Playwright browser smoke tests, axe accessibility smoke tests, static build
 verification, sitemap generation and public/private boundary scanning.
+
+## Deployment Readiness
+
+Production deployment is prepared through GitHub Actions and GitHub Pages, but
+requires separate release approval before publication.
+
+- Pull requests run the deployment workflow build and all quality gates without
+  deploying.
+- Pushes to `main` are the only event allowed to deploy the uploaded Pages
+  artifact.
+- The canonical production origin is `https://www.enterprisereality.org`.
+- `public/CNAME` prepares the GitHub Pages custom-domain artifact for
+  `www.enterprisereality.org`.
+- Apex-domain support for `https://enterprisereality.org` is documented as a
+  Cloudflare DNS and redirect configuration step.
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) and
+[docs/RELEASE-PROCESS.md](docs/RELEASE-PROCESS.md) before approving any
+production publication.
 
 ## Public / Private Boundary
 
