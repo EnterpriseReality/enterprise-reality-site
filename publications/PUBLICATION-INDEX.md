@@ -36,7 +36,14 @@ ER-WEB-005 Enterprise 0.2.0 In Development Public / Canonical Engineering
 Reality Website
 Engineering
 Handbook
+
 ------------------------------------------------------------------------------
+
+## Current Development Publication Registrations
+
+| Publication ID | Title | Version | Status | Classification | Milestone | Review State |
+| --- | --- | --- | --- | --- | --- | --- |
+| ER-CDE-001 | Constitution-Driven Engineering Repository | 1.0.0 | Published | Permanent Enterprise Reality Canon | CDE-R3 - Publication Pass | Approved |
 
 ## Publication Families
 
