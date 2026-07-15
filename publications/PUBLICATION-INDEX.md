@@ -31,6 +31,11 @@ ER-WEB-004 Enterprise 1.0 Approved Public
 Reality Website  
 Publication  
 Guide
+
+ER-WEB-005 Enterprise 0.2.0 In Development Public / Canonical Engineering
+Reality Website
+Engineering
+Handbook
 ------------------------------------------------------------------------------
 
 ## Publication Families
