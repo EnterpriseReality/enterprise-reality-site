@@ -134,11 +134,9 @@ test("architecture route loads with canonical metadata and navigation", async ({
       name: "Enterprise Reality architecture",
     }),
   ).toBeVisible();
-  await expect(
-    page
-      .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "Architecture" }),
-  ).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Primary" })).toContainText(
+    "Platform",
+  );
 });
 
 test("runtime progression exposes every approved layer with textual status", async ({

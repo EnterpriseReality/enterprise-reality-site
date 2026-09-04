@@ -2,16 +2,11 @@
 const year = new Date().getUTCFullYear();
 const footerLinks = [
   { href: "/", label: "Home" },
-  { href: "/why-enterprise-reality/", label: "Why Enterprise Reality" },
+  { href: "/enterprise-reality/", label: "Enterprise Reality" },
+  { label: "Explorer" },
   { href: "/platform/", label: "Platform" },
-  { href: "/architecture/", label: "Architecture" },
-  { href: "/industries/", label: "Industries" },
-  { href: "/research/", label: "Research" },
-  { href: "/roadmap/", label: "Roadmap" },
-  {
-    href: "/constitution-driven-engineering/",
-    label: "Constitution-Driven Engineering",
-  },
+  { href: "/case-studies/damp-and-mould/", label: "Case Studies" },
+  { label: "Knowledge" },
   { href: "/about/", label: "About" },
 ];
 ---
@@ -23,7 +18,15 @@ const footerLinks = [
       <p>A governed public website for the Enterprise Reality Programme.</p>
     </div>
     <nav aria-label="Footer">
-      {footerLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      {
+        footerLinks.map((link) =>
+          link.href ? (
+            <a href={link.href}>{link.label}</a>
+          ) : (
+            <span>{link.label}</span>
+          ),
+        )
+      }
     </nav>
     <p class="site-footer__meta">
       &copy; {year} Enterprise Reality Programme. Deployment deferred.

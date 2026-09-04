@@ -1,11 +1,12 @@
 ---
 import StatusBadge from "../components/StatusBadge.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { capabilityState } from "../utilities/public-capabilities";
 
 const capabilities = [
   {
     name: "Studio",
-    status: "Planned" as const,
+    status: capabilityState("studio").maturity,
     purpose:
       "Author and govern Enterprise Reality knowledge, publications and platform models.",
     users: "Architects, authors, reviewers and programme contributors.",
@@ -14,7 +15,7 @@ const capabilities = [
   },
   {
     name: "Runtime",
-    status: "In Development" as const,
+    status: capabilityState("runtime").maturity,
     purpose:
       "Provide the governed corpus, graph, reasoning and automation foundations of the programme.",
     users: "Platform engineers, architects and future service builders.",
@@ -23,7 +24,7 @@ const capabilities = [
   },
   {
     name: "Decision Services",
-    status: "Planned" as const,
+    status: capabilityState("decision-services").maturity,
     purpose:
       "Provide future service-level access to explainable decision support.",
     users: "Regulated enterprise teams that need governed decision support.",
@@ -31,7 +32,7 @@ const capabilities = [
   },
   {
     name: "Explorer",
-    status: "Planned" as const,
+    status: capabilityState("explorer").maturity,
     purpose:
       "Navigate governed knowledge, relationships, evidence and programme publications.",
     users: "Architects, researchers, reviewers and enterprise stakeholders.",
@@ -39,7 +40,7 @@ const capabilities = [
   },
   {
     name: "Connect",
-    status: "Planned" as const,
+    status: capabilityState("connect").maturity,
     purpose:
       "Enable responsible integration with existing operational systems.",
     users: "Integration teams and platform owners.",
@@ -48,7 +49,7 @@ const capabilities = [
   },
   {
     name: "Assistant",
-    status: "Research" as const,
+    status: capabilityState("assistant").maturity,
     purpose:
       "Support retrieval, explanation, recommendation, navigation and investigation.",
     users:

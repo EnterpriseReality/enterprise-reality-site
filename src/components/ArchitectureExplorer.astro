@@ -1,10 +1,11 @@
 ---
 import StatusBadge from "./StatusBadge.astro";
+import { capabilityState } from "../utilities/public-capabilities";
 
 const layers = [
   {
     name: "Governed Publications",
-    status: "Released" as const,
+    status: capabilityState("governed-publications").maturity,
     purpose:
       "Provide the approved body of public and governed programme knowledge.",
     responsibility:
@@ -16,7 +17,7 @@ const layers = [
   },
   {
     name: "Metadata Engine",
-    status: "Released" as const,
+    status: capabilityState("metadata-engine").maturity,
     purpose:
       "Interpret publication metadata through the canonical metadata boundary.",
     responsibility:
@@ -28,7 +29,7 @@ const layers = [
   },
   {
     name: "Enterprise Corpus",
-    status: "In Development" as const,
+    status: capabilityState("enterprise-corpus").maturity,
     purpose:
       "Organise governed publications into a discoverable enterprise body of knowledge.",
     responsibility:
@@ -40,7 +41,7 @@ const layers = [
   },
   {
     name: "Enterprise Reality Graph",
-    status: "In Development" as const,
+    status: capabilityState("enterprise-reality-graph").maturity,
     purpose:
       "Represent relationships between stable enterprise and publication identities.",
     responsibility:
@@ -52,7 +53,7 @@ const layers = [
   },
   {
     name: "Enterprise Reasoning Engine",
-    status: "In Development" as const,
+    status: capabilityState("reasoning-engine").maturity,
     purpose:
       "Resolve justified outcomes from governed relationships and evidence.",
     responsibility:
@@ -64,7 +65,7 @@ const layers = [
   },
   {
     name: "Enterprise Automation Engine",
-    status: "In Development" as const,
+    status: capabilityState("automation-engine").maturity,
     purpose:
       "Determine whether a justified reasoning outcome may become governed action.",
     responsibility:
@@ -78,7 +79,7 @@ const layers = [
   },
   {
     name: "Enterprise AI Runtime",
-    status: "Research" as const,
+    status: capabilityState("ai-runtime").maturity,
     purpose:
       "Assist people in retrieving, explaining, summarising and navigating governed knowledge.",
     responsibility:

@@ -37,6 +37,10 @@ Reality Website
 Engineering
 Handbook
 
+ER-WEB-006 Website v2 1.0.0 Approved Public
+Information Architecture
+Amendment
+
 ------------------------------------------------------------------------------
 
 ## Current Development Publication Registrations

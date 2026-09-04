@@ -1,16 +1,11 @@
 ---
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/why-enterprise-reality/", label: "Why Enterprise Reality" },
+  { href: "/enterprise-reality/", label: "Enterprise Reality" },
+  { label: "Explorer" },
   { href: "/platform/", label: "Platform" },
-  { href: "/architecture/", label: "Architecture" },
-  { href: "/industries/", label: "Industries" },
-  { href: "/research/", label: "Research" },
-  { href: "/roadmap/", label: "Roadmap" },
-  {
-    href: "/constitution-driven-engineering/",
-    label: "Constitution-Driven Engineering",
-  },
+  { href: "/case-studies/damp-and-mould/", label: "Case Studies" },
+  { label: "Knowledge" },
   { href: "/about/", label: "About" },
 ];
 
@@ -43,14 +38,20 @@ const isCurrent = (href: string) =>
       data-primary-nav
     >
       {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            aria-current={isCurrent(item.href) ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        ))
+        navItems.map((item) =>
+          item.href ? (
+            <a
+              href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span class="primary-nav__pending" aria-disabled="true">
+              {item.label}
+            </span>
+          ),
+        )
       }
     </nav>
   </div>
@@ -125,6 +126,13 @@ const isCurrent = (href: string) =>
     text-decoration: none;
   }
 
+  .primary-nav__pending {
+    color: var(--text-secondary);
+    cursor: default;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
   .primary-nav a:hover,
   .primary-nav a[aria-current="page"] {
     color: var(--text-primary);
@@ -189,7 +197,8 @@ const isCurrent = (href: string) =>
       padding: var(--space-3) var(--space-4) var(--space-5);
     }
 
-    .primary-nav a {
+    .primary-nav a,
+    .primary-nav__pending {
       min-height: 3rem;
       display: flex;
       align-items: center;

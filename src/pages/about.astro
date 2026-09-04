@@ -1,6 +1,7 @@
 ---
 import StatusBadge from "../components/StatusBadge.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { capabilityState } from "../utilities/public-capabilities";
 ---
 
 <BaseLayout
@@ -21,7 +22,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
       <aside class="panel">
         <h2>Programme status</h2>
-        <StatusBadge status="In Development" />
+        <StatusBadge status={capabilityState("runtime").maturity} />
         <p>
           The public website and platform programme are under active
           development. Live operating status and commercial availability are

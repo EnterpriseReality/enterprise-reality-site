@@ -13,7 +13,7 @@ const milestones = [
 const futureCapabilities = [
   ["Operational Readiness", "Planned"],
   ["Decision Services", "Planned"],
-  ["Explorer", "Planned"],
+  ["Explorer", "In Development"],
   ["Assistant", "Research"],
 ];
 
@@ -27,7 +27,7 @@ const unsupportedDatePatterns = [
   /\bpercent(?:age)?\b/i,
 ];
 
-test("roadmap page loads with canonical metadata and active navigation", async ({
+test("roadmap page loads with canonical metadata and global navigation", async ({
   page,
 }) => {
   await page.goto("/roadmap/");
@@ -45,11 +45,9 @@ test("roadmap page loads with canonical metadata and active navigation", async (
     "content",
     "https://www.enterprisereality.org/roadmap/",
   );
-  await expect(
-    page
-      .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "Roadmap" }),
-  ).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Primary" })).toContainText(
+    "Knowledge",
+  );
   await expect(
     page.getByRole("heading", {
       level: 1,
@@ -94,7 +92,8 @@ test("next platform stage and future direction use approved status vocabulary", 
   await expect(page.getByText("Current programme work centres on")).toHaveCount(
     0,
   );
-  await expect(page.locator("main")).not.toContainText("In Development");
+  await expect(page.locator("main")).toContainText("Explorer");
+  await expect(page.locator("main")).toContainText("In Development");
 
   for (const [capability, status] of futureCapabilities.slice(1)) {
     const card = page.locator(".roadmap-future .card").filter({

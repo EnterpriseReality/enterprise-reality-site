@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const foundations = [
+  [
+    "Reality versus representation",
+    "The enterprise exists independently of its records. A representation is a governed account of parts of that reality; it is not reality itself.",
+  ],
+  [
+    "Stable identity precedes representation",
+    "A person, property, organisation or obligation needs a stable identity before records from different systems can be understood as referring to the same thing.",
+  ],
+  [
+    "Relationships give identities context",
+    "Relationships connect identities across the enterprise: resident and property, obligation and policy, inspection and repair. Context comes from those connections.",
+  ],
+  [
+    "Events and time explain change",
+    "Events establish what changed and when. A current record without history may not explain how the current situation came to be.",
+  ],
+  [
+    "Evidence and provenance explain belief",
+    "Evidence supports, contradicts or leaves an assertion unresolved. Provenance preserves where an observation came from and the circumstances in which it was recorded.",
+  ],
+  [
+    "Conflicting and incomplete observations remain visible",
+    "A governed representation does not erase disagreement or fill an evidence gap with certainty. It makes the limits of what is currently justified inspectable.",
+  ],
+];
+---
+
+<BaseLayout
+  title="What is Enterprise Reality"
+  description="Enterprise Reality is a governed representation through which an enterprise understands what its evidence justifies."
+  canonicalPath="/enterprise-reality/"
+>
+  <section class="page-hero section">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Enterprise Reality</p>
+        <h1>Understand the enterprise as more than its systems</h1>
+        <p class="lead">
+          Enterprise Reality is the governed representation through which an
+          enterprise understands what its evidence justifies about the people,
+          places, obligations, events and decisions that matter.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="definition">
+    <div class="container reading-content">
+      <p class="eyebrow">Definition</p>
+      <h2 id="definition">Governed understanding, not a single record</h2>
+      <p>
+        Enterprise Reality brings together governed representations while
+        keeping clear the distinction between the enterprise itself and the
+        account through which the enterprise understands it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="foundations">
+    <div class="container reading-content">
+      <p class="eyebrow">How understanding is formed</p>
+      <h2 id="foundations">What a coherent account preserves</h2>
+      <div class="foundation-list">
+        {
+          foundations.map(([title, text]) => (
+            <article>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="section section--muted"
+    aria-labelledby="governed-understanding"
+  >
+    <div class="container reading-content">
+      <p class="eyebrow">Coherence without pretence</p>
+      <h2 id="governed-understanding">Governed understanding</h2>
+      <p>
+        Coherence does not mean forcing all observations into agreement. It
+        means making the identities, relationships, evidence, provenance and
+        unresolved questions needed for accountable understanding available in
+        one governed frame.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="not">
+    <div class="container reading-content">
+      <p class="eyebrow">Boundary</p>
+      <h2 id="not">What Enterprise Reality is not</h2>
+      <ul>
+        <li>
+          It is not a single source of truth, master database or data lake.
+        </li>
+        <li>It is not a knowledge graph alone, and it is not AI.</li>
+        <li>It does not replace ERP, CRM or other operational systems.</li>
+        <li>
+          It does not make evidence equal truth or automatically eliminate
+          disagreement.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="enables">
+    <div class="container reading-content">
+      <p class="eyebrow">What follows</p>
+      <h2 id="enables">What coherent Enterprise Reality enables</h2>
+      <p>
+        When an enterprise can inspect what its evidence supports and what
+        remains unresolved, people can investigate, reason, decide and consider
+        governed action with clearer accountability. These are enabled by
+        understanding; they are not substitutes for it.
+      </p>
+      <p>
+        <a href="/case-studies/damp-and-mould/">See the Damp &amp; Mould case</a
+        >
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .reading-content {
+    max-width: var(--width-reading);
+  }
+
+  .foundation-list {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  .foundation-list h3 {
+    font-size: var(--text-md);
+  }
+</style>

@@ -1,251 +1,150 @@
 ---
-import Callout from "../components/Callout.astro";
-import StatusBadge from "../components/StatusBadge.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { capabilityState } from "../utilities/public-capabilities";
 
-const progression = [
-  "Applications and Events",
-  "Governed Representation",
-  "Evidence",
-  "Reasoning",
-  "Policy",
-  "Decision",
-  "Authorised Action",
-];
-
-const platformItems = [
-  {
-    name: "Studio",
-    status: "Planned" as const,
-    text: "Authoring and governance workspace for Enterprise Reality knowledge.",
-  },
-  {
-    name: "Runtime",
-    status: "In Development" as const,
-    text: "Current programme focus for governed corpus, graph, reasoning and automation foundations.",
-  },
-  {
-    name: "Decision Services",
-    status: "Planned" as const,
-    text: "Future product expression for explainable decision support across enterprise contexts.",
-  },
-  {
-    name: "Explorer",
-    status: "Planned" as const,
-    text: "Planned public and internal navigation experience for governed knowledge.",
-  },
-  {
-    name: "Connect",
-    status: "Planned" as const,
-    text: "Planned enablement layer for responsible integration with existing systems.",
-  },
-  {
-    name: "Assistant",
-    status: "Research" as const,
-    text: "Future assistance model for retrieval, explanation and investigation. It does not decide, approve or execute.",
-  },
-];
-
-const statusLabels = [
-  "Released",
-  "In Development",
-  "Planned",
-  "Research",
-  "Concept",
-] as const;
-
-const outcomes = [
-  {
-    title: "Explainable Decisions",
-    text: "Decisions can be traced to governed representations, evidence, policy and reasoning paths.",
-  },
-  {
-    title: "Consistent Policy Application",
-    text: "Policy is treated as an enterprise responsibility rather than an inconsistent afterthought in disconnected workflows.",
-  },
-  {
-    title: "Governed Automation",
-    text: "Automation is constrained by evidence, authority and permission before action is taken.",
-  },
-  {
-    title: "Audit-ready Traceability",
-    text: "The path from identity and evidence to decision and authorised action remains reviewable.",
-  },
-  {
-    title: "Trustworthy AI Assistance",
-    text: "AI can help retrieve and explain governed knowledge without becoming the source of constitutional truth.",
-  },
-];
+const explorer = capabilityState("explorer");
 ---
 
 <BaseLayout
   title="Enterprise Reality"
-  description="Enterprise Reality is the Constitutional Decision Platform for regulated enterprises, connecting governed knowledge, operational evidence and enterprise policy."
+  description="Understand the enterprise beyond its systems, and why coherent governed understanding matters."
   canonicalPath="/"
 >
-  <section class="hero page-hero section">
+  <section class="page-hero section">
     <div class="container page-hero__inner">
       <div>
         <p class="eyebrow">Enterprise Reality</p>
-        <h1>Enterprise Reality</h1>
-        <p class="hero__position">
-          The Constitutional Decision Platform for Regulated Enterprises
-        </p>
+        <h1>The enterprise exists beyond its systems</h1>
         <p class="lead">
-          Enterprise Reality connects governed knowledge, operational evidence
-          and enterprise policy to produce explainable decisions and authorised
-          action across existing systems.
+          An enterprise is made of people, places, obligations, events,
+          decisions and consequences. Its systems record parts of that reality;
+          none necessarily holds the whole picture.
         </p>
-        <div class="hero__actions" aria-label="Primary actions">
-          <a href="/platform/" class="button">Explore the Architecture</a>
-          <a href="/why-enterprise-reality/" class="button button--secondary">
-            Why Enterprise Reality
-          </a>
-        </div>
       </div>
-      <Callout title="Public status">
-        <p>
-          This website presents approved public narrative for an in-development
-          programme. It does not present live operational use or customer use.
-        </p>
-      </Callout>
     </div>
   </section>
 
-  <section class="section section--muted" aria-labelledby="problem-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">The Problem</p>
-        <h2 id="problem-heading">
-          Operational systems do not create shared constitutional understanding
-        </h2>
-      </div>
+  <section class="section section--muted" aria-labelledby="fragmentation">
+    <div class="container reading-content">
+      <p class="eyebrow">The problem</p>
+      <h2 id="fragmentation">Understanding becomes fragmented</h2>
       <p class="lead">
-        Enterprises already operate many systems for records, work, reporting
-        and execution. The missing layer is often a shared governed
-        understanding of identity, evidence, policy, decisions, authority and
-        execution across those systems.
+        Records, observations and decisions accumulate in operational systems
+        built for different purposes. The result can be a fragmented account of
+        what is happening, why it is believed, and what should be considered
+        next.
       </p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="progression-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Enterprise Reality Progression</p>
-        <h2 id="progression-heading">
-          From operational events to authorised action
-        </h2>
-      </div>
-      <ol class="flow">
-        {progression.map((item) => <li>{item}</li>)}
-      </ol>
+  <section class="section" aria-labelledby="damp-mould">
+    <div class="container reading-content">
+      <p class="eyebrow">A concrete situation</p>
+      <h2 id="damp-mould">Damp &amp; Mould makes the problem visible</h2>
+      <p>
+        A resident report, property history, inspection observations, repair
+        records and policy may each sit in a different place. The question is
+        not simply where the data is; it is how the enterprise can understand
+        the situation coherently while preserving what is uncertain or disputed.
+      </p>
+      <p>
+        <a href="/case-studies/damp-and-mould/"
+          >Follow the Damp &amp; Mould case</a
+        >
+      </p>
     </div>
   </section>
 
-  <section class="section section--muted" aria-labelledby="platform-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Platform at a Glance</p>
-        <h2 id="platform-heading">
-          A constitutional platform with explicit maturity labels
-        </h2>
-      </div>
-      <div class="grid grid--3">
-        {
-          platformItems.map((item) => (
-            <article class="card">
-              <h3>{item.name}</h3>
-              <StatusBadge status={item.status} />
-              <p>{item.text}</p>
-            </article>
-          ))
-        }
-      </div>
-      <div class="status-legend" aria-label="Capability status labels">
-        {statusLabels.map((status) => <StatusBadge status={status} />)}
-      </div>
+  <section class="section section--muted" aria-labelledby="missing-capability">
+    <div class="container reading-content">
+      <p class="eyebrow">What is missing</p>
+      <h2 id="missing-capability">Coherent governed understanding</h2>
+      <p>
+        The missing capability is not another operational system. It is a
+        governed way to connect identity, relationships, events, evidence and
+        provenance without pretending that disagreement or incomplete
+        observation has disappeared.
+      </p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="matters-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Why it Matters</p>
-        <h2 id="matters-heading">Outcomes depend on governed understanding</h2>
-      </div>
-      <div class="grid grid--3">
-        {
-          outcomes.map((outcome) => (
-            <article class="outcome-card">
-              <h3>{outcome.title}</h3>
-              <p>{outcome.text}</p>
-            </article>
-          ))
-        }
-      </div>
+  <section class="section" aria-labelledby="enterprise-reality">
+    <div class="container reading-content">
+      <p class="eyebrow">The response</p>
+      <h2 id="enterprise-reality">Enterprise Reality</h2>
+      <p>
+        Enterprise Reality is the governed representation through which an
+        enterprise can understand what its evidence justifies. It does not
+        replace the enterprise, its people or its operational systems.
+      </p>
+      <p><a href="/enterprise-reality/">Understand Enterprise Reality</a></p>
     </div>
   </section>
 
-  <section class="section section--muted" aria-labelledby="closing-heading">
-    <div class="container">
-      <h2 id="closing-heading" class="closing-statement">
-        Understand before change.
+  <section class="section section--muted" aria-labelledby="platform">
+    <div class="container reading-content">
+      <p class="eyebrow">From understanding to execution</p>
+      <h2 id="platform">The Platform makes Enterprise Reality executable</h2>
+      <p>
+        The Platform provides the bounded technical capabilities through which
+        governed representations can be worked with. It is not the opening
+        proposition: execution follows understanding.
+      </p>
+      <p><a href="/platform/">Explore the current Platform overview</a></p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="explorer">
+    <div class="container reading-content">
+      <p class="eyebrow">Human experience</p>
+      <h2 id="explorer">
+        Explorer helps people investigate Enterprise Reality
       </h2>
+      <p>
+        Explorer is an authorised product with implemented and demonstrated
+        programme capability. Its public commercial availability is not claimed.
+      </p>
+      <p class="status-note">
+        Programme standing: {explorer.programmeStanding}. Capability maturity:
+        {explorer.maturity}.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="downstream">
+    <div class="container reading-content">
+      <p class="eyebrow">What follows</p>
+      <h2 id="downstream">
+        Reasoning and action are downstream of understanding
+      </h2>
+      <p>
+        Reasoning can assess governed relationships and evidence. Decisions,
+        authorised action, automation and AI remain bounded downstream
+        responsibilities; none replaces the need to understand the situation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="verification">
+    <div class="container reading-content">
+      <p class="eyebrow">Verification</p>
+      <h2 id="verification">Reference substantiates understanding</h2>
+      <p>
+        Deeper programme authority and approved public evidence remain available
+        for verification. They support the explanation; they do not have to
+        precede it.
+      </p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .hero__position {
-    color: var(--text-primary);
-    font-size: var(--text-xl);
-    font-weight: var(--weight-semibold);
-    line-height: var(--leading-heading);
-    max-width: 34rem;
+  .reading-content {
+    max-width: var(--width-reading);
   }
 
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-top: var(--space-6);
-  }
-
-  .button {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    border: 1px solid var(--surface-strong);
-    border-radius: var(--radius-sm);
-    background: var(--surface-strong);
-    color: var(--text-inverse);
-    padding: 0 var(--space-4);
-    font-weight: var(--weight-semibold);
-    text-decoration: none;
-  }
-
-  .button:hover {
-    color: var(--text-inverse);
-  }
-
-  .button--secondary {
-    background: transparent;
-    color: var(--text-primary);
-  }
-
-  .button--secondary:hover {
-    color: var(--text-primary);
-  }
-
-  .card .status-badge {
-    margin-bottom: var(--space-4);
-  }
-
-  .status-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-5);
+  .status-note {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
   }
 </style>

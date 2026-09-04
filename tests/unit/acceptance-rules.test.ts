@@ -21,6 +21,8 @@ describe("WEB-1-RW1 acceptance repository rules", () => {
     expect(manifest.origin).toBe(origin);
     expect(manifest.routes).toEqual([
       "/",
+      "/enterprise-reality/",
+      "/case-studies/damp-and-mould/",
       "/404/",
       "/why-enterprise-reality/",
       "/platform/",

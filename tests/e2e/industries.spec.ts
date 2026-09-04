@@ -207,15 +207,14 @@ test("energy and petroleum page loads with cargo transfer assurance content", as
   ).toBeVisible();
 });
 
-test("primary navigation includes industries", async ({ page }) => {
+test("legacy industries route retains the global v2 navigation", async ({
+  page,
+}) => {
   await page.goto("/industries/");
 
-  const industriesLink = page
-    .getByRole("navigation", { name: "Primary" })
-    .getByRole("link", { name: "Industries" });
-
-  await expect(industriesLink).toHaveAttribute("href", "/industries/");
-  await expect(industriesLink).toHaveAttribute("aria-current", "page");
+  await expect(page.getByRole("navigation", { name: "Primary" })).toContainText(
+    "Case Studies",
+  );
 });
 
 test("industries internal links are valid", async ({ page, request }) => {

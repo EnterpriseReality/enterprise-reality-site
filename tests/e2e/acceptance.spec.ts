@@ -87,16 +87,16 @@ test("public narrative preserves constitutional positioning and boundaries", asy
 }) => {
   await page.goto("/");
   await expect(
-    page.getByText(
-      "The Constitutional Decision Platform for Regulated Enterprises",
-    ),
+    page.getByRole("heading", {
+      name: "The enterprise exists beyond its systems",
+    }),
   ).toBeVisible();
 
-  await page.goto("/why-enterprise-reality/");
-  await expect(page.getByText("Enterprise Reality complements")).toBeVisible();
+  await page.goto("/enterprise-reality/");
+  await expect(page.getByText("What Enterprise Reality is not")).toBeVisible();
   await expect(page.getByText("It does not replace ERP, CRM")).toBeVisible();
   await expect(
-    page.getByText("AI should not determine constitutional truth"),
+    page.getByText("It is not a knowledge graph alone, and it is not AI."),
   ).toBeVisible();
 
   await page.goto("/architecture/");
@@ -146,7 +146,7 @@ test("capability status labels match approved release and future status", async 
   for (const [name, status] of [
     ["Operational Readiness", "Planned"],
     ["Decision Services", "Planned"],
-    ["Explorer", "Planned"],
+    ["Explorer", "In Development"],
     ["Assistant", "Research"],
   ]) {
     const region = main.filter({ hasText: name });
