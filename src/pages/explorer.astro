@@ -1,0 +1,298 @@
+---
+import StatusBadge from "../components/StatusBadge.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { capabilityState } from "../utilities/public-capabilities";
+
+const explorer = capabilityState("explorer");
+
+const questions = [
+  {
+    id: "identity",
+    name: "Identity",
+    question: "What exists?",
+    text: "An investigation begins with a governed enterprise identity: a resident, property, tenancy, asset, agreement, organisation, event or case. The same identity may be represented differently across operational systems. Stable identity comes before any representation.",
+  },
+  {
+    id: "reality",
+    name: "Reality",
+    question: "What is known about it?",
+    text: "Explorer reveals the governed understanding currently available about an identity or situation. It keeps incomplete information, uncertainty and conflicting observations visible rather than turning gaps into certainty.",
+  },
+  {
+    id: "evidence",
+    name: "Evidence",
+    question: "Why do we believe that?",
+    text: "Material facts and conclusions can be investigated towards their supporting evidence and provenance. An observation, its evidence and a conclusion remain distinct; evidence is not truth merely because it exists.",
+  },
+  {
+    id: "relationships",
+    name: "Relationships",
+    question: "How is it connected?",
+    text: "Relationships reveal enterprise context between governed identities. They help a person understand how a resident, tenancy, property, inspection and evidence belong to the same situation without reducing that context to a graph visualisation.",
+  },
+  {
+    id: "decisions",
+    name: "Decisions",
+    question: "What conclusions have been justified?",
+    text: "Explorer may reveal a conclusion, its evidential basis, its reasoning and relevant authority context. It does not make the decision or own the authority to act: conclusion, decision, authority and action remain separate.",
+  },
+  {
+    id: "timeline",
+    name: "Timeline",
+    question: "How has it changed over time?",
+    text: "Enterprise situations unfold through time. Explorer helps someone understand history and change, including missing or uncertain dates, rather than presenting only the latest application state.",
+  },
+];
+---
+
+<BaseLayout
+  title="Explorer"
+  description="Explorer is the Enterprise Reality investigation experience, helping people understand an enterprise situation through governed identity, evidence, relationships and time."
+  canonicalPath="/explorer/"
+>
+  <section class="page-hero section">
+    <div class="container explorer-hero">
+      <div>
+        <p class="eyebrow">Enterprise Explorer</p>
+        <h1>Understand the enterprise, not its applications</h1>
+        <p class="lead">
+          Explorer lets people investigate Enterprise Reality without needing to
+          understand the systems underneath it. Begin with the enterprise
+          identity or situation you need to understand—not a database, table,
+          API or application.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="investigation">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">An investigation experience</p>
+      </div>
+      <div>
+        <h2 id="investigation">A governed way to follow a real situation</h2>
+        <p>
+          Explorer is an investigation experience over governed Enterprise
+          Reality. It is not primarily BI or reporting, a dashboard, generic
+          enterprise search, a document repository, a case-management
+          replacement, an ERP or CRM replacement, a graph visualisation tool or
+          an AI chatbot.
+        </p>
+        <p>
+          It helps a person investigate what is available, what supports it and
+          what remains unresolved—without presenting Explorer as the authority
+          that establishes Enterprise Reality.
+        </p>
+      </div>
+      <p class="supporting-note">
+        Explorer reveals Enterprise Reality. It does not create it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="questions">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">The investigation model</p>
+        <h2 id="questions">Six questions for understanding a situation</h2>
+        <p>
+          These questions provide the intellectual structure for an Explorer
+          investigation. They move from identity and available understanding
+          towards evidence, context, justified conclusions and change over time.
+        </p>
+      </div>
+      <ol class="investigation-field">
+        {
+          questions.map((item, index) => (
+            <li class="investigation-field__question">
+              <p class="question-card__number">0{index + 1}</p>
+              <h3 id={item.id}>{item.name}</h3>
+              <p class="question-card__question">{item.question}</p>
+              <p>{item.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="damp-mould">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">A Damp &amp; Mould investigation</p>
+      </div>
+      <div>
+        <h2 id="damp-mould">Follow the context, not a single record</h2>
+        <p>
+          In the Damp &amp; Mould case, an investigator might move from a
+          property to its resident and tenancy, then through a complaint,
+          inspection, evidence, repairs, timeline and relationships to the
+          conclusions that the available evidence can justify.
+        </p>
+        <ol
+          class="investigation-path sequence sequence--horizontal"
+          style="--sequence-count: 5"
+          aria-label="Illustrative investigation path"
+        >
+          <li>Property</li>
+          <li>Resident</li>
+          <li>Tenancy</li>
+          <li>Complaint</li>
+          <li>Inspection</li>
+          <li>Evidence</li>
+          <li>Repairs</li>
+          <li>Timeline</li>
+          <li>Relationships</li>
+          <li>Justified conclusions</li>
+        </ol>
+        <p>
+          This is a bounded explanatory investigation pattern, not a claim about
+          a customer implementation, production housing deployment or autonomous
+          remediation. <a href="/case-studies/damp-and-mould/"
+            >Read the Damp &amp; Mould case</a
+          >.
+        </p>
+      </div>
+      <aside class="authority-note" aria-label="Current Explorer standing">
+        <StatusBadge status={explorer.maturity} />
+        <span>{explorer.programmeStanding}.</span>
+        <span
+          >Public and commercial availability: {
+            explorer.publicAvailability
+          }.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="platform-boundary">
+    <div class="container reading-content">
+      <p class="eyebrow">A clear dependency</p>
+      <h2 id="platform-boundary">Explorer reveals; it does not establish</h2>
+      <ol class="explorer-flow">
+        <li>Operational systems provide observations</li>
+        <li>The Enterprise Reality Platform governs Enterprise Reality</li>
+        <li>Explorer reveals that governed Enterprise Reality</li>
+        <li>People investigate and apply human judgement</li>
+      </ol>
+      <p>
+        Explorer does not own canonical identity governance, evidence creation,
+        policy authority, decision authority or operational execution. <a
+          href="/enterprise-reality/">Understand Enterprise Reality</a
+        > and <a href="/platform/">see the Platform overview</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="ai-boundary">
+    <div class="container reading-content">
+      <p class="eyebrow">AI remains advisory</p>
+      <h2 id="ai-boundary">
+        Enterprise Reality is authoritative. AI is advisory.
+      </h2>
+      <p>
+        AI may assist with navigation, explanation, summarisation and
+        investigation assistance. It does not determine enterprise identity,
+        establish Enterprise Reality, invent evidence, resolve unsupported
+        contradictions, approve decisions or execute action.
+      </p>
+      <p>
+        AI-assisted investigation is not presented here as a completed public
+        Explorer capability.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .reading-content {
+    max-width: var(--width-reading);
+  }
+
+  .investigation-field {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .investigation-field__question {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-5) 0;
+  }
+
+  .investigation-field__question h3 {
+    margin-bottom: var(--space-1);
+  }
+
+  .investigation-field__question p:last-child {
+    margin-bottom: 0;
+  }
+
+  .question-card__number,
+  .question-card__question {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .question-card__number {
+    color: var(--accent);
+    grid-row: 1 / span 3;
+    margin-bottom: 0;
+  }
+
+  .question-card__question {
+    margin-bottom: var(--space-4);
+  }
+
+  .explorer-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    max-width: none;
+    margin: var(--space-5) 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .explorer-flow li {
+    max-width: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--surface-panel);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .explorer-flow {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .explorer-flow li:not(:last-child)::after {
+    content: "↓";
+    display: block;
+    margin-top: var(--space-3);
+    color: var(--accent);
+    font-size: var(--text-lg);
+  }
+
+  @media (min-width: 56rem) {
+    .investigation-field {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-7);
+    }
+
+    .investigation-field__question:nth-child(odd):last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

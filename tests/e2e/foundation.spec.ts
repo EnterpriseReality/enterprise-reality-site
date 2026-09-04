@@ -108,8 +108,8 @@ test("primary navigation establishes v2 domains without broken destinations", as
     navigation.getByRole("link", { name: "Case Studies" }),
   ).toHaveAttribute("href", "/case-studies/damp-and-mould/");
   await expect(
-    navigation.getByText("Explorer", { exact: true }),
-  ).toHaveAttribute("aria-disabled", "true");
+    navigation.getByRole("link", { name: "Explorer" }),
+  ).toHaveAttribute("href", "/explorer/");
   await expect(
     navigation.getByText("Knowledge", { exact: true }),
   ).toHaveAttribute("aria-disabled", "true");
@@ -125,14 +125,17 @@ test("Explorer status is projected consistently and does not claim availability"
     "src/pages/case-studies/damp-and-mould.astro",
     "utf8",
   );
+  const explorerPage = readFileSync("src/pages/explorer.astro", "utf8");
 
   expect(projection).toMatch(
     /programmeStanding:\s+"Authorised product with implemented\/demonstrated capability"/,
   );
   expect(home).toContain('capabilityState("explorer")');
   expect(caseStudy).toContain('capabilityState("explorer")');
+  expect(explorerPage).toContain('capabilityState("explorer")');
   expect(home).toContain("public commercial availability is not");
   expect(caseStudy).toMatch(/public\s+commercial availability is not claimed/);
+  expect(explorerPage).toContain("explorer.publicAvailability");
 });
 
 test("skip navigation targets main content", async ({ page }) => {

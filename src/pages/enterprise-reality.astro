@@ -49,31 +49,49 @@ const foundations = [
   </section>
 
   <section class="section section--muted" aria-labelledby="definition">
-    <div class="container reading-content">
-      <p class="eyebrow">Definition</p>
-      <h2 id="definition">Governed understanding, not a single record</h2>
-      <p>
-        Enterprise Reality brings together governed representations while
-        keeping clear the distinction between the enterprise itself and the
-        account through which the enterprise understands it.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context"><p class="eyebrow">Definition</p></div>
+      <div>
+        <h2 id="definition">Governed understanding, not a single record</h2>
+        <p>
+          Enterprise Reality brings together governed representations while
+          keeping clear the distinction between the enterprise itself and the
+          account through which the enterprise understands it.
+        </p>
+      </div>
+      <p class="proposition">A record is not the thing it represents.</p>
     </div>
   </section>
 
   <section class="section" aria-labelledby="foundations">
-    <div class="container reading-content">
-      <p class="eyebrow">How understanding is formed</p>
-      <h2 id="foundations">What a coherent account preserves</h2>
-      <div class="foundation-list">
-        {
-          foundations.map(([title, text]) => (
-            <article>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))
-        }
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">How understanding is formed</p>
       </div>
+      <div>
+        <h2 id="foundations">What a coherent account preserves</h2>
+        <div class="foundation-list">
+          {
+            foundations.map(([title, text]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+      <aside
+        class="representation-model"
+        aria-label="Illustrative relationship between an enterprise identity and its representations"
+      >
+        <p>Persistent enterprise identity</p>
+        <ul class="relationship">
+          <li>Housing representation</li>
+          <li>CRM representation</li>
+          <li>Repair representation</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -81,15 +99,24 @@ const foundations = [
     class="section section--muted"
     aria-labelledby="governed-understanding"
   >
-    <div class="container reading-content">
-      <p class="eyebrow">Coherence without pretence</p>
-      <h2 id="governed-understanding">Governed understanding</h2>
-      <p>
-        Coherence does not mean forcing all observations into agreement. It
-        means making the identities, relationships, evidence, provenance and
-        unresolved questions needed for accountable understanding available in
-        one governed frame.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Coherence without pretence</p>
+      </div>
+      <div>
+        <h2 id="governed-understanding">Governed understanding</h2>
+        <p>
+          Coherence does not mean forcing all observations into agreement. It
+          means making the identities, relationships, evidence, provenance and
+          unresolved questions needed for accountable understanding available in
+          one governed frame.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="How a conclusion is justified">
+        <li>Observation</li><li>Evidence and provenance</li><li>
+          Justified conclusion
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -125,6 +152,7 @@ const foundations = [
         <a href="/case-studies/damp-and-mould/">See the Damp &amp; Mould case</a
         >
       </p>
+      <p><a href="/explorer/">See how Explorer supports investigation</a></p>
     </div>
   </section>
 </BaseLayout>
@@ -142,5 +170,16 @@ const foundations = [
 
   .foundation-list h3 {
     font-size: var(--text-md);
+  }
+
+  .representation-model {
+    border-left: 2px solid var(--accent);
+    padding-left: var(--space-4);
+  }
+
+  .representation-model > p {
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
   }
 </style>

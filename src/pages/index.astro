@@ -25,43 +25,69 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section section--muted" aria-labelledby="fragmentation">
-    <div class="container reading-content">
-      <p class="eyebrow">The problem</p>
-      <h2 id="fragmentation">Understanding becomes fragmented</h2>
-      <p class="lead">
-        Records, observations and decisions accumulate in operational systems
-        built for different purposes. The result can be a fragmented account of
-        what is happening, why it is believed, and what should be considered
-        next.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">The problem</p>
+      </div>
+      <div>
+        <h2 id="fragmentation">Understanding becomes fragmented</h2>
+        <p class="lead">
+          Records, observations and decisions accumulate in operational systems
+          built for different purposes. The result can be a fragmented account
+          of what is happening, why it is believed, and what should be
+          considered next.
+        </p>
+      </div>
+      <aside class="supporting-note">
+        <strong>One situation.</strong><br />Several legitimate observations.
+      </aside>
     </div>
   </section>
 
   <section class="section" aria-labelledby="damp-mould">
-    <div class="container reading-content">
-      <p class="eyebrow">A concrete situation</p>
-      <h2 id="damp-mould">Damp &amp; Mould makes the problem visible</h2>
-      <p>
-        A resident report, property history, inspection observations, repair
-        records and policy may each sit in a different place. The question is
-        not simply where the data is; it is how the enterprise can understand
-        the situation coherently while preserving what is uncertain or disputed.
-      </p>
-      <p>
-        <a href="/case-studies/damp-and-mould/"
-          >Follow the Damp &amp; Mould case</a
-        >
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">A concrete situation</p>
+      </div>
+      <div>
+        <h2 id="damp-mould">Damp &amp; Mould makes the problem visible</h2>
+        <p>
+          A resident report, property history, inspection observations, repair
+          records and policy may each sit in a different place. The question is
+          not simply where the data is; it is how the enterprise can understand
+          the situation coherently while preserving what is uncertain or
+          disputed.
+        </p>
+        <p>
+          <a href="/case-studies/damp-and-mould/"
+            >Follow the Damp &amp; Mould case</a
+          >
+        </p>
+      </div>
+      <ul
+        class="relationship relationship--observations"
+        aria-label="Illustrative distributed observations"
+      >
+        <li>Resident report</li><li>Inspection observation</li><li>
+          Repair record
+        </li>
+      </ul>
     </div>
   </section>
 
   <section class="section section--muted" aria-labelledby="missing-capability">
-    <div class="container reading-content">
-      <p class="eyebrow">What is missing</p>
-      <h2 id="missing-capability">Coherent governed understanding</h2>
-      <p>
-        The missing capability is not another operational system. It is a
-        governed way to connect identity, relationships, events, evidence and
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">What is missing</p>
+      </div>
+      <div>
+        <h2 id="missing-capability">Coherent governed understanding</h2>
+        <p class="proposition">
+          What is missing is not another copy of the data.
+        </p>
+      </div>
+      <p class="supporting-note">
+        A governed way to connect identity, relationships, events, evidence and
         provenance without pretending that disagreement or incomplete
         observation has disappeared.
       </p>
@@ -69,15 +95,23 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section" aria-labelledby="enterprise-reality">
-    <div class="container reading-content">
-      <p class="eyebrow">The response</p>
-      <h2 id="enterprise-reality">Enterprise Reality</h2>
-      <p>
-        Enterprise Reality is the governed representation through which an
-        enterprise can understand what its evidence justifies. It does not
-        replace the enterprise, its people or its operational systems.
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">The response</p>
+      </div>
+      <div>
+        <h2 id="enterprise-reality">Enterprise Reality</h2>
+        <p>
+          Enterprise Reality is the governed representation through which an
+          enterprise can understand what its evidence justifies. It does not
+          replace the enterprise, its people or its operational systems.
+        </p>
+        <p><a href="/enterprise-reality/">Understand Enterprise Reality</a></p>
+      </div>
+      <p class="supporting-note">
+        Understanding connects the enterprise whole while preserving the
+        boundaries of its systems.
       </p>
-      <p><a href="/enterprise-reality/">Understand Enterprise Reality</a></p>
     </div>
   </section>
 
@@ -95,19 +129,26 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section" aria-labelledby="explorer">
-    <div class="container reading-content">
-      <p class="eyebrow">Human experience</p>
-      <h2 id="explorer">
-        Explorer helps people investigate Enterprise Reality
-      </h2>
-      <p>
-        Explorer is an authorised product with implemented and demonstrated
-        programme capability. Its public commercial availability is not claimed.
-      </p>
-      <p class="status-note">
-        Programme standing: {explorer.programmeStanding}. Capability maturity:
-        {explorer.maturity}.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Human experience</p>
+      </div>
+      <div>
+        <h2 id="explorer">
+          Explorer helps people investigate Enterprise Reality
+        </h2>
+        <p>
+          Explorer is an authorised product with implemented and demonstrated
+          programme capability. Its public commercial availability is not
+          claimed.
+        </p>
+        <p><a href="/explorer/">Understand the Explorer experience</a></p>
+      </div>
+      <aside class="authority-note">
+        Programme standing: {explorer.programmeStanding}. Capability maturity: {
+          explorer.maturity
+        }.
+      </aside>
     </div>
   </section>
 
@@ -138,13 +179,4 @@ const explorer = capabilityState("explorer");
   </section>
 </BaseLayout>
 
-<style>
-  .reading-content {
-    max-width: var(--width-reading);
-  }
-
-  .status-note {
-    color: var(--text-secondary);
-    font-size: var(--text-sm);
-  }
-</style>
+<style></style>

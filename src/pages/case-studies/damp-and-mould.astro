@@ -25,27 +25,44 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section section--muted" aria-labelledby="identities">
-    <div class="container reading-content">
-      <p class="eyebrow">Persistent identities</p>
-      <h2 id="identities">The situation is not one record</h2>
-      <p>
-        The resident, property, tenancy, building, inspection, repair and
-        responsible roles persist even when different systems describe them in
-        different ways.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Persistent identities</p>
+      </div>
+      <div>
+        <h2 id="identities">The situation is not one record</h2>
+        <p>
+          The resident, property, tenancy, building, inspection, repair and
+          responsible roles persist even when different systems describe them in
+          different ways.
+        </p>
+      </div>
+      <p class="proposition">One real situation. Many related aspects.</p>
     </div>
   </section>
 
   <section class="section" aria-labelledby="landscape">
-    <div class="container reading-content">
-      <p class="eyebrow">Illustrative system landscape</p>
-      <h2 id="landscape">Observations are distributed</h2>
-      <p>
-        A housing example may distribute a resident report, tenancy record,
-        inspection notes, photographs, moisture readings, repair history and
-        follow-up record across separate systems. This is illustrative, not a
-        claim about a particular housing provider or deployment.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Illustrative system landscape</p>
+      </div>
+      <div>
+        <h2 id="landscape">Observations are distributed</h2>
+        <p>
+          A housing example may distribute a resident report, tenancy record,
+          inspection notes, photographs, moisture readings, repair history and
+          follow-up record across separate systems. This is illustrative, not a
+          claim about a particular housing provider or deployment.
+        </p>
+      </div>
+      <ul
+        class="relationship relationship--observations"
+        aria-label="Illustrative related aspects of the situation"
+      >
+        <li>Resident and tenancy</li><li>Property and inspection</li><li>
+          Repair and follow-up
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -62,35 +79,59 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section" aria-labelledby="reconnection">
-    <div class="container reading-content">
-      <p class="eyebrow">Reconstruction</p>
-      <h2 id="reconnection">
-        Re-establish identity and reconnect relationships
-      </h2>
-      <p>
-        Enterprise Reality connects representations to persistent identities,
-        then restores relationships among the resident, property, tenancy,
-        inspection, repair and accountable roles.
-      </p>
-      <h3>Events and history</h3>
-      <p>
-        A chronology can reconnect a report, inspection, repair authorisation,
-        contractor activity and follow-up without treating a current system
-        field as the whole history.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Reconstruction</p>
+      </div>
+      <div>
+        <h2 id="reconnection">
+          Re-establish identity and reconnect relationships
+        </h2>
+        <p>
+          Enterprise Reality connects representations to persistent identities,
+          then restores relationships among the resident, property, tenancy,
+          inspection, repair and accountable roles.
+        </p>
+        <h3>Events and history</h3>
+        <p>
+          A chronology can reconnect a report, inspection, repair authorisation,
+          contractor activity and follow-up without treating a current system
+          field as the whole history.
+        </p>
+      </div>
+      <ol
+        class="sequence sequence--horizontal"
+        style="--sequence-count: 4"
+        aria-label="Illustrative progression"
+      >
+        <li>Reported</li><li>Inspected</li><li>Repaired</li><li>
+          Observed again
+        </li>
+      </ol>
     </div>
   </section>
 
   <section class="section section--muted" aria-labelledby="evidence">
-    <div class="container reading-content">
-      <p class="eyebrow">Why the account is believed</p>
-      <h2 id="evidence">Evidence, provenance and uncertainty remain visible</h2>
-      <p>
-        Each observation needs its source and context. An inspection finding,
-        resident account, photograph or repair record may support, contradict or
-        leave a question unresolved. Disagreement and incomplete evidence are
-        preserved rather than hidden.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Why the account is believed</p>
+      </div>
+      <div>
+        <h2 id="evidence">
+          Evidence, provenance and uncertainty remain visible
+        </h2>
+        <p>
+          Each observation needs its source and context. An inspection finding,
+          resident account, photograph or repair record may support, contradict
+          or leave a question unresolved. Disagreement and incomplete evidence
+          are preserved rather than hidden.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Evidence relationship">
+        <li>Observation</li><li>Evidence and provenance</li><li>
+          What is currently justified
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -107,19 +148,25 @@ const explorer = capabilityState("explorer");
   </section>
 
   <section class="section section--muted" aria-labelledby="explorer">
-    <div class="container reading-content">
-      <p class="eyebrow">Investigation</p>
-      <h2 id="explorer">Explorer provides the investigation experience</h2>
-      <p>
-        Explorer can help people navigate the identities, relationships,
-        evidence and chronology that form the investigation. It is an authorised
-        product with implemented and demonstrated programme capability; public
-        commercial availability is not claimed.
-      </p>
-      <p class="status-note">
-        Programme standing: {explorer.programmeStanding}. Capability maturity:
-        {explorer.maturity}.
-      </p>
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Investigation</p>
+      </div>
+      <div>
+        <h2 id="explorer">Explorer provides the investigation experience</h2>
+        <p>
+          Explorer can help people navigate the identities, relationships,
+          evidence and chronology that form the investigation. It is an
+          authorised product with implemented and demonstrated programme
+          capability; public commercial availability is not claimed.
+        </p>
+        <p><a href="/explorer/">Understand the Explorer experience</a></p>
+      </div>
+      <aside class="authority-note">
+        Programme standing: {explorer.programmeStanding}. Capability maturity: {
+          explorer.maturity
+        }.
+      </aside>
     </div>
   </section>
 
@@ -162,13 +209,4 @@ const explorer = capabilityState("explorer");
   </section>
 </BaseLayout>
 
-<style>
-  .reading-content {
-    max-width: var(--width-reading);
-  }
-
-  .status-note {
-    color: var(--text-secondary);
-    font-size: var(--text-sm);
-  }
-</style>
+<style></style>

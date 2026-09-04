@@ -3,6 +3,7 @@
   "routes": [
     "/",
     "/enterprise-reality/",
+    "/explorer/",
     "/case-studies/damp-and-mould/",
     "/404/",
     "/why-enterprise-reality/",

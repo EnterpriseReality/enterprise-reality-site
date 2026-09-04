@@ -160,6 +160,39 @@ test("capability status labels match approved release and future status", async 
   await expect(page.locator("main")).not.toContainText("customer deployment");
 });
 
+test("Explorer presents a bounded investigation experience", async ({
+  page,
+}) => {
+  await page.goto("/explorer/");
+
+  await expect(
+    page.getByRole("heading", {
+      name: "Understand the enterprise, not its applications",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Explorer" }).first(),
+  ).toHaveAttribute("href", "/explorer/");
+
+  for (const question of [
+    "What exists?",
+    "What is known about it?",
+    "Why do we believe that?",
+    "How is it connected?",
+    "What conclusions have been justified?",
+    "How has it changed over time?",
+  ]) {
+    await expect(page.getByText(question, { exact: true })).toBeVisible();
+  }
+
+  const main = page.locator("main");
+  await expect(main).toContainText(/Status:\s*In Development/);
+  await expect(main).toContainText("Not publicly offered");
+  await expect(main).toContainText("Explorer reveals; it does not establish");
+  await expect(main).toContainText("AI remains advisory");
+  await expect(main).not.toContainText("commercially available");
+});
+
 test("research publication boundary remains truthful", async ({
   page,
   request,
