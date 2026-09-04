@@ -144,7 +144,7 @@ test("capability status labels match approved release and future status", async 
   }
 
   for (const [name, status] of [
-    ["Operational Readiness", "Planned"],
+    ["Operational Readiness", "Implemented"],
     ["Decision Services", "Planned"],
     ["Explorer", "In Development"],
     ["Assistant", "Research"],

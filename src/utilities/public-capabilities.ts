@@ -61,8 +61,8 @@ export const publicCapabilities = {
   "operational-readiness": {
     id: "operational-readiness",
     label: "Operational Readiness",
-    maturity: "Planned",
-    programmeStanding: "Planned programme direction",
+    maturity: "Implemented",
+    programmeStanding: "Engineering complete; release certification pending",
     publicAvailability: "Not claimed",
     authority: "ER-WEB-006",
   },

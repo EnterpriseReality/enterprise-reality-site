@@ -1,5 +1,6 @@
 export const capabilityStatuses = [
   "Released",
+  "Implemented",
   "In Development",
   "Planned",
   "Research",

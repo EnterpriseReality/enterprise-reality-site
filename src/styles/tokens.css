@@ -65,6 +65,8 @@
 
   --status-released-bg: #e7f2ed;
   --status-released-border: #4a8067;
+  --status-implemented-bg: #e9eff0;
+  --status-implemented-border: #526f76;
   --status-development-bg: #e8f0f4;
   --status-development-border: #41758b;
   --status-planned-bg: #f1eddf;

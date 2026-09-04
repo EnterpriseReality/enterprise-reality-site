@@ -88,7 +88,8 @@ const structuredData = {
         <p>
           Released platform foundations are distinct from the next platform
           stage and future product direction. Later stages do not erase earlier
-          boundaries, and future stages are not represented as implemented.
+          boundaries, and implementation completion remains distinct from
+          release certification.
         </p>
       </div>
       <div class="capability-groups">
@@ -123,7 +124,7 @@ const structuredData = {
           class="capability-group"
           aria-labelledby="next-platform-stage-heading"
         >
-          <h3 id="next-platform-stage-heading">Next Platform Stage</h3>
+          <h3 id="next-platform-stage-heading">Operational Capability</h3>
           <article class="capability-stage">
             <div>
               <h4>{nextPlatformStage.title}</h4>
@@ -163,20 +164,20 @@ const structuredData = {
   <section class="section" aria-labelledby="current-focus-heading">
     <div class="container roadmap-focus">
       <div class="section-header">
-        <p class="eyebrow">Next Platform Stage</p>
+        <p class="eyebrow">Operational Capability</p>
         <h2 id="current-focus-heading">Operational Readiness</h2>
         <p>
-          Operational Readiness is the next platform stage. It is planned public
-          direction for preparing released platform foundations for operational
-          use, without implying active delivery, dates or commitments.
+          Operational Readiness is engineering complete. Its release
+          certification remains pending, so this maturity does not imply a
+          released capability, public availability or a delivery commitment.
         </p>
       </div>
       <div class="panel">
         <StatusBadge status={nextPlatformStage.status} />
         <p>
           The Enterprise Automation Engine is represented as a released
-          foundation. Operational Readiness is not presented as a release number
-          or committed product availability.
+          foundation. Operational Readiness is not presented as a certified
+          release or committed product availability.
         </p>
       </div>
     </div>

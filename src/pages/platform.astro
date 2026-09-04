@@ -3,146 +3,359 @@ import StatusBadge from "../components/StatusBadge.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { capabilityState } from "../utilities/public-capabilities";
 
-const capabilities = [
+const capabilityStates = [
+  capabilityState("metadata-engine"),
+  capabilityState("enterprise-corpus"),
+  capabilityState("enterprise-reality-graph"),
+  capabilityState("reasoning-engine"),
+  capabilityState("automation-engine"),
+  capabilityState("operational-readiness"),
+  capabilityState("ai-runtime"),
+];
+
+const stages = [
   {
-    name: "Studio",
-    status: capabilityState("studio").maturity,
-    purpose:
-      "Author and govern Enterprise Reality knowledge, publications and platform models.",
-    users: "Architects, authors, reviewers and programme contributors.",
+    name: "Metadata Engine",
+    concept: "Governed knowledge",
+    text: "Interprets the metadata that gives a governed publication its stable identity, lifecycle, governance and relationships. This single responsibility means runtime capabilities consume a consistent account of a publication rather than each reinterpreting its source material.",
     boundary:
-      "Does not own operational execution, production workflows or runtime decisions.",
+      "It is not a generic metadata catalogue or a replacement for operational metadata platforms.",
   },
   {
-    name: "Runtime",
-    status: capabilityState("runtime").maturity,
-    purpose:
-      "Provide the governed corpus, graph, reasoning and automation foundations of the programme.",
-    users: "Platform engineers, architects and future service builders.",
+    name: "Enterprise Corpus",
+    concept: "Canonical representation",
+    text: "Provides the canonical runtime representation of governed Enterprise Reality knowledge. It makes governed publications available as a coherent runtime collection without collapsing the source repository, a document store or operational databases into one thing.",
     boundary:
-      "Does not expose a public SaaS product or customer portal in Website v1.0.",
+      "It is not the source repository, a data lake or an indiscriminate copy of enterprise data.",
   },
   {
-    name: "Decision Services",
-    status: capabilityState("decision-services").maturity,
-    purpose:
-      "Provide future service-level access to explainable decision support.",
-    users: "Regulated enterprise teams that need governed decision support.",
-    boundary: "Does not currently claim released commercial availability.",
-  },
-  {
-    name: "Explorer",
-    status: capabilityState("explorer").maturity,
-    purpose:
-      "Navigate governed knowledge, relationships, evidence and programme publications.",
-    users: "Architects, researchers, reviewers and enterprise stakeholders.",
-    boundary: "Does not replace the canonical repository or approval workflow.",
-  },
-  {
-    name: "Connect",
-    status: capabilityState("connect").maturity,
-    purpose:
-      "Enable responsible integration with existing operational systems.",
-    users: "Integration teams and platform owners.",
+    name: "Knowledge Graph Engine → Enterprise Reality Graph",
+    concept: "Relationships",
+    text: "Projects governed identities and authored relationships from the Corpus into a canonical graph representation, so enterprise context can be navigated consistently. The graph represents relationships; the Knowledge Graph Engine does not infer them.",
     boundary:
-      "Does not make Enterprise Reality the system of record for operational data.",
+      "The graph does not reason, and it is a representation of Enterprise Reality—not Enterprise Reality itself.",
   },
   {
-    name: "Assistant",
-    status: capabilityState("assistant").maturity,
-    purpose:
-      "Support retrieval, explanation, recommendation, navigation and investigation.",
-    users:
-      "People seeking governed assistance across Enterprise Reality knowledge.",
+    name: "Reasoning Engine",
+    concept: "Reasoning",
+    text: "Evaluates what the available governed evidence and explicit rules justify. Its outcomes remain traceable to relevant evidence and explain why a result is justified, unsupported or indeterminate.",
     boundary:
-      "Does not decide, approve, execute or determine constitutional truth.",
+      "Reasoning does not invent evidence, hide conflict or turn an evidence gap into certainty.",
+  },
+  {
+    name: "Automation Engine",
+    concept: "Automation",
+    text: "Consumes governed Enterprise Reality and reasoning within established policy and authority boundaries. It coordinates only the actions that are permitted in that context.",
+    boundary:
+      "A justified conclusion is not, by itself, authority to act; automation does not own enterprise authority.",
+  },
+  {
+    name: "AI Runtime",
+    concept: "Advisory AI",
+    text: "Operates over governed Enterprise Reality to support explanation, recommendation, conversation and assistance. It remains downstream of representation, relationships, reasoning and automation.",
+    boundary:
+      "Enterprise Reality is authoritative. AI is advisory: it does not establish truth, approve a decision or execute action.",
   },
 ];
 ---
 
 <BaseLayout
   title="Platform"
-  description="A high-level overview of Enterprise Reality platform capabilities, statuses, users and boundaries."
+  description="The Enterprise Reality Platform makes governed enterprise understanding executable."
   canonicalPath="/platform/"
 >
   <section class="page-hero section">
     <div class="container page-hero__inner">
       <div>
-        <p class="eyebrow">Platform Overview</p>
-        <h1>A constitutional platform for explainable enterprise decisions</h1>
+        <p class="eyebrow">Enterprise Reality Platform</p>
+        <h1>Make governed enterprise understanding executable</h1>
         <p class="lead">
-          Enterprise Reality is organised around governed representation,
-          evidence, reasoning, policy, decision, authority and action. Each
-          capability has an explicit status and boundary.
+          Enterprise Reality is a governed model of enterprise understanding.
+          The Platform provides the runtime capabilities that make that model
+          executable—without redefining what Enterprise Reality means.
         </p>
+        <p><a href="/enterprise-reality/">Understand Enterprise Reality</a></p>
       </div>
-      <aside class="panel">
-        <h2>Capability status</h2>
-        <p>
-          Released, In Development, Planned, Research and Concept labels are
-          used with constitutional meaning. They are not decorative maturity
-          claims.
-        </p>
+      <aside class="supporting-note">
+        <strong>Enterprise Reality</strong><br />governed meaning<br /><span
+          aria-hidden="true">↓</span
+        ><br /><strong>Platform</strong><br />executable capabilities<br /><span
+          aria-hidden="true">↓</span
+        ><br />Explorer, reasoning, automation and advisory AI
       </aside>
     </div>
   </section>
 
-  <section
-    class="section section--muted"
-    aria-labelledby="capabilities-heading"
-  >
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Capabilities</p>
-        <h2 id="capabilities-heading">
-          Purpose, users and ownership boundaries
-        </h2>
+  <section class="section section--muted" aria-labelledby="runtime-context">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Runtime context</p>
       </div>
-      <div class="grid grid--2">
+      <div>
+        <h2 id="runtime-context">
+          From representations to governed understanding
+        </h2>
+        <p>
+          Operational systems remain responsible for their domains. They hold
+          records and observations made for operational purposes. The Platform
+          gives those representations governed enterprise context; it is not a
+          universal system of record and does not require every operational
+          database to be copied wholesale into one central system.
+        </p>
+      </div>
+      <ol
+        class="sequence"
+        aria-label="From operational systems to canonical representation"
+      >
+        <li>Operational systems</li><li>Observations and representations</li><li
+        >
+          Governed interpretation
+        </li><li>Canonical Enterprise Reality representation</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="progression">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">The Platform progression</p><h2 id="progression">
+          Meaning is carried forward, not replaced
+        </h2><p>
+          Each responsibility adds a bounded capability to governed
+          understanding. Together they form a progression, rather than a set of
+          unrelated products.
+        </p>
+      </div>
+      <ol
+        class="platform-progression"
+        aria-label="Canonical Platform capability progression"
+      >
         {
-          capabilities.map((capability) => (
-            <article class="card platform-card">
-              <div class="platform-card__header">
-                <h3>{capability.name}</h3>
-                <StatusBadge status={capability.status} />
-              </div>
-              <dl>
-                <dt>Purpose</dt>
-                <dd>{capability.purpose}</dd>
-                <dt>Users</dt>
-                <dd>{capability.users}</dd>
-                <dt>Does not own</dt>
-                <dd>{capability.boundary}</dd>
-              </dl>
-            </article>
+          stages.map((stage, index) => (
+            <li class="platform-stage">
+              <>
+                <p class="platform-stage__number">0{index + 1}</p>
+                <p class="platform-stage__concept">{stage.concept}</p>
+                <h3>{stage.name}</h3>
+                <p>{stage.text}</p>
+                <p class="platform-stage__boundary">
+                  <strong>Boundary:</strong> {stage.boundary}
+                </p>
+              </>
+            </li>
           ))
         }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="reasoning-boundary">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Justified, not assumed</p>
       </div>
+      <div>
+        <h2 id="reasoning-boundary">
+          Reasoning preserves the limits of evidence
+        </h2><p>
+          The Reasoning Engine assesses relevant governed evidence against
+          explicit rules. A result can be justified, unsupported or
+          indeterminate. Conflicting evidence stays visible where applicable,
+          and an insufficient-evidence outcome is a legitimate result—not a
+          defect to be concealed.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Reasoning progression">
+        <li>Governed representation</li><li>Relevant evidence</li><li>
+          Rule evaluation
+        </li><li>Justified outcome</li><li>Explanation</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="authority-boundary">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Authority remains distinct</p>
+      </div>
+      <div>
+        <h2 id="authority-boundary">
+          Automation follows permitted authority
+        </h2><p>
+          The Platform can carry governed understanding into automation, but it
+          does not make every conclusion self-executing. Authority is an
+          explicit boundary between a conclusion and a permitted action.
+        </p>
+      </div>
+      <ol
+        class="sequence"
+        aria-label="Authority-bounded automation progression"
+      >
+        <li>Understanding</li><li>Reasoning</li><li>Justified conclusion</li><li
+        >
+          Authority
+        </li><li>Permitted action</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="capability-state">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Current public capability state</p><h2
+          id="capability-state"
+        >
+          Maturity is not availability
+        </h2><p>
+          These capability maturities are drawn from the public capability
+          projection. They do not claim a Platform release or public
+          availability.
+        </p>
+      </div>
+      <ul class="capability-state-list">
+        {
+          capabilityStates.map((capability) => (
+            <li>
+              <>
+                <div>
+                  <>
+                    <h3>{capability.label}</h3>
+                    <p>{capability.programmeStanding}</p>
+                  </>
+                </div>
+                <StatusBadge status={capability.maturity} />
+              </>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="explorer-relationship">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Human investigation</p>
+      </div>
+      <div>
+        <h2 id="explorer-relationship">
+          Explorer makes it understandable to people
+        </h2><p>
+          The Platform makes Enterprise Reality executable. Explorer makes it
+          understandable to people. Explorer consumes Platform capability to
+          support investigation; it does not establish canonical identity,
+          evidence, reasoning ownership or operational execution.
+        </p><p><a href="/explorer/">Understand the Explorer experience</a></p>
+      </div>
+      <p class="proposition">
+        Platform → governed Enterprise Reality → Explorer → human investigation
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="not-platform">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Architectural clarity</p>
+      </div>
+      <div>
+        <h2 id="not-platform">What the Platform is not</h2><p>
+          It is not a replacement ERP or CRM, enterprise data warehouse, data
+          lake, generic knowledge graph, generic workflow engine, AI platform,
+          universal system of record or autonomous decision-maker.
+        </p>
+      </div>
+      <p class="supporting-note">
+        Its role is to make governed Enterprise Reality executable while
+        preserving the responsibility of the systems and people around it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="go-deeper">
+    <div class="container reading-content">
+      <p class="eyebrow">Go deeper</p><h2 id="go-deeper">
+        Follow the idea into a real situation
+      </h2><ul class="deeper-links">
+        <li>
+          <a href="/enterprise-reality/">Enterprise Reality</a> — understand the governing
+          idea.
+        </li><li>
+          <a href="/explorer/">Explorer</a> — understand the human investigation experience.
+        </li><li>
+          <a href="/case-studies/damp-and-mould/">Damp &amp; Mould</a> — see the concepts
+          applied to a concrete enterprise situation.
+        </li>
+      </ul>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .platform-card__header {
+  .reading-content {
+    max-width: var(--width-reading);
+  }
+  .platform-progression,
+  .capability-state-list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .platform-stage {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-5) 0;
+  }
+  .platform-stage__number,
+  .platform-stage__concept {
+    color: var(--accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+  .platform-stage__number {
+    grid-row: 1 / span 4;
+    margin: 0;
+  }
+  .platform-stage__concept {
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+  }
+  .platform-stage h3 {
+    margin-bottom: var(--space-3);
+  }
+  .platform-stage p:last-child {
+    margin-bottom: 0;
+  }
+  .platform-stage__boundary {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+  .capability-state-list li {
     display: flex;
     flex-wrap: wrap;
     align-items: start;
     justify-content: space-between;
     gap: var(--space-3);
-    margin-bottom: var(--space-4);
+    max-width: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-4) 0;
   }
-
-  .platform-card h3 {
-    margin-bottom: 0;
+  .capability-state-list h3 {
+    margin-bottom: var(--space-1);
+    font-size: var(--text-md);
   }
-
-  dt {
-    color: var(--text-primary);
-    font-weight: var(--weight-semibold);
-  }
-
-  dd {
-    margin: 0 0 var(--space-4);
+  .capability-state-list p {
+    margin: 0;
     color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+  .deeper-links {
+    display: grid;
+    gap: var(--space-3);
   }
 </style>

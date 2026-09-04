@@ -11,7 +11,7 @@ const milestones = [
 ];
 
 const futureCapabilities = [
-  ["Operational Readiness", "Planned"],
+  ["Operational Readiness", "Implemented"],
   ["Decision Services", "Planned"],
   ["Explorer", "In Development"],
   ["Assistant", "Research"],
@@ -80,15 +80,16 @@ test("next platform stage and future direction use approved status vocabulary", 
   await page.goto("/roadmap/");
 
   const nextPlatformStage = page
-    .getByRole("region", { name: "Next Platform Stage" })
+    .getByRole("region", { name: "Operational Capability" })
     .filter({ hasText: "Operational Readiness" });
 
   await expect(
     page.getByRole("heading", { level: 2, name: "Operational Readiness" }),
   ).toBeVisible();
   await expect(nextPlatformStage).toContainText("Status:");
-  await expect(nextPlatformStage).toContainText("Planned");
-  await expect(nextPlatformStage).toContainText("next platform stage");
+  await expect(nextPlatformStage).toContainText("Implemented");
+  await expect(nextPlatformStage).not.toContainText("Released");
+  await expect(nextPlatformStage).toContainText("Operational Capability");
   await expect(page.getByText("Current programme work centres on")).toHaveCount(
     0,
   );
@@ -138,7 +139,7 @@ test("roadmap exposes capability progression and programme philosophy", async ({
     page.getByRole("heading", { name: "Released Platform Foundations" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Next Platform Stage" }),
+    page.getByRole("heading", { name: "Operational Capability" }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "Future Product Direction" }),
