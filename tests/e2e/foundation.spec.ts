@@ -88,6 +88,37 @@ test("Damp & Mould remains a bounded explanatory case", async ({ page }) => {
   );
 });
 
+test("About contextualises the programme without overstating public standing", async ({
+  page,
+}) => {
+  await page.goto("/about/");
+  const main = page.locator("main");
+
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Preserving coherent enterprise understanding",
+    }),
+  ).toBeVisible();
+  for (const statement of [
+    "Understanding before software.",
+    "Engineering capability does not create engineering authority.",
+    "Publication does not create authority.",
+    "Public eligibility comes before website exposure.",
+    "Research may inform future authority, but it is not Canon or released capability",
+    "not a customer deployment, live housing operation or safety decision system.",
+  ]) {
+    await expect(main).toContainText(statement);
+  }
+
+  await expect(
+    main.getByRole("link", { name: "Understand Enterprise Reality" }),
+  ).toHaveAttribute("href", "/enterprise-reality/");
+  await expect(
+    main.getByRole("link", { name: "Explore the public Knowledge record" }),
+  ).toHaveAttribute("href", "/knowledge/");
+});
+
 test("primary navigation establishes v2 domains without broken destinations", async ({
   page,
 }) => {

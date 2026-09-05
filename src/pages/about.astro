@@ -1,92 +1,268 @@
 ---
-import StatusBadge from "../components/StatusBadge.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { capabilityState } from "../utilities/public-capabilities";
+
+const programmeElements = [
+  [
+    "Enterprise Reality",
+    "The governing model for preserving coherent enterprise understanding across changing applications.",
+  ],
+  [
+    "Platform",
+    "Executable capability that carries governed understanding into bounded runtime responsibilities.",
+  ],
+  [
+    "Explorer",
+    "A human investigation experience that reveals Enterprise Reality; it does not create or define it.",
+  ],
+  [
+    "Case Studies",
+    "Bounded demonstrations that test the ideas against concrete enterprise situations.",
+  ],
+  [
+    "Knowledge",
+    "The public record through which governing material, architecture, releases and research can be examined.",
+  ],
+];
+
+const stewardshipSequence = [
+  "Governing meaning",
+  "Architecture and bounded responsibility",
+  "Authorised engineering",
+  "Programme governance",
+  "Release certification",
+];
 ---
 
 <BaseLayout
   title="About"
-  description="About the Enterprise Reality Programme, its research-first development approach and current public status."
+  description="Enterprise Reality is a governed programme for preserving coherent enterprise understanding across changing applications."
   canonicalPath="/about/"
 >
   <section class="page-hero section">
     <div class="container page-hero__inner">
       <div>
-        <p class="eyebrow">About</p>
-        <h1>The Enterprise Reality Programme</h1>
+        <p class="eyebrow">About the programme</p>
+        <h1>Preserving coherent enterprise understanding</h1>
         <p class="lead">
-          Enterprise Reality was created to address the architectural gap
-          between operational enterprise systems and the governed understanding
-          needed for explainable decisions and authorised action.
+          Enterprise Reality is a programme for preserving coherent enterprise
+          understanding independently of changing applications. It develops the
+          governing ideas, architecture, executable capability and public
+          experiences needed to understand real enterprise situations as a
+          coherent whole.
         </p>
       </div>
-      <aside class="panel">
-        <h2>Programme status</h2>
-        <StatusBadge status={capabilityState("runtime").maturity} />
-        <p>
-          The public website and platform programme are under active
-          development. Live operating status and commercial availability are
-          outside WEB-1.1.
-        </p>
+      <aside class="supporting-note">
+        The programme begins with what the enterprise condition means—not with a
+        particular application, database or technology.
       </aside>
     </div>
   </section>
 
-  <section class="section section--muted" aria-labelledby="story-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Programme Story</p>
-        <h2 id="story-heading">Research-first architecture, then software</h2>
+  <section class="section section--muted" aria-labelledby="why-it-exists">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Why it exists</p>
       </div>
-      <div class="grid grid--2">
-        <article class="card">
-          <h3>Why it was created</h3>
-          <p>
-            Enterprise Reality began from the observation that enterprise change
-            often proceeds before organisations have a shared, governed account
-            of what is true, what is evidenced and what is authorised.
-          </p>
-        </article>
-        <article class="card">
-          <h3>The architectural problem</h3>
-          <p>
-            Operational systems are necessary, but they usually encode partial
-            views of identity, evidence, policy and decision authority. The
-            programme addresses the need for a constitutional layer across those
-            views.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Research-first development</h3>
-          <p>
-            The programme develops through publications, architecture decisions,
-            platform layers, implementation stories, tests and review evidence.
-            Software follows governed meaning.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Architecture and software</h3>
-          <p>
-            Architecture defines responsibilities and boundaries. Software
-            implements those boundaries through small, testable capabilities
-            without redefining the constitutional model.
-          </p>
-        </article>
+      <div>
+        <h2 id="why-it-exists">The enterprise exists beyond its systems</h2>
+        <p>
+          Enterprises operate through many applications, each recording a
+          partial view of people, places, obligations, events and decisions. The
+          enterprise itself persists across and beyond those systems.
+        </p>
+        <p>
+          Without stable identity, relationships, events, evidence, provenance
+          and history, that understanding becomes fragmented. Enterprise Reality
+          provides a governed way to preserve the context needed to reason over
+          real situations without mistaking a system record for the thing it
+          represents.
+        </p>
+      </div>
+      <p class="proposition">Understanding before software.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="programme-shape">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">What the programme is building</p>
+        <h2 id="programme-shape">
+          Related responsibilities, not a product catalogue
+        </h2>
+        <p>
+          The programme brings distinct kinds of work into relationship. They
+          are not interchangeable products, and their presence here does not
+          make each one commercially available.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {
+          programmeElements.map(([name, description]) => (
+            <article class="card">
+              <>
+                <h3>{name}</h3>
+                <p>{description}</p>
+              </>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="founder-heading">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Founder</p>
-        <h2 id="founder-heading">Sheriff Oyekanmi</h2>
+  <section class="section section--muted" aria-labelledby="stewardship">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Programme stewardship</p>
       </div>
-      <p class="lead">
-        Enterprise Reality is founded by Sheriff Oyekanmi. This public website
-        uses approved programme information only and does not publish personal
-        contact details.
+      <div>
+        <h2 id="stewardship">Authority is held before engineering begins</h2>
+        <p>
+          Enterprise Reality is governed through defined programme authority and
+          engineering disciplines. Governing meaning comes first; architecture
+          translates that meaning into bounded responsibility; engineering
+          implements authorised work. Programme governance and release
+          certification then evaluate a different question: whether an increment
+          has completed its required lifecycle.
+        </p>
+        <p>
+          Engineering capability does not create engineering authority. Nor does
+          implementation completion establish released state.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Programme stewardship sequence">
+        {stewardshipSequence.map((item) => <li>{item}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="claims">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Public claims</p>
+      </div>
+      <div>
+        <h2 id="claims">
+          Evidence and authority constrain what is said publicly
+        </h2>
+        <p>
+          The public programme follows a simple discipline: public claims must
+          be supported by established authority and evidence. This keeps public
+          explanation constitutionally consistent and prevents the website from
+          claiming more than the programme has actually established.
+        </p>
+        <p>
+          Knowledge is the public verification layer for this discipline. It
+          distinguishes governing material, architecture, release standing and
+          research rather than treating all published material as equivalent.
+        </p>
+        <p><a href="/knowledge/">Explore the public Knowledge record</a></p>
+      </div>
+      <aside class="authority-note">
+        <strong>Truth before marketing.</strong><span
+          >Public evidence before public claims.</span
+        ><span>Publication does not create authority.</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="public-boundary">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">A bounded public record</p>
+      </div>
+      <div>
+        <h2 id="public-boundary">The website is not the whole programme</h2>
+        <p>
+          This website is the approved public experience and public record. It
+          intentionally exposes only material suitable for public release; it is
+          not a mirror of the full internal programme repository.
+        </p>
+        <p>
+          Working drafts, governance material, implementation artefacts,
+          internal engineering evidence, research and superseded material may
+          exist without becoming public. Public eligibility comes before website
+          exposure.
+        </p>
+      </div>
+      <p class="supporting-note">
+        Visibility does not itself establish authority, current standing or
+        commercial availability.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="research-boundary">
+    <div class="container grid grid--2">
+      <article class="card">
+        <p class="eyebrow">Research</p><h2 id="research-boundary">
+          Exploration remains distinct
+        </h2><p>
+          Enterprise Reality includes research and exploratory work. Research
+          may inform future authority, but it is not Canon or released
+          capability merely because it is visible or useful.
+        </p>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Capability</p><h2>
+          Programme standing is not market availability
+        </h2><p>
+          Implemented or released programme capability does not, by itself,
+          claim customer deployment, public offering, production adoption or
+          regulatory approval. The programme makes those boundaries explicit.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="case-study">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">A concrete test</p>
+      </div>
+      <div>
+        <h2 id="case-study">
+          A real situation, treated with appropriate bounds
+        </h2>
+        <p>
+          The Damp &amp; Mould case study helps test Enterprise Reality against
+          a concrete enterprise situation: fragmented records, evidence,
+          relationships and history. It is a bounded demonstration, not a
+          customer deployment, live housing operation or safety decision system.
+        </p>
+        <p>
+          <a href="/case-studies/damp-and-mould/"
+            >Explore the Damp &amp; Mould case</a
+          >
+        </p>
+      </div>
+      <aside class="authority-note">
+        <strong>Enterprise Reality is authoritative.</strong><span
+          >AI is advisory.</span
+        ><span>Explorer reveals Enterprise Reality; it does not create it.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="continue">
+    <div class="container reading-content">
+      <p class="eyebrow">Continue</p>
+      <h2 id="continue">Start with the enterprise condition</h2>
+      <p class="closing-statement">
+        Enterprise Reality is a governed programme for preserving coherent
+        enterprise understanding across changing systems.
+      </p>
+      <p>
+        <a href="/enterprise-reality/">Understand Enterprise Reality</a> &nbsp;or&nbsp;
+        <a href="/knowledge/">examine the public record</a>.
       </p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .reading-content {
+    max-width: var(--width-reading);
+  }
+</style>
