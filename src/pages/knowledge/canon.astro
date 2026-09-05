@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const responsibilities = [
+  [
+    "Purpose",
+    "Why Enterprise Reality exists, and the enterprise question it is intended to help people answer.",
+  ],
+  [
+    "Constitution",
+    "The principles and constraints that implementation cannot casually override.",
+  ],
+  [
+    "Language",
+    "The controlled meanings through which identities, evidence, representations and decisions can be interpreted consistently.",
+  ],
+  [
+    "Platform boundaries",
+    "The responsibilities and separations that govern an executable Platform without allowing it to redefine the meaning it serves.",
+  ],
+  [
+    "Product authority",
+    "Product-specific constitutions and language, where established, remain distinct from the Enterprise Reality and Platform Canon.",
+  ],
+];
+
+const sequence = [
+  "Governing meaning",
+  "Architecture and specification",
+  "Engineering",
+  "Programme governance",
+  "Release certification",
+];
+---
+
+<BaseLayout
+  title="Canon"
+  description="Canon explains the governing authority that establishes the meaning and boundaries Enterprise Reality implementation must preserve."
+  canonicalPath="/knowledge/canon/"
+>
+  <section class="page-hero section canon-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Knowledge / Canon</p>
+        <h1>What governs Enterprise Reality?</h1>
+        <p class="lead">
+          Canon is the body of governing knowledge that establishes the meaning,
+          language and constitutional boundaries Enterprise Reality must
+          preserve as its architecture and implementation evolve.
+        </p>
+      </div>
+      <aside class="authority-note">
+        <strong>Authority precedes implementation.</strong>
+        <span
+          >Engineering capability does not create engineering authority.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="why-canon">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Why Canon exists</p>
+      </div>
+      <div>
+        <h2 id="why-canon">
+          Meaning must remain stable as implementation changes
+        </h2>
+        <p>
+          Software, architecture diagrams, tests, releases and website pages can
+          implement or describe Enterprise Reality. They do not become Canon
+          merely by doing so. Canon keeps the distinction visible between the
+          authority that governs and the work that follows from it.
+        </p>
+      </div>
+      <p class="proposition">
+        Canon establishes the meaning and boundaries that implementation must
+        preserve.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="body-of-knowledge">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">The governing body of knowledge</p>
+      </div>
+      <div>
+        <h2 id="body-of-knowledge">
+          Different responsibilities, held together
+        </h2>
+        <p>
+          Canon is not a file catalogue. It helps distinguish the kinds of
+          authority needed to govern Enterprise Reality, while keeping their
+          responsibilities separate.
+        </p>
+        <ol class="canon-responsibilities">
+          {
+            responsibilities.map(([title, description], index) => (
+              <li>
+                <p class="canon-responsibilities__number">0{index + 1}</p>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="relationship">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">How authority is carried forward</p>
+      </div>
+      <div>
+        <h2 id="relationship">Governing meaning is not implementation</h2>
+        <p>
+          This is a responsibility sequence, not a claim that every publication
+          derives from one linear document hierarchy. It shows how governing
+          meaning must remain present as work becomes more concrete.
+        </p>
+      </div>
+      <ol
+        class="sequence"
+        aria-label="From governing meaning to release certification"
+      >
+        {sequence.map((item) => <li>{item}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="reading-canon">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">How to read Canon</p>
+      </div>
+      <div>
+        <h2 id="reading-canon">Publication alone is not enough</h2>
+        <p>
+          A publication belongs in Canon because legitimate programme authority
+          establishes its canonical standing, not because the website links to
+          it. For public presentation, canonical standing and public eligibility
+          must both be established.
+        </p>
+        <p>
+          This page therefore identifies no individual governing publication
+          until its current standing, public eligibility and authorised public
+          destination can be established together. It does not treat internal
+          availability, historical visibility or an implementation reference as
+          public Canon.
+        </p>
+      </div>
+      <aside class="supporting-note">
+        Current authority is preferred. Superseded authority is not presented as
+        current, and no historical archive is implied here.
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="boundaries">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Boundaries</p>
+      </div>
+      <div>
+        <h2 id="boundaries">
+          Architecture substantiates; engineering conforms
+        </h2>
+        <p>
+          Architecture explains how Enterprise Reality is structured and
+          bounded. It remains subordinate to applicable constitutional
+          authority. Engineering works within that authority; programme
+          governance and release certification determine a different question:
+          whether an increment has crossed its required lifecycle.
+        </p>
+      </div>
+      <p class="proposition">Implemented is not the same as released.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="continue">
+    <div class="container reading-content">
+      <p class="eyebrow">Continue through Knowledge</p>
+      <h2 id="continue">Return to the public record</h2>
+      <p>
+        Canon establishes what must be preserved. Architecture is the next
+        verification domain when approved public material is available.
+      </p>
+      <p><a href="/knowledge/">Return to Knowledge</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .canon-responsibilities {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .canon-responsibilities li {
+    display: grid;
+    grid-template-columns: minmax(2.5rem, 0.2fr) 1fr;
+    gap: var(--space-3);
+    max-width: none;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: var(--space-3);
+  }
+
+  .canon-responsibilities h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-md);
+  }
+
+  .canon-responsibilities__number {
+    color: var(--accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .canon-responsibilities p:last-child {
+    margin-bottom: 0;
+  }
+</style>

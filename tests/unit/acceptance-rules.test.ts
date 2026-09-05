@@ -27,6 +27,8 @@ describe("WEB-1-RW1 acceptance repository rules", () => {
       "/404/",
       "/why-enterprise-reality/",
       "/platform/",
+      "/knowledge/",
+      "/knowledge/canon/",
       "/constitution-driven-engineering/",
       "/about/",
       "/architecture/",
