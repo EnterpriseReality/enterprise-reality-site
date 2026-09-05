@@ -1,0 +1,297 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const domains = [
+  {
+    name: "Canon",
+    question: "What governs Enterprise Reality?",
+    description:
+      "Foundational and governing publications define Enterprise Reality, its language, principles and constitutional boundaries. Canon is a distinct class of approved material; not every publication belongs to it.",
+    entry: {
+      label: "Understand Enterprise Reality",
+      href: "/enterprise-reality/",
+    },
+  },
+  {
+    name: "Architecture",
+    question: "How is Enterprise Reality structured and bounded?",
+    description:
+      "Approved public architecture explains responsibility boundaries, platform layers and relationships between capabilities. It describes constraints and responsibilities; it does not establish capability maturity.",
+    entry: { label: "Explore public architecture", href: "/architecture/" },
+  },
+  {
+    name: "Publications",
+    question: "What has been formally published?",
+    description:
+      "The publication record organises material that has passed the applicable public review and release controls. It is not a catalogue of arbitrary files or repository contents.",
+    entry: {
+      label:
+        "A dedicated public publication index is not exposed in this slice.",
+    },
+  },
+  {
+    name: "Releases",
+    question: "What has actually reached certified programme state?",
+    description:
+      "Release standing follows its own path: engineering, programme governance and release certification. Implemented is not the same as Released, and neither alone makes a public or commercial availability claim.",
+    entry: { label: "View the Platform context", href: "/platform/" },
+  },
+  {
+    name: "Constitution-Driven Engineering",
+    question: "How is engineering kept subordinate to legitimate authority?",
+    description:
+      "CDE keeps authority before implementation. Engineering capability does not create engineering authority: authorised specifications and contracts bound implementation, while governance and release certification remain distinct.",
+    entry: {
+      label: "Read the public CDE explanation",
+      href: "/constitution-driven-engineering/",
+    },
+  },
+  {
+    name: "Research",
+    question: "What ideas are still being explored?",
+    description:
+      "Public research may contain exploratory ideas and working propositions. It may inform future authority, but it is not authority merely because it is published.",
+    entry: { label: "Explore public research", href: "/research/" },
+  },
+];
+---
+
+<BaseLayout
+  title="Knowledge"
+  description="Explore the public record behind Enterprise Reality: its governing material, architecture, publications, releases, engineering discipline and research."
+  canonicalPath="/knowledge/"
+>
+  <section class="page-hero section knowledge-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Knowledge</p>
+        <h1>Explore the public record behind Enterprise Reality.</h1>
+        <p class="lead">
+          The rest of this website helps people understand Enterprise Reality.
+          Knowledge brings together the approved public record that can
+          substantiate that understanding: canon, architecture, releases,
+          engineering discipline, research and other published material.
+        </p>
+      </div>
+      <ol
+        class="knowledge-journey"
+        aria-label="From understanding to verification"
+      >
+        <li><strong>Understand</strong><span>Enterprise Reality</span></li>
+        <li>
+          <strong>Experience</strong><span>Platform, Explorer and cases</span>
+        </li>
+        <li><strong>Verify</strong><span>Public record</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="boundary">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Public boundary</p>
+      </div>
+      <div>
+        <h2 id="boundary">Publication does not create authority</h2>
+        <p>
+          Visibility, authority, release standing and public eligibility are
+          related but different. Knowledge exposes material whose authority,
+          status and suitability for public release have already been
+          established through the programme's governing and publication
+          controls.
+        </p>
+      </div>
+      <aside class="authority-note">
+        <strong>Public eligibility comes first.</strong>
+        <span
+          >Website publication does not turn a draft, implementation record or
+          repository file into authority.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="eligibility">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">How to read the record</p>
+        <h2 id="eligibility">
+          Not all visible knowledge has the same standing
+        </h2>
+        <p>
+          A public item needs more than a title or a location. Its authority
+          status, programme or release standing and public eligibility each
+          remain inspectable questions.
+        </p>
+      </div>
+      <ol
+        class="knowledge-model"
+        aria-label="Conceptual public eligibility model"
+      >
+        <li>
+          <strong>Authority status</strong><span
+            >What gives this material its governing or explanatory standing?</span
+          >
+        </li>
+        <li>
+          <strong>Programme or release standing</strong><span
+            >Where does it stand in the approved lifecycle?</span
+          >
+        </li>
+        <li>
+          <strong>Public eligibility</strong><span
+            >Has it been approved and classified for public exposure?</span
+          >
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="domains">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Knowledge domains</p>
+        <h2 id="domains">One governed body of public knowledge</h2>
+        <p>
+          These domains help visitors orient themselves in the public record.
+          They are not a claim that every domain is a separate product, route or
+          complete document library.
+        </p>
+      </div>
+      <ol class="knowledge-domains">
+        {
+          domains.map((domain, index) => (
+            <li>
+              <p class="knowledge-domains__number">0{index + 1}</p>
+              <div>
+                <h3>{domain.name}</h3>
+                <p class="knowledge-domains__question">{domain.question}</p>
+              </div>
+              <div>
+                <p>{domain.description}</p>
+                {domain.entry.href ? (
+                  <a href={domain.entry.href}>{domain.entry.label}</a>
+                ) : (
+                  <p class="knowledge-domains__status">{domain.entry.label}</p>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="record">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">A bounded record</p>
+      </div>
+      <div>
+        <h2 id="record">Reference substantiates understanding</h2>
+        <p>
+          Knowledge is a gateway to the public record, not a repository browser
+          or a mirror of internal engineering evidence. Where a public
+          destination is not yet established, this overview keeps the boundary
+          visible rather than inventing one.
+        </p>
+      </div>
+      <p class="proposition">
+        Understanding comes before reference. Reference substantiates
+        understanding.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .knowledge-journey,
+  .knowledge-model,
+  .knowledge-domains {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .knowledge-journey {
+    display: grid;
+    gap: var(--space-3);
+    border-left: 1px solid var(--border-strong);
+    padding-left: var(--space-4);
+  }
+
+  .knowledge-journey li,
+  .knowledge-model li {
+    display: grid;
+    gap: var(--space-1);
+    max-width: none;
+  }
+
+  .knowledge-journey strong,
+  .knowledge-model strong {
+    color: var(--text-primary);
+  }
+
+  .knowledge-journey span,
+  .knowledge-model span {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .knowledge-model {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .knowledge-model li {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: var(--space-3);
+  }
+
+  .knowledge-domains {
+    display: grid;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .knowledge-domains li {
+    display: grid;
+    gap: var(--space-3);
+    max-width: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-5) 0;
+  }
+
+  .knowledge-domains h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .knowledge-domains__number,
+  .knowledge-domains__question,
+  .knowledge-domains__status {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .knowledge-domains__number {
+    color: var(--accent);
+  }
+
+  .knowledge-domains__status {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .knowledge-model {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .knowledge-domains li {
+      grid-template-columns: minmax(3rem, 0.25fr) minmax(12rem, 0.8fr) minmax(
+          18rem,
+          1.4fr
+        );
+      gap: var(--space-5);
+    }
+  }
+</style>

@@ -111,8 +111,8 @@ test("primary navigation establishes v2 domains without broken destinations", as
     navigation.getByRole("link", { name: "Explorer" }),
   ).toHaveAttribute("href", "/explorer/");
   await expect(
-    navigation.getByText("Knowledge", { exact: true }),
-  ).toHaveAttribute("aria-disabled", "true");
+    navigation.getByRole("link", { name: "Knowledge" }),
+  ).toHaveAttribute("href", "/knowledge/");
 });
 
 test("Explorer status is projected consistently and does not claim availability", () => {

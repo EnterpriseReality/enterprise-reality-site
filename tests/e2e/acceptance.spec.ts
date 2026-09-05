@@ -213,6 +213,38 @@ test("research publication boundary remains truthful", async ({
   );
 });
 
+test("Knowledge is a bounded public verification surface", async ({ page }) => {
+  await page.goto("/knowledge/");
+
+  await expect(
+    page.getByRole("heading", {
+      name: "Explore the public record behind Enterprise Reality.",
+    }),
+  ).toBeVisible();
+
+  for (const domain of [
+    "Canon",
+    "Architecture",
+    "Publications",
+    "Releases",
+    "Constitution-Driven Engineering",
+    "Research",
+  ]) {
+    await expect(page.getByRole("heading", { name: domain })).toBeVisible();
+  }
+
+  const main = page.locator("main");
+  await expect(main).toContainText("Publication does not create authority");
+  await expect(main).toContainText("Implemented is not the same as Released");
+  await expect(main).toContainText(
+    "it is not authority merely because it is published",
+  );
+  await expect(main).toContainText("not a repository browser");
+  await expect(
+    page.getByRole("link", { name: "Knowledge" }).first(),
+  ).toHaveAttribute("href", "/knowledge/");
+});
+
 test("industry scenarios preserve the shared constitutional scenario structure", async ({
   page,
 }) => {
