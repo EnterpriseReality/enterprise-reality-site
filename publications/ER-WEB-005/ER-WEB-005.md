@@ -57,81 +57,94 @@ Read this file first for the publication objective and table of contents. Read `
 
 ### Part II - Architecture
 
-6. Overall Website Architecture - `part-2-architecture/chapter-06-overall-website-architecture.md`
-7. Logical Architecture - `part-2-architecture/chapter-07-logical-architecture.md`
-8. Physical Architecture - `part-2-architecture/chapter-08-physical-architecture.md`
-9. Repository Architecture - `part-2-architecture/chapter-09-repository-architecture.md`
-10. Component Architecture - `part-2-architecture/chapter-10-component-architecture.md`
-11. Content Architecture - `part-2-architecture/chapter-11-content-architecture.md`
-12. Deployment Architecture - `part-2-architecture/chapter-12-deployment-architecture.md`
-13. Security Architecture - `part-2-architecture/chapter-13-security-architecture.md`
+| Field | Value |
+| --- | --- |
+| Status | Published |
+| Version | 1.0.0 |
+| Review State | Approved |
+
+6. [Architectural Overview](part-2-architecture/chapter-06-architectural-overview.md)
+7. [Representation Architecture](part-2-architecture/chapter-07-representation-architecture.md)
+8. [Publication Architecture](part-2-architecture/chapter-08-publication-architecture.md)
+9. [Information Architecture](part-2-architecture/chapter-09-information-architecture.md)
+10. [Repository Architecture](part-2-architecture/chapter-10-repository-architecture.md)
+11. [Runtime Architecture](part-2-architecture/chapter-11-runtime-architecture.md)
+12. [Deployment Architecture](part-2-architecture/chapter-12-deployment-architecture.md)
+13. [Security Architecture](part-2-architecture/chapter-13-security-architecture.md)
+14. [Operational Architecture](part-2-architecture/chapter-14-operational-architecture.md)
 
 ### Part III - Engineering
 
-14. Technology Stack - `part-3-engineering/chapter-14-technology-stack.md`
-15. Astro Architecture - `part-3-engineering/chapter-15-astro-architecture.md`
-16. TypeScript Design - `part-3-engineering/chapter-16-typescript-design.md`
-17. CSS Design System - `part-3-engineering/chapter-17-css-design-system.md`
-18. Content Collections - `part-3-engineering/chapter-18-content-collections.md`
-19. Navigation Architecture - `part-3-engineering/chapter-19-navigation-architecture.md`
-20. Metadata Architecture - `part-3-engineering/chapter-20-metadata-architecture.md`
-21. SEO and Discoverability - `part-3-engineering/chapter-21-seo-and-discoverability.md`
-22. Structured Data - `part-3-engineering/chapter-22-structured-data.md`
-23. Accessibility Engineering - `part-3-engineering/chapter-23-accessibility-engineering.md`
+| Field | Value |
+| --- | --- |
+| Status | In Development |
+| Version | 0.1.0 |
+| Review State | Chapters 15-24 Draft |
+
+15. [Technology Stack](part-3-engineering/chapter-15-technology-stack.md)
+16. [Astro Implementation Architecture](part-3-engineering/chapter-16-astro-implementation-architecture.md)
+17. [TypeScript Design](part-3-engineering/chapter-17-typescript-design.md)
+18. [CSS Design System](part-3-engineering/chapter-18-css-design-system.md)
+19. [Content Collections](part-3-engineering/chapter-19-content-collections.md)
+20. [Navigation Architecture](part-3-engineering/chapter-20-navigation-architecture.md)
+21. [Metadata Architecture](part-3-engineering/chapter-21-metadata-architecture.md)
+22. [SEO and Discoverability](part-3-engineering/chapter-22-seo-and-discoverability.md)
+23. [Structured Data](part-3-engineering/chapter-23-structured-data.md)
+24. [Accessibility Engineering](part-3-engineering/chapter-24-accessibility-engineering.md)
 
 ### Part IV - Quality Engineering
 
-24. Testing Philosophy - `part-4-quality/chapter-24-testing-philosophy.md`
-25. Unit Testing - `part-4-quality/chapter-25-unit-testing.md`
-26. Browser Testing - `part-4-quality/chapter-26-browser-testing.md`
-27. Accessibility Testing - `part-4-quality/chapter-27-accessibility-testing.md`
-28. Acceptance Framework - `part-4-quality/chapter-28-acceptance-framework.md`
-29. Build Verification - `part-4-quality/chapter-29-build-verification.md`
-30. Public Boundary Validation - `part-4-quality/chapter-30-public-boundary-validation.md`
-31. Deterministic Builds - `part-4-quality/chapter-31-deterministic-builds.md`
+25. Testing Philosophy - `part-4-quality/chapter-25-testing-philosophy.md`
+26. Unit Testing - `part-4-quality/chapter-26-unit-testing.md`
+27. Browser Testing - `part-4-quality/chapter-27-browser-testing.md`
+28. Accessibility Testing - `part-4-quality/chapter-28-accessibility-testing.md`
+29. Acceptance Framework - `part-4-quality/chapter-29-acceptance-framework.md`
+30. Build Verification - `part-4-quality/chapter-30-build-verification.md`
+31. Public Boundary Validation - `part-4-quality/chapter-31-public-boundary-validation.md`
+32. Deterministic Builds - `part-4-quality/chapter-32-deterministic-builds.md`
 
 ### Part V - Operations
 
-32. Publishing Content - `part-5-operations/chapter-32-publishing-content.md`
-33. Managing Releases - `part-5-operations/chapter-33-managing-releases.md`
-34. GitHub Pages - `part-5-operations/chapter-34-github-pages.md`
-35. Cloudflare - `part-5-operations/chapter-35-cloudflare.md`
-36. DNS - `part-5-operations/chapter-36-dns.md`
-37. Certificates and HTTPS - `part-5-operations/chapter-37-certificates-and-https.md`
-38. Node.js Runtime Management - `part-5-operations/chapter-38-nodejs-runtime-management.md`
-39. Astro Upgrades - `part-5-operations/chapter-39-astro-upgrades.md`
-40. Dependency Management - `part-5-operations/chapter-40-dependency-management.md`
-41. Backup, Recovery and Rollback - `part-5-operations/chapter-41-backup-recovery-and-rollback.md`
-42. Operational Monitoring - `part-5-operations/chapter-42-operational-monitoring.md`
+33. Publishing Content - `part-5-operations/chapter-33-publishing-content.md`
+34. Managing Releases - `part-5-operations/chapter-34-managing-releases.md`
+35. GitHub Pages - `part-5-operations/chapter-35-github-pages.md`
+36. Cloudflare - `part-5-operations/chapter-36-cloudflare.md`
+37. DNS - `part-5-operations/chapter-37-dns.md`
+38. Certificates and HTTPS - `part-5-operations/chapter-38-certificates-and-https.md`
+39. Node.js Runtime Management - `part-5-operations/chapter-39-nodejs-runtime-management.md`
+40. Astro Upgrades - `part-5-operations/chapter-40-astro-upgrades.md`
+41. Dependency Management - `part-5-operations/chapter-41-dependency-management.md`
+42. Backup, Recovery and Rollback - `part-5-operations/chapter-42-backup-recovery-and-rollback.md`
+43. Operational Monitoring - `part-5-operations/chapter-43-operational-monitoring.md`
 
 ### Part VI - Governance
 
-43. Constitutional Governance - `part-6-governance/chapter-43-constitutional-governance.md`
-44. Editorial Governance - `part-6-governance/chapter-44-editorial-governance.md`
-45. Public and Private Boundary - `part-6-governance/chapter-45-public-and-private-boundary.md`
-46. Publication Lifecycle - `part-6-governance/chapter-46-publication-lifecycle.md`
-47. Capability Status Labels - `part-6-governance/chapter-47-capability-status-labels.md`
-48. Architecture Decision Records - `part-6-governance/chapter-48-architecture-decision-records.md`
-49. Story-Based Engineering - `part-6-governance/chapter-49-story-based-engineering.md`
-50. Release Governance - `part-6-governance/chapter-50-release-governance.md`
-51. Future Evolution - `part-6-governance/chapter-51-future-evolution.md`
+44. Constitutional Governance - `part-6-governance/chapter-44-constitutional-governance.md`
+45. Editorial Governance - `part-6-governance/chapter-45-editorial-governance.md`
+46. Public and Private Boundary - `part-6-governance/chapter-46-public-and-private-boundary.md`
+47. Publication Lifecycle - `part-6-governance/chapter-47-publication-lifecycle.md`
+48. Capability Status Labels - `part-6-governance/chapter-48-capability-status-labels.md`
+49. Architecture Decision Records - `part-6-governance/chapter-49-architecture-decision-records.md`
+50. Story-Based Engineering - `part-6-governance/chapter-50-story-based-engineering.md`
+51. Release Governance - `part-6-governance/chapter-51-release-governance.md`
+52. Future Evolution - `part-6-governance/chapter-52-future-evolution.md`
 
 ### Part VII - Reference
 
-52. Repository Map - `part-7-reference/chapter-52-repository-map.md`
-53. Configuration File Reference - `part-7-reference/chapter-53-configuration-file-reference.md`
-54. GitHub Actions Reference - `part-7-reference/chapter-54-github-actions-reference.md`
-55. Command Reference - `part-7-reference/chapter-55-command-reference.md`
-56. Technology Decision Matrix - `part-7-reference/chapter-56-technology-decision-matrix.md`
-57. Glossary - `part-7-reference/chapter-57-glossary.md`
-58. Publication Cross-Reference - `part-7-reference/chapter-58-publication-cross-reference.md`
-59. Website v1.0 Engineering Journey and Lessons Learned - `part-7-reference/chapter-59-website-v10-engineering-journey-and-lessons-learned.md`
+53. Repository Map - `part-7-reference/chapter-53-repository-map.md`
+54. Configuration File Reference - `part-7-reference/chapter-54-configuration-file-reference.md`
+55. GitHub Actions Reference - `part-7-reference/chapter-55-github-actions-reference.md`
+56. Command Reference - `part-7-reference/chapter-56-command-reference.md`
+57. Technology Decision Matrix - `part-7-reference/chapter-57-technology-decision-matrix.md`
+58. Glossary - `part-7-reference/chapter-58-glossary.md`
+59. Publication Cross-Reference - `part-7-reference/chapter-59-publication-cross-reference.md`
+60. Website v1.0 Engineering Journey and Lessons Learned - `part-7-reference/chapter-60-website-v10-engineering-journey-and-lessons-learned.md`
 
 ## Publication Status
 
-Milestone 1 is implemented. Milestone 2 is implemented. Part I is published at version 1.0.0.
+Milestone 1 is implemented. Milestone 2 is complete. Part I is published at version 1.0.0. Part II Architecture is published at version 1.0.0 with Chapters 6-14 approved. Part III Engineering has begun with Chapters 15-24 authored as drafts from ER-ENG-001, the Engineering Traceability Matrix and observable repository evidence.
 
-The handbook overall remains in development while Parts II-VII are planned.
+The handbook overall remains in development while Part III continues and Parts IV-VII are planned.
 
 ## Dependencies and Cross References
 
@@ -151,13 +164,13 @@ These publications govern ER-WEB-005 and remain authoritative.
 | --- | --- | --- |
 | 0.1.0 | Publication Foundation | Established handbook structure, constitution, catalogues, metadata standard, Part READMEs, diagram governance and asset governance. |
 | 0.2.0 | In Development | Adds the Part I chapter framework for Chapters 1-5 without substantive chapter prose. |
-| 1.0.0 | In Development | Publishes approved Part I Foundations Chapters 1-5. The handbook overall remains in development. |
+| 1.0.0 | In Development | Publishes approved Part I Foundations Chapters 1-5 and approved Part II Architecture Chapters 6-14. The handbook overall remains in development. |
 
 ## Approval
 
 | Role | Authority | Status |
 | --- | --- | --- |
 | Programme Director | Final publication approval | Pending |
-| Chief Architect | Constitutional and architectural approval for Part I | Approved |
+| Chief Architect | Constitutional and architectural approval for Parts I-II | Approved |
 | Technical Reviewers | Implementation accuracy review | Pending |
 | Editorial Reviewers | Publication quality review for Part I | Approved |

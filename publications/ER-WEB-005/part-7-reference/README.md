@@ -16,14 +16,14 @@ Repository map, configuration, GitHub Actions, commands, decision matrix, glossa
 
 ## Planned Chapters
 
-- Chapter 52: Repository Map
-- Chapter 53: Configuration File Reference
-- Chapter 54: GitHub Actions Reference
-- Chapter 55: Command Reference
-- Chapter 56: Technology Decision Matrix
-- Chapter 57: Glossary
-- Chapter 58: Publication Cross-Reference
-- Chapter 59: Website v1.0 Engineering Journey and Lessons Learned
+- Chapter 53: Repository Map
+- Chapter 54: Configuration File Reference
+- Chapter 55: GitHub Actions Reference
+- Chapter 56: Command Reference
+- Chapter 57: Technology Decision Matrix
+- Chapter 58: Glossary
+- Chapter 59: Publication Cross-Reference
+- Chapter 60: Website v1.0 Engineering Journey and Lessons Learned
 
 ## Dependencies
 

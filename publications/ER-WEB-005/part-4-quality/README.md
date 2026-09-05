@@ -16,14 +16,14 @@ Testing philosophy, unit tests, browser tests, accessibility tests, acceptance, 
 
 ## Planned Chapters
 
-- Chapter 24: Testing Philosophy
-- Chapter 25: Unit Testing
-- Chapter 26: Browser Testing
-- Chapter 27: Accessibility Testing
-- Chapter 28: Acceptance Framework
-- Chapter 29: Build Verification
-- Chapter 30: Public Boundary Validation
-- Chapter 31: Deterministic Builds
+- Chapter 25: Testing Philosophy
+- Chapter 26: Unit Testing
+- Chapter 27: Browser Testing
+- Chapter 28: Accessibility Testing
+- Chapter 29: Acceptance Framework
+- Chapter 30: Build Verification
+- Chapter 31: Public Boundary Validation
+- Chapter 32: Deterministic Builds
 
 ## Dependencies
 

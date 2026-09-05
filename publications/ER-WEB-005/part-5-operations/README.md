@@ -16,17 +16,17 @@ Publishing, releases, GitHub Pages, Cloudflare, DNS, HTTPS, runtime management, 
 
 ## Planned Chapters
 
-- Chapter 32: Publishing Content
-- Chapter 33: Managing Releases
-- Chapter 34: GitHub Pages
-- Chapter 35: Cloudflare
-- Chapter 36: DNS
-- Chapter 37: Certificates and HTTPS
-- Chapter 38: Node.js Runtime Management
-- Chapter 39: Astro Upgrades
-- Chapter 40: Dependency Management
-- Chapter 41: Backup, Recovery and Rollback
-- Chapter 42: Operational Monitoring
+- Chapter 33: Publishing Content
+- Chapter 34: Managing Releases
+- Chapter 35: GitHub Pages
+- Chapter 36: Cloudflare
+- Chapter 37: DNS
+- Chapter 38: Certificates and HTTPS
+- Chapter 39: Node.js Runtime Management
+- Chapter 40: Astro Upgrades
+- Chapter 41: Dependency Management
+- Chapter 42: Backup, Recovery and Rollback
+- Chapter 43: Operational Monitoring
 
 ## Dependencies
 

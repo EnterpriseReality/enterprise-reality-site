@@ -16,15 +16,15 @@ Constitutional governance, editorial governance, public/private boundary, lifecy
 
 ## Planned Chapters
 
-- Chapter 43: Constitutional Governance
-- Chapter 44: Editorial Governance
-- Chapter 45: Public and Private Boundary
-- Chapter 46: Publication Lifecycle
-- Chapter 47: Capability Status Labels
-- Chapter 48: Architecture Decision Records
-- Chapter 49: Story-Based Engineering
-- Chapter 50: Release Governance
-- Chapter 51: Future Evolution
+- Chapter 44: Constitutional Governance
+- Chapter 45: Editorial Governance
+- Chapter 46: Public and Private Boundary
+- Chapter 47: Publication Lifecycle
+- Chapter 48: Capability Status Labels
+- Chapter 49: Architecture Decision Records
+- Chapter 50: Story-Based Engineering
+- Chapter 51: Release Governance
+- Chapter 52: Future Evolution
 
 ## Dependencies
 

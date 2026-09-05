@@ -14,18 +14,18 @@ Technology stack, Astro, TypeScript, CSS, content collections, navigation, metad
 - Explain implementation choices without redefining constitutional architecture.
 - Maintain public-safe implementation documentation.
 
-## Planned Chapters
+## Draft Chapters
 
-- Chapter 14: Technology Stack
-- Chapter 15: Astro Architecture
-- Chapter 16: TypeScript Design
-- Chapter 17: CSS Design System
-- Chapter 18: Content Collections
-- Chapter 19: Navigation Architecture
-- Chapter 20: Metadata Architecture
-- Chapter 21: SEO and Discoverability
-- Chapter 22: Structured Data
-- Chapter 23: Accessibility Engineering
+- Chapter 15: [Technology Stack](chapter-15-technology-stack.md)
+- Chapter 16: [Astro Implementation Architecture](chapter-16-astro-implementation-architecture.md)
+- Chapter 17: [TypeScript Design](chapter-17-typescript-design.md)
+- Chapter 18: [CSS Design System](chapter-18-css-design-system.md)
+- Chapter 19: [Content Collections](chapter-19-content-collections.md)
+- Chapter 20: [Navigation Architecture](chapter-20-navigation-architecture.md)
+- Chapter 21: [Metadata Architecture](chapter-21-metadata-architecture.md)
+- Chapter 22: [SEO and Discoverability](chapter-22-seo-and-discoverability.md)
+- Chapter 23: [Structured Data](chapter-23-structured-data.md)
+- Chapter 24: [Accessibility Engineering](chapter-24-accessibility-engineering.md)
 
 ## Dependencies
 
@@ -33,10 +33,10 @@ This Part depends on ER-CON-002 and ER-WEB-001 through ER-WEB-004. Chapter autho
 
 ## Boundaries
 
-This Part README defines structure only. It does not author chapter content, introduce new architecture, add code examples, create diagrams, add screenshots, change website implementation or change deployment behaviour.
+This Part README defines structure and chapter status only. It does not introduce new architecture, add code examples, create diagrams, add screenshots, change website implementation or change deployment behaviour.
 
 ## Review Status
 
-Milestone 1 structural review pending.
+Milestone 4 is in development.
 
-Substantive chapter files are intentionally absent during Milestone 1.
+Chapters 15-24 are authored as drafts from ER-ENG-001, the Engineering Traceability Matrix and observable repository evidence. Remaining substantive chapter files are intentionally absent until their authoring stories begin.

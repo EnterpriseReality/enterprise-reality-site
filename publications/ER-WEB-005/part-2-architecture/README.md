@@ -2,7 +2,7 @@
 
 ## Part Purpose
 
-Organises the planned architectural explanation of the public website.
+Organises the published architectural explanation of the public website.
 
 ## Scope
 
@@ -14,16 +14,17 @@ Logical, physical, repository, component, content, deployment and security archi
 - Trace engineering decisions to governing architecture.
 - Separate publication responsibilities from runtime responsibilities.
 
-## Planned Chapters
+## Published Chapters
 
-- Chapter 6: Overall Website Architecture
-- Chapter 7: Logical Architecture
-- Chapter 8: Physical Architecture
-- Chapter 9: Repository Architecture
-- Chapter 10: Component Architecture
-- Chapter 11: Content Architecture
-- Chapter 12: Deployment Architecture
-- Chapter 13: Security Architecture
+- Chapter 6: [Architectural Overview](chapter-06-architectural-overview.md)
+- Chapter 7: [Representation Architecture](chapter-07-representation-architecture.md)
+- Chapter 8: [Publication Architecture](chapter-08-publication-architecture.md)
+- Chapter 9: [Information Architecture](chapter-09-information-architecture.md)
+- Chapter 10: [Repository Architecture](chapter-10-repository-architecture.md)
+- Chapter 11: [Runtime Architecture](chapter-11-runtime-architecture.md)
+- Chapter 12: [Deployment Architecture](chapter-12-deployment-architecture.md)
+- Chapter 13: [Security Architecture](chapter-13-security-architecture.md)
+- Chapter 14: [Operational Architecture](chapter-14-operational-architecture.md)
 
 ## Dependencies
 
@@ -35,6 +36,6 @@ This Part README defines structure only. It does not author chapter content, int
 
 ## Review Status
 
-Milestone 1 structural review pending.
+Part II is published at version 1.0.0. Review is complete, and Chapters 6, 7, 8, 9, 10, 11, 12, 13 and 14 are approved.
 
-Substantive chapter files are intentionally absent during Milestone 1.
+Publication is complete for Part II. Remaining substantive chapter files outside Part II are intentionally absent until their authoring stories begin.
