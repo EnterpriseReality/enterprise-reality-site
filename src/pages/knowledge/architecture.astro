@@ -1,0 +1,468 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const responsibilityProgression = [
+  [
+    "Repository",
+    "Holds governed source material without becoming the enterprise it describes.",
+  ],
+  [
+    "Metadata",
+    "Interprets publication identity, governance and relationships consistently.",
+  ],
+  [
+    "Corpus",
+    "Provides a coherent governed runtime representation of knowledge.",
+  ],
+  ["Graph", "Projects governed relationships so context can be navigated."],
+  [
+    "Enterprise Reality Graph",
+    "Represents those relationships without becoming Enterprise Reality itself.",
+  ],
+  [
+    "Reasoning",
+    "Evaluates governed evidence and relationships to justify conclusions.",
+  ],
+  [
+    "Automation",
+    "Coordinates only actions that are permitted within established authority.",
+  ],
+  [
+    "AI Runtime",
+    "Advises, explains and assists downstream of governed understanding.",
+  ],
+];
+
+const principles = [
+  [
+    "Truth before technique",
+    "Technical choices must serve the reality and governing meaning they represent; they do not define either.",
+  ],
+  [
+    "Architecture before implementation",
+    "Responsibilities and separations are made clear before particular implementation choices are considered.",
+  ],
+];
+
+const knowledgeBoundaries = [
+  ["Repository", "Governed source material", "Not Enterprise Reality"],
+  [
+    "Metadata interpretation",
+    "Publication identity, governance and relationships",
+    "Not a generic metadata catalogue",
+  ],
+  [
+    "Enterprise Corpus",
+    "Governed runtime representation of knowledge",
+    "Not the source repository or a data lake",
+  ],
+];
+---
+
+<BaseLayout
+  title="Knowledge Architecture"
+  description="Architecture explains how Enterprise Reality is structured into bounded responsibilities without creating authority of its own."
+  canonicalPath="/knowledge/architecture/"
+>
+  <section class="page-hero section architecture-knowledge-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Knowledge / Architecture</p>
+        <h1>How is Enterprise Reality structured and bounded?</h1>
+        <p class="lead">
+          Architecture translates governing meaning into bounded responsibility.
+          It explains how Enterprise Reality can be represented, understood and
+          acted upon without allowing any one system, graph, database or AI
+          component to stand in for the reality it serves.
+        </p>
+      </div>
+      <aside class="authority-note">
+        <strong>Authority precedes implementation.</strong>
+        <span
+          >Architecture constrains implementation without becoming
+          implementation itself.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="authority">
+    <div class="container content-grid">
+      <div class="content-grid__context"><p class="eyebrow">Sequence</p></div>
+      <div>
+        <h2 id="authority">Architecture follows governing meaning</h2>
+        <p>
+          Canon answers what governs Enterprise Reality. Architecture answers
+          how that governing meaning is carried into responsibilities and
+          boundaries. It remains subordinate to applicable constitutional
+          authority and cannot redefine it.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="From governing meaning to engineering">
+        <li>Canon</li>
+        <li>Architecture</li>
+        <li>Engineering</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="responsibilities">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Bounded responsibilities</p>
+        <h2 id="responsibilities">
+          A progression, not interchangeable products
+        </h2>
+        <p>
+          Each responsibility exists for a reason. A later capability may
+          consume what an earlier one makes available, but must not silently
+          absorb its responsibility or authority.
+        </p>
+      </div>
+      <ol
+        class="responsibility-progression"
+        aria-label="Enterprise Reality responsibility progression"
+      >
+        {
+          responsibilityProgression.map(([name, description], index) => (
+            <li>
+              <p class="responsibility-progression__number">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <div>
+                <h3>{name}</h3>
+                <p>{description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="representation">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Reality and representation</p>
+      </div>
+      <div>
+        <h2 id="representation">
+          A representation can describe reality without becoming it
+        </h2>
+        <p>
+          Systems, repositories, metadata, graphs and generated artefacts are
+          representations or observations of Enterprise Reality. They make
+          aspects of it available for governed understanding; they do not
+          replace the enterprise reality they represent.
+        </p>
+      </div>
+      <p class="proposition">
+        Enterprise Reality is not reducible to any one technical representation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="identity">
+    <div class="container content-grid">
+      <div class="content-grid__context"><p class="eyebrow">Identity</p></div>
+      <div>
+        <h2 id="identity">Identity must survive representation change</h2>
+        <p>
+          Stable identity precedes system representation. Applications may be
+          replaced, records may be reorganised and representations may evolve,
+          but the enterprise identity they concern must remain intelligible
+          across those changes. No application owns that identity merely by
+          holding one representation of it.
+        </p>
+      </div>
+      <aside class="supporting-note">
+        Application independence protects continuity when systems and their
+        representations change.
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="knowledge-boundary">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Governed knowledge</p>
+        <h2 id="knowledge-boundary">
+          Source, interpretation and runtime representation stay distinct
+        </h2>
+        <p>
+          Governed knowledge moves through related responsibilities without
+          confusing their ownership. The Corpus is not the source repository,
+          and the Metadata Engine is not a generic catalogue.
+        </p>
+      </div>
+      <ol
+        class="boundary-list"
+        aria-label="Knowledge responsibility boundaries"
+      >
+        {
+          knowledgeBoundaries.map(([layer, owns, boundary]) => (
+            <li>
+              <h3>{layer}</h3>
+              <p>
+                <strong>Responsibility:</strong> {owns}
+              </p>
+              <p>
+                <strong>Boundary:</strong> {boundary}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="relationships">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Relationships</p>
+      </div>
+      <div>
+        <h2 id="relationships">The graph represents relationships</h2>
+        <p>
+          The Knowledge Graph Engine projects governed relationships. The
+          Enterprise Reality Graph makes those relationships navigable as a
+          representation; it does not itself reason, and it is not Enterprise
+          Reality itself.
+        </p>
+      </div>
+      <p class="proposition">Relationships before reasoning.</p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="reasoning">
+    <div class="container content-grid">
+      <div class="content-grid__context"><p class="eyebrow">Reasoning</p></div>
+      <div>
+        <h2 id="reasoning">Justification remains answerable to evidence</h2>
+        <p>
+          Reasoning consumes governed representations and evidence to produce
+          justified conclusions where authority permits. It must remain
+          traceable and explainable: insufficient evidence is a legitimate
+          outcome, conflicting evidence may remain visible, and reasoning does
+          not invent evidence.
+        </p>
+      </div>
+      <aside class="supporting-note">
+        <strong>Reasoning may justify a conclusion.</strong><br />It does not
+        automatically create authority to act.
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="action">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Action boundary</p>
+      </div>
+      <div>
+        <h2 id="action">A conclusion is not permission</h2>
+        <p>
+          Automation consumes governed knowledge and reasoning within authority
+          boundaries. It coordinates permitted action; it does not acquire
+          enterprise authority simply because a conclusion has been justified.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Authority-bounded action progression">
+        <li>Reasoning</li>
+        <li>Justified conclusion</li>
+        <li>Authority</li>
+        <li>Permitted action</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="ai">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">AI boundary</p>
+      </div>
+      <div>
+        <h2 id="ai">AI is advisory and downstream</h2>
+        <p>
+          AI belongs after governed relationships, reasoning and automation. It
+          can support explanation, recommendation and assistance, but it does
+          not own canonical knowledge, reasoning authority, decisions, approvals
+          or operational execution.
+        </p>
+      </div>
+      <p class="proposition">
+        Enterprise Reality is authoritative. AI is advisory.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="experience">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Human experience</p>
+      </div>
+      <div>
+        <h2 id="experience">
+          Platform and Explorer have different responsibilities
+        </h2>
+        <p>
+          The Platform makes Enterprise Reality executable. Explorer makes it
+          understandable to people. Explorer consumes Platform capability for
+          human investigation; it does not define Enterprise Reality.
+        </p>
+      </div>
+      <p class="proposition">
+        Platform → governed Enterprise Reality → Explorer → human investigation
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="maturity">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Architecture and maturity</p>
+      </div>
+      <div>
+        <h2 id="maturity">Structure does not imply release standing</h2>
+        <p>
+          Architecture can define a responsibility without asserting that its
+          implementation is planned, in development, implemented or released.
+          Release standing follows a distinct path through engineering,
+          programme governance and release certification.
+        </p>
+      </div>
+      <p class="proposition">Implemented is not the same as Released.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="principles">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Public architectural principles</p>
+        <h2 id="principles">What this architecture protects</h2>
+      </div>
+      <ol class="principle-list">
+        {
+          principles.map(([title, description]) => (
+            <li>
+              <>
+                <strong>{title}</strong>
+                <span>{description}</span>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="continue">
+    <div class="container reading-content">
+      <p class="eyebrow">Continue through Knowledge</p>
+      <h2 id="continue">Return to the public record</h2>
+      <p>
+        Architecture explains bounded structure. Release certification remains a
+        separate verification domain and will be exposed only when a legitimate
+        public destination is established.
+      </p>
+      <p><a href="/knowledge/">Return to Knowledge</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .responsibility-progression,
+  .boundary-list,
+  .principle-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .responsibility-progression {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .responsibility-progression li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-3);
+    max-width: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: var(--space-4) 0;
+  }
+
+  .responsibility-progression__number {
+    margin: 0;
+    color: var(--accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .responsibility-progression h3,
+  .boundary-list h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-md);
+  }
+
+  .responsibility-progression p:last-child,
+  .boundary-list p:last-child {
+    margin-bottom: 0;
+  }
+
+  .boundary-list {
+    gap: var(--space-4);
+  }
+
+  .boundary-list li,
+  .principle-list li {
+    max-width: none;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: var(--space-3);
+  }
+
+  .boundary-list p {
+    margin-bottom: var(--space-2);
+  }
+
+  .principle-list {
+    gap: var(--space-4);
+  }
+
+  .principle-list li {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .principle-list strong {
+    color: var(--text-primary);
+    font-size: var(--text-md);
+  }
+
+  .principle-list span {
+    color: var(--text-secondary);
+  }
+
+  @media (min-width: 48rem) {
+    .responsibility-progression {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-6);
+    }
+
+    .responsibility-progression li:nth-child(odd) {
+      border-right: 1px solid var(--border-subtle);
+      padding-right: var(--space-5);
+    }
+
+    .responsibility-progression li:nth-child(even) {
+      padding-left: var(--space-5);
+    }
+
+    .boundary-list,
+    .principle-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-6);
+    }
+  }
+</style>
