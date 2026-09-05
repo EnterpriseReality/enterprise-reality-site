@@ -1,0 +1,315 @@
+---
+import StatusBadge from "../../components/StatusBadge.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  capabilityState,
+  publicCapabilities,
+} from "../../utilities/public-capabilities";
+
+const operationalReadiness = capabilityState("operational-readiness");
+const releasedFoundations = Object.values(publicCapabilities).filter(
+  (capability) => capability.maturity === "Released",
+);
+---
+
+<BaseLayout
+  title="Releases"
+  description="Releases explains the lifecycle through which implemented Enterprise Reality capability becomes an established programme baseline."
+  canonicalPath="/knowledge/releases/"
+>
+  <section class="page-hero section releases-hero">
+    <div class="container page-hero__inner">
+      <div>
+        <p class="eyebrow">Knowledge / Releases</p>
+        <h1>What has actually crossed into certified state?</h1>
+        <p class="lead">
+          Releases records a constitutional boundary: the point at which an
+          engineering increment has completed the required programme lifecycle
+          and may be treated as an established programme baseline.
+        </p>
+      </div>
+      <aside class="authority-note">
+        <strong
+          >A capability is not Released merely because it has been implemented.</strong
+        >
+        <span
+          >Implementation completion does not equal constitutional release.</span
+        >
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="lifecycle">
+    <div class="container content-grid">
+      <div class="content-grid__context"><p class="eyebrow">Lifecycle</p></div>
+      <div>
+        <h2 id="lifecycle">Release standing is established in sequence</h2>
+        <p>
+          Engineering establishes an increment. Programme Governance assesses it
+          against the governing programme. Release Certification establishes
+          whether that increment has crossed the required lifecycle. Each stage
+          answers a different question.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Release certification lifecycle">
+        <li>Engineering</li>
+        <li>Programme Governance</li>
+        <li>Release Certification</li>
+        <li>Released baseline</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="distinction">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">State distinction</p>
+        <h2 id="distinction">Implemented is not the same as Released</h2>
+      </div>
+      <div class="state-comparison">
+        <article class="state-comparison__item">
+          <p class="eyebrow">Implemented</p>
+          <h3>Engineering is established</h3>
+          <p>
+            The capability or increment is engineering complete, but release
+            certification has not yet established it as a programme baseline.
+          </p>
+        </article>
+        <article class="state-comparison__item">
+          <p class="eyebrow">Released</p>
+          <h3>The lifecycle is complete</h3>
+          <p>
+            Required programme governance and release certification have
+            completed, and governing authority establishes the release state.
+          </p>
+        </article>
+      </div>
+      <p class="release-proposition">Implemented ≠ Released</p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="evidence">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Substantiation</p>
+      </div>
+      <div>
+        <h2 id="evidence">Evidence is reconciled before certification</h2>
+        <p>
+          Before certification, repository state is reconciled against the
+          authority and evidence intended to govern the release. Engineering
+          completion, reconciliation, governance evidence and a certification
+          decision can substantiate release standing; none is sufficient alone.
+        </p>
+        <p>
+          Not every evidence artefact is public. Public visibility follows
+          established public eligibility rather than the mere existence of an
+          internal record.
+        </p>
+      </div>
+      <aside class="supporting-note">
+        Certification does not claim commercial availability, customer
+        deployment, operational adoption or external regulatory approval.
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="standing">
+    <div class="container">
+      <div class="section-header reading-content">
+        <p class="eyebrow">Current public standing</p>
+        <h2 id="standing">Capability state is not a version register</h2>
+        <p>
+          Current public authority establishes released programme foundations,
+          but it does not establish a public, named release register with
+          certified version identifiers. This page therefore does not infer or
+          publish version releases from implementation, tags or repository
+          history.
+        </p>
+      </div>
+      <ul class="foundation-list" aria-label="Released programme foundations">
+        {
+          releasedFoundations.map((capability) => (
+            <li>
+              <div>
+                <h3>{capability.label}</h3>
+                <p>{capability.programmeStanding}</p>
+              </div>
+              <StatusBadge status={capability.maturity} />
+            </li>
+          ))
+        }
+      </ul>
+      <p class="standing-note">
+        These maturity signals describe public programme standing. They do not
+        claim public, commercial or operational availability.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="example">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Bounded example</p>
+      </div>
+      <div>
+        <h2 id="example">Operational Readiness remains Implemented</h2>
+        <p>
+          Operational Readiness shows why the distinction matters. Its
+          engineering completion is established, while release certification is
+          still pending. It is not presented here as Released.
+        </p>
+      </div>
+      <div class="example-state">
+        <StatusBadge status={operationalReadiness.maturity} />
+        <p>
+          <strong>Programme standing:</strong>
+          {operationalReadiness.programmeStanding}
+        </p>
+        <p>
+          <strong>Public availability:</strong>
+          {operationalReadiness.publicAvailability}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="relationships">
+    <div class="container content-grid">
+      <div class="content-grid__context">
+        <p class="eyebrow">Verification journey</p>
+      </div>
+      <div>
+        <h2 id="relationships">Release standing does not redefine authority</h2>
+        <p>
+          Canon establishes what governs Enterprise Reality. Architecture
+          explains how it is structured and bounded. Releases answers the later
+          question of which implemented increments have completed the lifecycle
+          required to become established programme baselines.
+        </p>
+      </div>
+      <ol class="sequence" aria-label="Authority and release sequence">
+        <li>Canon</li>
+        <li>Architecture</li>
+        <li>Engineering</li>
+        <li>Programme Governance</li>
+        <li>Release Certification</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--muted" aria-labelledby="continue">
+    <div class="container reading-content">
+      <p class="eyebrow">Continue through Knowledge</p>
+      <h2 id="continue">Return to the public record</h2>
+      <p>
+        Releases verifies lifecycle standing. It does not turn architecture,
+        implementation or website availability into release authority.
+      </p>
+      <p>
+        <a href="/knowledge/architecture/">Explore Architecture</a>
+        <span aria-hidden="true"> · </span><a href="/knowledge/"
+          >Return to Knowledge</a
+        >
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .state-comparison {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .state-comparison__item {
+    border-top: 2px solid var(--accent);
+    background: var(--surface-muted);
+    padding: var(--space-5);
+  }
+
+  .state-comparison__item .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+
+  .state-comparison__item h3 {
+    font-size: var(--text-md);
+  }
+
+  .state-comparison__item p:last-child,
+  .example-state p:last-child {
+    margin-bottom: 0;
+  }
+
+  .release-proposition {
+    margin: var(--space-5) 0 0;
+    color: var(--text-primary);
+    font-size: clamp(var(--text-xl), 1.5rem + 1vw, var(--text-2xl));
+    font-weight: var(--weight-semibold);
+  }
+
+  .foundation-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .foundation-list li {
+    display: grid;
+    gap: var(--space-3);
+    max-width: none;
+    border-top: 1px solid var(--border-subtle);
+    padding: var(--space-4) 0;
+  }
+
+  .foundation-list li:last-child {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .foundation-list h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--text-md);
+  }
+
+  .foundation-list p,
+  .standing-note,
+  .example-state p {
+    color: var(--text-secondary);
+  }
+
+  .foundation-list p,
+  .standing-note {
+    margin-bottom: 0;
+  }
+
+  .standing-note {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .example-state {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    border-left: 2px solid var(--accent);
+    padding-left: var(--space-4);
+  }
+
+  .example-state p {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 48rem) {
+    .state-comparison {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .foundation-list li {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: var(--space-5);
+    }
+  }
+</style>

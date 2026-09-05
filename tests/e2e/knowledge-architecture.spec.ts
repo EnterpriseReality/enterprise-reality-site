@@ -34,18 +34,51 @@ test("Knowledge Architecture explains responsibility boundaries without maturity
   ).toHaveAttribute("href", "/knowledge/");
 });
 
-test("Knowledge links to Architecture and Canon provides the verification cross-link", async ({
+test("Knowledge links to Architecture and Releases, with verification cross-links", async ({
   page,
 }) => {
   await page.goto("/knowledge/");
   await expect(
     page.getByRole("link", { name: "Explore Architecture" }),
   ).toHaveAttribute("href", "/knowledge/architecture/");
+  await expect(
+    page.getByRole("link", { name: "Explore Releases" }),
+  ).toHaveAttribute("href", "/knowledge/releases/");
 
   await page.goto("/knowledge/canon/");
   await expect(
     page.getByRole("link", { name: "Explore Architecture" }),
   ).toHaveAttribute("href", "/knowledge/architecture/");
+
+  await page.goto("/knowledge/architecture/");
+  await expect(
+    page.getByRole("link", { name: "Explore Releases" }),
+  ).toHaveAttribute("href", "/knowledge/releases/");
+});
+
+test("Releases distinguishes implementation from certified programme standing", async ({
+  page,
+}) => {
+  await page.goto("/knowledge/releases/");
+
+  await expect(page).toHaveTitle("Releases | Enterprise Reality");
+  const main = page.locator("main");
+  await expect(main).toContainText("Implemented is not the same as Released");
+  await expect(main).toContainText("Release Certification");
+  await expect(main).toContainText(
+    "Capability state is not a version register",
+  );
+  await expect(main).toContainText("Operational Readiness remains Implemented");
+  await expect(main).toContainText(
+    "Engineering complete; release certification pending",
+  );
+  await expect(main).not.toContainText("Enterprise Reality Platform v1.0.0");
+});
+
+test("Releases passes the accessibility smoke check", async ({ page }) => {
+  await page.goto("/knowledge/releases/");
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
 });
 
 test("Knowledge Architecture passes the accessibility smoke check", async ({
